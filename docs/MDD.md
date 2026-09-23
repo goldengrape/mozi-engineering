@@ -5,20 +5,23 @@
 ## Metadata
 
 - document_id: MDD-0001
-- status: blocked — awaiting ADD-0001
+- status: blocked — awaiting ADD-0001 Design Split checkpoint
 - source_add: ADD-0001
 - last_updated: 2026-09-23
 
 ## Current Gate
 
-只有在 ADD 确认功能拆分和耦合状态后，才定义模块、接口和数据结构。
+URD-0001 已确认，ADD-0001 已完成第一次 Design Split 并分类为 decoupled。
 
-预期需要讨论但尚未确认的对象包括：
+按 Vibe Coding Skill，项目所有者确认 ADD 以前，不继续冻结模块、接口和数据结构。
 
-- 互动故事内容
-- 故事运行时
-- 学习状态
-- 页面呈现
-- 案例索引与教材链接
+如果 ADD checkpoint 通过，MDD 将把以下**设计参数**转换成实现边界：
 
-这些只是待分析对象，不是已经确认的模块边界。
+- DP-001 案例包正文契约；
+- DP-002 Ink 故事源文件；
+- DP-003 通用静态播放器；
+- DP-004 学习状态契约；
+- DP-005 Ink 复盘段约定；
+- DP-006 案例注册与构建约定。
+
+MDD 不得把《界体》的具体教学逻辑写进通用 JavaScript 播放器。
