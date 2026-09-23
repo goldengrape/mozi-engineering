@@ -46,6 +46,12 @@ Software test success validates the mechanism implementation, not long-term lear
 4. case registry + GitHub Pages;
 5. integrate accepted `book.md` into the actual textbook body.
 
+## Focused concept pages
+
+- [教材正文中的互动任务](requirements/textbook-interaction.md) — 正文和网页分别承担什么。
+- [Ink + 静态网页架构](decisions/ink-static-architecture.md) — 为什么教学逻辑留在 Ink、播放器保持通用。
+- [首个互动案例的构建路径](paths/mvp-build-path.md) — 五个实现切片和当前 checkpoint。
+
 ## Source documents
 
 - `docs/URD.md` — accepted user intent and scope.
