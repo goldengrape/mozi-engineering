@@ -75,8 +75,8 @@
 
 | ID | RMD Task | Branch | Commit Message | PR | Merge Status | Required Evidence |
 | --- | --- | --- | --- | --- | --- | --- |
-| RMD-GIT-001 | RMD-TASK-001 | `feat/rmd-task-001-case-contract-clean` | `feat: implement RMD-TASK-001 case contract` | pending | pending | npm test output + contract diff |
-| RMD-GIT-002 | RMD-TASK-002 | `feat/rmd-task-002-jieti-story` | `feat: implement RMD-TASK-002 jieti story` | pending | pending | PATH-A/B test output + Inky/manual review note |
+| RMD-GIT-001 | RMD-TASK-001 | `feat/rmd-task-001-case-contract-clean` | `feat: implement RMD-TASK-001 case contract` | #3 | merged | 3/3 tests + compile check |
+| RMD-GIT-002 | RMD-TASK-002 | `feat/rmd-task-002-jieti-story` | `feat: implement RMD-TASK-002 jieti story` | #5 | checkpoint-ready | PATH-A/B + recovery/debrief tests; source review |
 | RMD-GIT-003 | RMD-TASK-003 | `feat/rmd-task-003-generic-player` | `feat: implement RMD-TASK-003 generic player` | pending | pending | npm run check + local browser smoke |
 | RMD-GIT-004 | RMD-TASK-004 | `feat/rmd-task-004-pages` | `feat: implement RMD-TASK-004 pages deployment` | pending | pending | Actions/Pages status + public smoke |
 | RMD-GIT-005 | RMD-TASK-005 | `docs/rmd-task-005-textbook-integration` | `docs: integrate RMD-TASK-005 into textbook body` | pending | pending | textbook diff / artifact check |
@@ -185,3 +185,108 @@ RMD-GIT-001 completed successfully.
 - PR #3 merged into `main` as squash commit `17f76760513769fcdfeb65f0c631ad474fde6451`.
 - RMD-TASK-001 is complete.
 - RMD-TASK-002 is now unblocked, but has not started in this bookkeeping change.
+
+
+## RMD-TASK-002 Execution Record
+
+- status: **checkpoint-ready / pending merge approval**
+- branch: `feat/rmd-task-002-jieti-story`
+- pull request: #5
+- case_id: `jieti-water-001`
+- GitHub Actions run: `35935107490`
+- compiled story JSON: 9122 bytes
+
+### Source boundary
+
+The story's case facts were checked against the current textbook example “18% 的用水增长到底属于谁？”:
+
+- monthly use: 1000 m³ → 1180 m³;
+- initial claim: “楼内漏水 180 m³”;
+- the building main meter includes rooftop cooling makeup, outdoor irrigation temporary connection, and construction use;
+- irrigation 70 m³ and construction 50 m³ leave 60 m³ to explain;
+- submeter evidence: cooling makeup +45 m³; toilets + laboratory +15 m³;
+- the action changes from broad leak inspection to checking cooling-system makeup and blowdown control.
+
+The interactive layer changes **when** these facts are revealed and asks the learner to act on them. It does not add measurements or hidden events.
+
+The final switch prompt is also source-bounded: the current 《界体》 method boundary states that quantitative balance after the boundary is defined belongs to 《衡算》.
+
+### Implemented learning flow
+
+PATH-A:
+
+```text
+observe 1000 → 1180
+→ check what the main meter includes
+→ separate cross-boundary temporary uses
+→ reveal 70 + 50 → 60 remaining
+→ inspect submeter
+→ reveal +45 cooling / +15 toilets+lab
+→ recognize that attribution and action changed
+→ debrief
+→ choose a quantity-balance next move
+```
+
+PATH-B:
+
+```text
+observe 1000 → 1180
+→ prematurely call all 180 m³ leakage
+→ receive main-meter scope evidence
+→ revise the boundary
+→ reveal 70 + 50 → 60 remaining
+→ prematurely stop once more
+→ continue after feedback
+→ reveal submeter evidence
+→ debrief reflects both revisions
+```
+
+Additional feedback path:
+
+- expanding the boundary to the whole campus is allowed as a learner choice;
+- the story explains that a larger boundary is not automatically better;
+- the learner can return to the smallest boundary sufficient for the current action.
+
+### Learning-state variables
+
+The story records process rather than a score:
+
+```text
+checked_boundary
+premature_leak_claim
+revised_after_evidence
+checked_temporary_records
+checked_submeter
+stopped_too_early
+overexpanded_boundary
+ignored_boundary_evidence
+recognized_action_change
+recognized_switch_to_balance
+debrief_reached
+case_complete
+```
+
+### Automated evidence
+
+GitHub Actions run `35935107490`:
+
+- `npm ci` — passed;
+- `npm test` — **10 passed, 0 failed**;
+- `npm run check:case` — passed;
+- full story compiled successfully with inkjs 2.4.0.
+
+The story tests cover:
+
+- TDD-TEST-002 / 017 — no method-label leakage before the first choice;
+- TDD-TEST-003 / 018 — real branch divergence;
+- TDD-TEST-004 — premature attribution remains recoverable;
+- TDD-TEST-005 — debrief varies with earlier actions;
+- TDD-TEST-006 — 《界体》 is named in debrief and 《衡算》 at the switch condition;
+- TDD-TEST-019 — both fixed paths reach debrief and completion;
+- explicit boundary-too-wide feedback and recovery.
+
+### Git checkpoint
+
+RMD-GIT-002 is ready for review.
+
+No merge has been performed. RMD-TASK-003 (generic player + static build) remains blocked until PR #5 is explicitly approved for merge.
