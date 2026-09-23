@@ -248,6 +248,14 @@
     {
       "id": "OKF-PAGE-003",
       "kind": "okf_concept"
+    },
+    {
+      "id": "RMD-PR-003",
+      "kind": "pull_request"
+    },
+    {
+      "id": "CI-RUN-35906458582",
+      "kind": "test_run"
     }
   ],
   "links": [
@@ -465,6 +473,21 @@
       "source": "RMD-0001",
       "relation": "accepted_before",
       "target": "RMD-TASK-001"
+    },
+    {
+      "source": "RMD-GIT-001",
+      "relation": "reviewed_by",
+      "target": "RMD-PR-003"
+    },
+    {
+      "source": "TDD-TEST-013",
+      "relation": "evidenced_by",
+      "target": "CI-RUN-35906458582"
+    },
+    {
+      "source": "RMD-GIT-001",
+      "relation": "gates",
+      "target": "RMD-TASK-002"
     }
   ]
 }
