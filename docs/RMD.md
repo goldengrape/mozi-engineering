@@ -142,13 +142,13 @@ RMD-0001 因此进入 **accepted**。RMD-TASK-001 已获准开始。
 
 ## RMD-TASK-001 Execution Record
 
-- status: **checkpoint-ready / pending merge approval**
+- status: **merged / completed**
 - branch: `feat/rmd-task-001-case-contract-clean`
-- pull request: #2
+- pull request: #3
 - case_id: `jieti-water-001`
 - dependency lock: npm `inkjs` 2.4.0
-- code/test head verified: `ed1249a5aad8c0fe6f216dee143c1fa562908ade`
-- GitHub Actions run: `35906458582`
+- code/test head verified: `957f2df3c17756d2f63a1f5be513a79ce59553a5`
+- GitHub Actions run: `35906691564`
 
 ### Evidence
 
@@ -180,4 +180,8 @@ The first CI pass exposed that the earlier planning reference used the stale `in
 
 ### Git checkpoint
 
-RMD-GIT-001 is ready for review. No merge has been performed. RMD-TASK-002 must not start until PR #3 is merged or the owner explicitly approves a stacked-branch exception.
+RMD-GIT-001 completed successfully.
+
+- PR #3 merged into `main` as squash commit `17f76760513769fcdfeb65f0c631ad474fde6451`.
+- RMD-TASK-001 is complete.
+- RMD-TASK-002 is now unblocked, but has not started in this bookkeeping change.
