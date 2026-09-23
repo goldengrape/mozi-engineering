@@ -31,7 +31,7 @@ JavaScript 播放器只负责通用运行和显示，不知道《界体》的“
 
 - HTML / CSS / 原生 JavaScript；
 - Ink / Inky；
-- inkjs；
+- inkjs 2.4.0（当前维护仓库：`y-lohse/inkjs`）；
 - Node.js 构建与测试；
 - GitHub Pages 静态托管。
 
