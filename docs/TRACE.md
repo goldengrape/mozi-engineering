@@ -67,7 +67,7 @@ URD-0001 and ADD-0001 are accepted. MDD-0001 and TDD-0001 are complete enough to
 | TDD-TEST-007,014..015,020..021 | scheduled_in | RMD-TASK-003 | generic player + static build |
 | TDD-TEST-009,021 | scheduled_in | RMD-TASK-004 | registry + Pages |
 | TDD-TEST-010 | scheduled_in | RMD-TASK-005 | textbook-body integration |
-| RMD-TASK-001 | checkpointed_by | RMD-GIT-001 | feature branch / tests / PR |
+| RMD-TASK-001 | checkpointed_by | RMD-GIT-001 | PR #3; CI run 35906458582 passed 3/3 tests |
 | RMD-TASK-002 | checkpointed_by | RMD-GIT-002 | feature branch / tests / PR |
 | RMD-TASK-003 | checkpointed_by | RMD-GIT-003 | feature branch / tests / PR |
 | RMD-TASK-004 | checkpointed_by | RMD-GIT-004 | feature branch / tests / PR |
@@ -81,6 +81,15 @@ URD-0001 and ADD-0001 are accepted. MDD-0001 and TDD-0001 are complete enough to
 | ADD-DP-002..005 | summarized_by | okf/decisions/ink-static-architecture.md | Ink / generic player 边界 |
 | RMD-TASK-001..005 | summarized_by | okf/paths/mvp-build-path.md | implementation route |
 
+## Execution Evidence
+
+| Source ID | Relation | Target | Notes |
+| --- | --- | --- | --- |
+| RMD-TASK-001 | implemented_on | feat/rmd-task-001-case-contract | case contract / Ink skeleton / tests |
+| RMD-GIT-001 | reviewed_by | RMD-PR-003 | PR #3, draft pending merge approval |
+| TDD-TEST-001/011/012/013 | evidenced_by | Actions run 35906458582 | npm test: 3 passed, 0 failed |
+| MDD-API-001/002 | evidenced_by | npm run check:case | case contract and Ink compile validated |
+
 ## Gates
 
 | Source | Relation | Target | Status |
@@ -88,6 +97,7 @@ URD-0001 and ADD-0001 are accepted. MDD-0001 and TDD-0001 are complete enough to
 | URD-0001 | accepted_before | ADD-0001 | satisfied |
 | ADD-0001 | accepted_before | MDD-0001 / TDD-0001 / RMD-0001 | satisfied |
 | RMD-0001 Build Path | accepted_before | RMD-TASK-001 | satisfied |
+| RMD-GIT-001 | gates | RMD-TASK-002 | **waiting for merge approval** |
 
 ## Trace Update Rule
 
