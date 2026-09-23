@@ -85,9 +85,9 @@ URD-0001 and ADD-0001 are accepted. MDD-0001 and TDD-0001 are complete enough to
 
 | Source ID | Relation | Target | Notes |
 | --- | --- | --- | --- |
-| RMD-TASK-001 | implemented_on | feat/rmd-task-001-case-contract | case contract / Ink skeleton / tests |
-| RMD-GIT-001 | reviewed_by | RMD-PR-003 | PR #3, draft pending merge approval |
-| TDD-TEST-001/011/012/013 | evidenced_by | Actions run 35906458582 | npm test: 3 passed, 0 failed |
+| RMD-TASK-001 | implemented_on | feat/rmd-task-001-case-contract-clean | case contract / Ink skeleton / tests |
+| RMD-GIT-001 | merged_by | RMD-PR-003 | PR #3 merged to main as 17f76760513769fcdfeb65f0c631ad474fde6451 |
+| TDD-TEST-001/011/012/013 | evidenced_by | Actions run 35906691564 | npm test: 3 passed, 0 failed |
 | MDD-API-001/002 | evidenced_by | npm run check:case | case contract and Ink compile validated |
 
 ## Gates
@@ -97,7 +97,7 @@ URD-0001 and ADD-0001 are accepted. MDD-0001 and TDD-0001 are complete enough to
 | URD-0001 | accepted_before | ADD-0001 | satisfied |
 | ADD-0001 | accepted_before | MDD-0001 / TDD-0001 / RMD-0001 | satisfied |
 | RMD-0001 Build Path | accepted_before | RMD-TASK-001 | satisfied |
-| RMD-GIT-001 | gates | RMD-TASK-002 | **waiting for merge approval** |
+| RMD-GIT-001 | completed_before | RMD-TASK-002 | satisfied |
 
 ## Trace Update Rule
 
