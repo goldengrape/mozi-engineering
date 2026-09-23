@@ -2,6 +2,7 @@
 
 | Date | Changed By | Files | Summary | Trace Impact |
 | --- | --- | --- | --- | --- |
+| 2026-09-23 | ChatGPT | content/cases/jieti-water-001/story.ink, tests/story-learning.test.cjs, docs/RMD.md, docs/TRACE.md, .vibe/*, okf/* | 完成 RMD-TASK-002：将现行教材用水案例改写为完整 Ink 学习流程；支持误判后修正、过早停止、边界过宽、路径化复盘与《界体》→《衡算》切换条件；Actions 10/10 通过，PR #5 等待 merge checkpoint。 | RMD-GIT-002 checkpoint-ready；RMD-TASK-003 被 merge gate 阻塞 |
 | 2026-09-23 | ChatGPT | docs/RMD.md, docs/TRACE.md, .vibe/*, okf/* | RMD-TASK-001 已通过 PR #3 合入 main（17f7676）；状态从 merge checkpoint 更新为 completed，RMD-TASK-002 解锁但尚未开始。 | RMD-GIT-001 satisfied；next_task=RMD-TASK-002 |
 | 2026-09-23 | ChatGPT | package.json, package-lock.json, .gitignore, content/cases/jieti-water-001/*, scripts/*, tests/*, .github/workflows/task1-checks.yml | 完成 RMD-TASK-001：固定案例契约、正文块、Ink 可编译骨架、契约/编译测试；GitHub Actions 3/3 通过，PR #3 等待 merge checkpoint。 | RMD-GIT-001 checkpoint-ready；RMD-TASK-002 仍被 merge gate 阻塞 |
 | 2026-09-23 | ChatGPT | docs/ADD.md, docs/MDD.md, okf/decisions/ink-static-architecture.md | CI 暴露旧 `inkle/inkjs` 2.1.0 来源与当前 npm API 不一致；改用当前维护的 `y-lohse/inkjs` 并固定 2.4.0。 | 技术来源修正，不改变 ADD 功能边界 |
