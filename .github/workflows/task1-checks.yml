@@ -3,7 +3,7 @@ name: RMD Task 001 checks
 on:
   push:
     branches:
-      - feat/rmd-task-001-case-contract
+      - "feat/rmd-task-001-*"
     paths:
       - "package.json"
       - "package-lock.json"
