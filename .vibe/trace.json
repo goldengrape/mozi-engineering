@@ -254,7 +254,11 @@
       "kind": "pull_request"
     },
     {
-      "id": "CI-RUN-35906458582",
+      "id": "MERGE-17f76760513769fcdfeb65f0c631ad474fde6451",
+      "kind": "merge_commit"
+    },
+    {
+      "id": "CI-RUN-35906691564",
       "kind": "test_run"
     }
   ],
@@ -482,11 +486,16 @@
     {
       "source": "TDD-TEST-013",
       "relation": "evidenced_by",
-      "target": "CI-RUN-35906458582"
+      "target": "CI-RUN-35906691564"
     },
     {
       "source": "RMD-GIT-001",
-      "relation": "gates",
+      "relation": "merged_as",
+      "target": "MERGE-17f76760513769fcdfeb65f0c631ad474fde6451"
+    },
+    {
+      "source": "RMD-GIT-001",
+      "relation": "completed_before",
       "target": "RMD-TASK-002"
     }
   ]
