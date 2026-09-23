@@ -8,7 +8,7 @@ okf_version: "0.1"
 
 ## Current phase
 
-The project is in **RMD-TASK-001 implementation**.
+The project is at the **RMD-GIT-001 merge checkpoint**. RMD-TASK-001 is implemented and tested; PR #2 is unmerged.
 
 Accepted decisions:
 
@@ -18,7 +18,7 @@ Accepted decisions:
 - first learning mechanism to validate: unlabeled judgment → branch consequence/new evidence → method switching/revision → debrief;
 - ADD design is decoupled and accepted.
 
-RMD-0001 is accepted; RMD-TASK-001 is authorized.
+RMD-0001 is accepted. RMD-TASK-001 passed its automated checks; RMD-TASK-002 remains blocked by the PR #2 merge checkpoint.
 
 ## Current architecture
 
