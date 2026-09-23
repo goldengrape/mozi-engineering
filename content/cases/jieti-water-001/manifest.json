@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "case_id": "jieti-water-001",
+  "title": "教学楼为什么多用了 18% 的水？",
+  "language": "zh-CN",
+  "textbook": {
+    "chapter_id": "01-jieti",
+    "placement": "opening-practice"
+  },
+  "story_source": "story.ink",
+  "book_fragment": "book.md"
+}
