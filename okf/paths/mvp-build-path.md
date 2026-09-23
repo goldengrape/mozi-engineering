@@ -8,7 +8,7 @@ source_ids:
   - RMD-TASK-003
   - RMD-TASK-004
   - RMD-TASK-005
-status: waiting_for_owner_checkpoint
+status: active
 ---
 
 # 顺序
@@ -21,6 +21,4 @@ status: waiting_for_owner_checkpoint
 
 # 当前状态
 
-项目停在 RMD / Build Path checkpoint。
-
-在项目所有者确认此顺序以前，不开始 RMD-TASK-001 功能实现。
+项目所有者已确认 Build Path。RMD-TASK-001 已开始；后续任务仍按顺序逐项通过 Git checkpoint。
