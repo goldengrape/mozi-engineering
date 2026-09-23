@@ -1,6 +1,8 @@
 // RMD-TASK-002
-// Source facts are limited to the current textbook example
+// Source facts are limited to the current textbook 《界体》 example
 // “18% 的用水增长到底属于谁？”.
+// The method-switch boundary follows the current 察物说明: quantity balance
+// after the analysis boundary is defined belongs to 《衡算》.
 // The interaction changes the order in which evidence is revealed;
 // it does not add new measurements or events.
 
