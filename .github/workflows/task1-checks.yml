@@ -1,0 +1,38 @@
+name: RMD Task 001 checks
+
+on:
+  push:
+    branches:
+      - feat/rmd-task-001-case-contract
+  pull_request:
+    paths:
+      - "package.json"
+      - "content/cases/**"
+      - "scripts/**"
+      - "tests/**"
+      - ".github/workflows/task1-checks.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+
+      - name: Install exact dependencies
+        run: npm install --ignore-scripts --no-audit --no-fund
+
+      - name: Run tests
+        run: npm test
+
+      - name: Validate primary case
+        run: npm run check:case
