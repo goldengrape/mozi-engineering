@@ -8,7 +8,7 @@ source_ids:
   - RMD-TASK-003
   - RMD-TASK-004
   - RMD-TASK-005
-status: active
+status: task_001_checkpoint_ready
 ---
 
 # 顺序
@@ -22,3 +22,16 @@ status: active
 # 当前状态
 
 项目所有者已确认 Build Path。RMD-TASK-001 已开始；后续任务仍按顺序逐项通过 Git checkpoint。
+
+
+# Current checkpoint
+
+RMD-TASK-001 is implemented on `feat/rmd-task-001-case-contract-clean`.
+
+Evidence:
+
+- package lock pins inkjs 2.4.0;
+- GitHub Actions run `35906458582` passed all 3 tests;
+- `npm run check:case` compiled `jieti-water-001` successfully.
+
+PR #3 remains draft and unmerged. RMD-TASK-002 is blocked until merge approval.

@@ -35,7 +35,7 @@
 
 | ID | Task | Depends On | Inputs | Outputs | Test / Check Command | Branch | Done When |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| RMD-TASK-001 | 建立最小 JS/Ink 项目、案例契约与第一批 contract tests | Build Path approval | MDD case schema, TDD-011..013 | package.json, .gitignore, build/test skeleton, `jieti-water-001/manifest.json`, `book.md`, compileable story skeleton | `npm test` | `feat/rmd-task-001-case-contract` | case identity/required-file/compile tests pass; docs/TRACE updated |
+| RMD-TASK-001 | 建立最小 JS/Ink 项目、案例契约与第一批 contract tests | Build Path approval | MDD case schema, TDD-011..013 | package.json, .gitignore, build/test skeleton, `jieti-water-001/manifest.json`, `book.md`, compileable story skeleton | `npm test` | `feat/rmd-task-001-case-contract-clean` | case identity/required-file/compile tests pass; docs/TRACE updated |
 | RMD-TASK-002 | 完成《界体》“用水增加 18%”Ink 分支、学习状态与条件复盘 | RMD-TASK-001 | URD learning goals, TDD PATH-A/B | full `story.ink`; story behavior tests | `npm test -- story-learning` if supported, otherwise `npm test` | `feat/rmd-task-002-jieti-story` | PATH-A/PATH-B pass; wrong path可修正; debrief varies by state |
 | RMD-TASK-003 | 实现通用播放器与单案例静态 build | RMD-TASK-002 | MDD-API-002..004 | `src/player.js`, templates/styles, `scripts/build.cjs`, generated local dist | `npm run check` | `feat/rmd-task-003-generic-player` | local static server 可完整试玩；player 无 case-specific logic |
 | RMD-TASK-004 | 泛化案例 registry/build，并发布 GitHub Pages | RMD-TASK-003 | DP-006, TDD-009/021 | `cases/index.json`, Pages workflow, deployed route | `npm run check` + Pages smoke | `feat/rmd-task-004-pages` | public Pages URL 可从桌面/手机完成案例；无需 CDN/后端 |
@@ -75,7 +75,7 @@
 
 | ID | RMD Task | Branch | Commit Message | PR | Merge Status | Required Evidence |
 | --- | --- | --- | --- | --- | --- | --- |
-| RMD-GIT-001 | RMD-TASK-001 | `feat/rmd-task-001-case-contract` | `feat: implement RMD-TASK-001 case contract` | pending | pending | npm test output + contract diff |
+| RMD-GIT-001 | RMD-TASK-001 | `feat/rmd-task-001-case-contract-clean` | `feat: implement RMD-TASK-001 case contract` | pending | pending | npm test output + contract diff |
 | RMD-GIT-002 | RMD-TASK-002 | `feat/rmd-task-002-jieti-story` | `feat: implement RMD-TASK-002 jieti story` | pending | pending | PATH-A/B test output + Inky/manual review note |
 | RMD-GIT-003 | RMD-TASK-003 | `feat/rmd-task-003-generic-player` | `feat: implement RMD-TASK-003 generic player` | pending | pending | npm run check + local browser smoke |
 | RMD-GIT-004 | RMD-TASK-004 | `feat/rmd-task-004-pages` | `feat: implement RMD-TASK-004 pages deployment` | pending | pending | Actions/Pages status + public smoke |
@@ -138,3 +138,46 @@ First implementation push and every merge remain explicit checkpoint actions.
 4. 每一步使用独立 branch / tests / PR checkpoint，并保留单独回退点。
 
 RMD-0001 因此进入 **accepted**。RMD-TASK-001 已获准开始。
+
+
+## RMD-TASK-001 Execution Record
+
+- status: **checkpoint-ready / pending merge approval**
+- branch: `feat/rmd-task-001-case-contract-clean`
+- pull request: #2
+- case_id: `jieti-water-001`
+- dependency lock: npm `inkjs` 2.4.0
+- code/test head verified: `ed1249a5aad8c0fe6f216dee143c1fa562908ade`
+- GitHub Actions run: `35906458582`
+
+### Evidence
+
+Local replay of dependency-free contract checks:
+
+- `node --check scripts/case-package.cjs` — passed
+- `node --test tests/case-contract.test.cjs` — 2 passed, 0 failed
+
+GitHub Actions with locked dependencies:
+
+- `npm ci --ignore-scripts --no-audit --no-fund` — passed
+- `npm test` — 3 passed, 0 failed
+  - case identity / textbook metadata contract
+  - missing story source negative case
+  - Ink compile + runtime start
+- `npm run check:case` — passed
+  - case_id: `jieti-water-001`
+  - chapter_id: `01-jieti`
+  - compiled story JSON: 1273 bytes
+
+### Correction made during the task
+
+The first CI pass exposed that the earlier planning reference used the stale `inkle/inkjs` 2.1.0 repository state while the maintained npm package is represented by `y-lohse/inkjs`. The project followed the docs-first rule:
+
+1. correct ADD/MDD and OKF source/version;
+2. pin npm `inkjs` 2.4.0;
+3. generate and commit `package-lock.json`;
+4. rerun tests to green.
+
+### Git checkpoint
+
+RMD-GIT-001 is ready for review. No merge has been performed. RMD-TASK-002 must not start until PR #3 is merged or the owner explicitly approves a stacked-branch exception.
