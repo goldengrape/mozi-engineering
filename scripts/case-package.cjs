@@ -90,7 +90,7 @@ function compileStory(inkSource) {
     inkjs = require("inkjs/full");
   } catch (error) {
     const wrapped = new Error(
-      "inkjs is not installed. Run npm install before compile tests."
+      `inkjs/full could not be loaded: ${error.message}. Run npm install before compile tests.`
     );
     wrapped.cause = error;
     throw wrapped;
