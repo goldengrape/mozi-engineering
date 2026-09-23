@@ -5,16 +5,19 @@
   "source_of_truth": "docs",
   "okf_is_derived": true,
   "okf_version": "0.1",
-  "current_phase": "RMD-GIT-001 merge checkpoint",
+  "current_phase": "RMD-TASK-002 ready",
   "urd_status": "accepted",
   "add_status": "accepted",
   "mdd_status": "accepted-for-planning",
   "tdd_status": "ready-for-build-path",
   "rmd_status": "accepted",
   "implementation_allowed": true,
-  "active_task": "RMD-TASK-001",
-  "active_task_status": "checkpoint-ready",
-  "active_pr": 3,
+  "active_task": null,
+  "active_task_status": null,
+  "active_pr": null,
   "next_task": "RMD-TASK-002",
-  "next_task_blocked_by": "RMD-GIT-001 merge approval"
+  "next_task_blocked_by": null,
+  "completed_tasks": [
+    "RMD-TASK-001"
+  ]
 }
