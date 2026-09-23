@@ -138,3 +138,46 @@ First implementation push and every merge remain explicit checkpoint actions.
 4. 每一步使用独立 branch / tests / PR checkpoint，并保留单独回退点。
 
 RMD-0001 因此进入 **accepted**。RMD-TASK-001 已获准开始。
+
+
+## RMD-TASK-001 Execution Record
+
+- status: **checkpoint-ready / pending merge approval**
+- branch: `feat/rmd-task-001-case-contract`
+- pull request: #2
+- case_id: `jieti-water-001`
+- dependency lock: npm `inkjs` 2.4.0
+- code/test head verified: `329a75953b6309fc30a7db8d69a64d8154de426d`
+- GitHub Actions run: `35903687929`
+
+### Evidence
+
+Local replay of dependency-free contract checks:
+
+- `node --check scripts/case-package.cjs` — passed
+- `node --test tests/case-contract.test.cjs` — 2 passed, 0 failed
+
+GitHub Actions with locked dependencies:
+
+- `npm ci --ignore-scripts --no-audit --no-fund` — passed
+- `npm test` — 3 passed, 0 failed
+  - case identity / textbook metadata contract
+  - missing story source negative case
+  - Ink compile + runtime start
+- `npm run check:case` — passed
+  - case_id: `jieti-water-001`
+  - chapter_id: `01-jieti`
+  - compiled story JSON: 1273 bytes
+
+### Correction made during the task
+
+The first CI pass exposed that the earlier planning reference used the stale `inkle/inkjs` 2.1.0 repository state while the maintained npm package is represented by `y-lohse/inkjs`. The project followed the docs-first rule:
+
+1. correct ADD/MDD and OKF source/version;
+2. pin npm `inkjs` 2.4.0;
+3. generate and commit `package-lock.json`;
+4. rerun tests to green.
+
+### Git checkpoint
+
+RMD-GIT-001 is ready for review. No merge has been performed. RMD-TASK-002 must not start until PR #2 is merged or the owner explicitly approves a stacked-branch exception.
