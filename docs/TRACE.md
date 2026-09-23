@@ -4,7 +4,7 @@
 
 ## Current Phase
 
-URD-0001 and ADD-0001 are accepted. MDD-0001 and TDD-0001 are complete enough to define the first implementation route. RMD-0001 is at the **Build Path checkpoint**; implementation remains blocked.
+URD-0001 and ADD-0001 are accepted. MDD-0001 and TDD-0001 are complete enough to define the first implementation route. RMD-0001 is accepted. RMD-TASK-001 is the active implementation slice.
 
 ## Requirement → Design
 
@@ -87,7 +87,7 @@ URD-0001 and ADD-0001 are accepted. MDD-0001 and TDD-0001 are complete enough to
 | --- | --- | --- | --- |
 | URD-0001 | accepted_before | ADD-0001 | satisfied |
 | ADD-0001 | accepted_before | MDD-0001 / TDD-0001 / RMD-0001 | satisfied |
-| RMD-0001 Build Path | gates | RMD-TASK-001 | **waiting for owner approval** |
+| RMD-0001 Build Path | accepted_before | RMD-TASK-001 | satisfied |
 
 ## Trace Update Rule
 
