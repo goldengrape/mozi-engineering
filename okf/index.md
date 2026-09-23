@@ -8,7 +8,7 @@ okf_version: "0.1"
 
 ## Current phase
 
-The project is at the **RMD / Build Path checkpoint**.
+The project is in **RMD-TASK-001 implementation**.
 
 Accepted decisions:
 
@@ -18,7 +18,7 @@ Accepted decisions:
 - first learning mechanism to validate: unlabeled judgment → branch consequence/new evidence → method switching/revision → debrief;
 - ADD design is decoupled and accepted.
 
-Implementation remains blocked until the owner accepts RMD-0001.
+RMD-0001 is accepted; RMD-TASK-001 is authorized.
 
 ## Current architecture
 
@@ -38,7 +38,7 @@ The browser runtime must not contain `jieti-water-001` or 《界体》-specific 
 
 Software test success validates the mechanism implementation, not long-term learning effectiveness.
 
-## Build path awaiting approval
+## Accepted build path
 
 1. case contract + minimum compile/test plumbing;
 2. full Ink learning story + state/debrief;
