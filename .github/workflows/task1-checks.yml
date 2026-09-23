@@ -4,6 +4,13 @@ on:
   push:
     branches:
       - feat/rmd-task-001-case-contract
+    paths:
+      - "package.json"
+      - "package-lock.json"
+      - "content/cases/**"
+      - "scripts/**"
+      - "tests/**"
+      - ".github/workflows/task1-checks.yml"
   pull_request:
     paths:
       - "package.json"
