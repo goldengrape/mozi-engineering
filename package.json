@@ -10,7 +10,7 @@
     "check:case": "node scripts/check-case.cjs content/cases/jieti-water-001"
   },
   "dependencies": {
-    "inkjs": "2.1.0"
+    "inkjs": "2.4.0"
   },
   "engines": {
     "node": ">=20"
