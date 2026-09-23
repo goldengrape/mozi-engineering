@@ -8,7 +8,7 @@ source_ids:
   - RMD-TASK-003
   - RMD-TASK-004
   - RMD-TASK-005
-status: task_001_checkpoint_ready
+status: task_001_merged
 ---
 
 # 顺序
