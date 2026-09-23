@@ -5,6 +5,8 @@
   "source_of_truth": "docs",
   "okf_is_derived": true,
   "okf_version": "0.1",
-  "current_phase": "URD checkpoint",
+  "current_phase": "ADD Design Split checkpoint",
+  "urd_status": "accepted",
+  "add_status": "review",
   "implementation_allowed": false
 }
