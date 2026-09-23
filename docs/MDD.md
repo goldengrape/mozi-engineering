@@ -16,7 +16,7 @@
 - HTML / CSS / 原生 JavaScript；
 - Ink 作为案例源语言；
 - Inky 作为人工编辑与试玩工具；
-- inkjs 作为编译器与浏览器运行时；
+- inkjs 2.4.0 作为编译器与浏览器运行时；
 - Node.js 只用于本地构建和自动测试；
 - npm 负责开发依赖与 lockfile；
 - GitHub Pages 托管构建后的静态 `dist/`；
@@ -29,7 +29,7 @@
 3. 复制通用 `player.js`、CSS 和 HTML 模板；
 4. 为案例生成静态目录。
 
-inkjs 当前 `package.json` 的 `main` 指向 `dist/ink-full.js`，其 README 也提供了 browser/serverless 模板，因此这一做法与上游用法一致。
+当前维护中的 `y-lohse/inkjs` 2.4.0 在 `package.json` 中明确导出 `./full` → `dist/ink-full.js`，README 也以 `require("inkjs/full")` 作为编译示例。因此 MVP 固定 npm `inkjs` 2.4.0。
 
 ## Project Layout
 
