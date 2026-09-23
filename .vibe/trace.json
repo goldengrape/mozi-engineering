@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "items": [
+    {"id":"URD-GOAL-001","kind":"goal"},
+    {"id":"URD-GOAL-002","kind":"goal"},
+    {"id":"URD-ROLE-001","kind":"role"},
+    {"id":"URD-ROLE-002","kind":"role"},
+    {"id":"URD-REQ-001","kind":"requirement"},
+    {"id":"URD-REQ-002","kind":"requirement"},
+    {"id":"URD-REQ-003","kind":"requirement"},
+    {"id":"URD-REQ-004","kind":"requirement"},
+    {"id":"URD-REQ-005","kind":"requirement"},
+    {"id":"URD-REQ-006","kind":"requirement"},
+    {"id":"URD-REQ-007","kind":"requirement"},
+    {"id":"URD-REQ-008","kind":"requirement"},
+    {"id":"URD-REQ-009","kind":"requirement"},
+    {"id":"URD-REQ-010","kind":"requirement"},
+    {"id":"ADD-0001","kind":"design_document"},
+    {"id":"MDD-0001","kind":"design_document"},
+    {"id":"TDD-0001","kind":"test_document"},
+    {"id":"RMD-0001","kind":"build_path"}
+  ],
+  "links": [
+    {"source":"URD-GOAL-001","relation":"specified_in","target":"docs/URD.md"},
+    {"source":"URD-GOAL-002","relation":"specified_in","target":"docs/URD.md"},
+    {"source":"URD-0001","relation":"gates","target":"ADD-0001"},
+    {"source":"ADD-0001","relation":"gates","target":"MDD-0001"},
+    {"source":"MDD-0001","relation":"informs","target":"TDD-0001"},
+    {"source":"TDD-0001","relation":"gates","target":"RMD-0001"}
+  ]
+}
