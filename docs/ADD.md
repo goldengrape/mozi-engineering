@@ -5,7 +5,7 @@
 ## Metadata
 
 - document_id: ADD-0001
-- status: review — Design Split checkpoint
+- status: accepted
 - source_urd: URD-0001
 - last_updated: 2026-09-23
 
@@ -144,15 +144,13 @@ References:
 - [x] Necessary remaining dependencies are recorded and directional.
 - [x] No meaningless module split was introduced just to improve the matrix.
 
-## 🔴 Design Split Checkpoint
+## Checkpoint Record
 
-按 Vibe Coding Skill，当前必须在这里停下。
+2026-09-23，项目所有者确认 ADD-0001 的四项结构判断：
 
-需要项目所有者确认的不是技术细节，而是这个结构判断：
+1. 教材正文块是一等产物；
+2. Ink 负责案例教学分支，JavaScript 保持通用；
+3. 复盘读取 Ink 学习状态，不另造评分系统；
+4. 接受当前 decoupled 结构与实现顺序。
 
-1. **教材正文块是一等产物**：每个案例同时维护 `book.md` 和 `story.ink`，不是网页做好后再随手补一个二维码；
-2. **Ink 负责案例逻辑，JavaScript 不写《界体》的教学判断**；
-3. **结尾复盘依赖 Ink 中记录的学习状态，不另造评分系统**；
-4. **当前设计分类为 decoupled，可按 DP-001 → DP-002/004 → DP-005 → DP-003 → DP-006 进入下一阶段。**
-
-确认后才进入 MDD / TDD / RMD。
+ADD-0001 因此进入 **accepted**，允许继续 MDD / TDD / RMD。
