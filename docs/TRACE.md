@@ -73,6 +73,14 @@ URD-0001 and ADD-0001 are accepted. MDD-0001 and TDD-0001 are complete enough to
 | RMD-TASK-004 | checkpointed_by | RMD-GIT-004 | feature branch / tests / PR |
 | RMD-TASK-005 | checkpointed_by | RMD-GIT-005 | docs/artifact integration checkpoint |
 
+## AI Retrieval
+
+| Source ID | Relation | Target Path | Notes |
+| --- | --- | --- | --- |
+| URD-REQ-011..012 | summarized_by | okf/requirements/textbook-interaction.md | 教材正文集成与稳定 case identity |
+| ADD-DP-002..005 | summarized_by | okf/decisions/ink-static-architecture.md | Ink / generic player 边界 |
+| RMD-TASK-001..005 | summarized_by | okf/paths/mvp-build-path.md | implementation route |
+
 ## Gates
 
 | Source | Relation | Target | Status |
