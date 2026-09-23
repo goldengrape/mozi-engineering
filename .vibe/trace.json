@@ -460,6 +460,11 @@
       "source": "RMD-TASK-001",
       "relation": "summarized_by",
       "target": "okf/paths/mvp-build-path.md"
+    },
+    {
+      "source": "RMD-0001",
+      "relation": "accepted_before",
+      "target": "RMD-TASK-001"
     }
   ]
 }
