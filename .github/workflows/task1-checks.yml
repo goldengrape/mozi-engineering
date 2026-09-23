@@ -27,16 +27,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "22"
+          cache: "npm"
 
-      - name: Install exact dependencies
-        run: npm install --ignore-scripts --no-audit --no-fund
-
-      - name: Upload generated package lock
-        uses: actions/upload-artifact@v4
-        with:
-          name: package-lock
-          path: package-lock.json
-          if-no-files-found: error
+      - name: Install locked dependencies
+        run: npm ci --ignore-scripts --no-audit --no-fund
 
       - name: Run tests
         run: npm test
