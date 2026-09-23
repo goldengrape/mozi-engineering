@@ -113,13 +113,13 @@ case_id = jieti-water-001
 
 - Inkle 官方维护 `inkle/ink`，Ink 是互动叙事脚本语言。
 - Inkle 官方维护 `inkle/inky`，可用于编写和测试 Ink 内容。
-- `inkle/inkjs` 的 README 说明它是 Ink 的 JavaScript 移植，可在浏览器运行，并给出了 browser/serverless 使用方式以及从故事内容创建 `Story` 的方式。
+- 当前维护中的 `y-lohse/inkjs` 是 Ink 的 JavaScript 移植；其 package/README 明确提供浏览器运行时与 `inkjs/full` 编译入口。MVP 固定使用 npm `inkjs` 2.4.0。
 - 因此 GitHub Pages 只需托管静态播放器与案例产物，不要求服务器端执行 Ink。
 
 References:
 - https://github.com/inkle/ink
 - https://github.com/inkle/inky
-- https://github.com/inkle/inkjs
+- https://github.com/y-lohse/inkjs
 
 ## Non-goals at ADD Stage
 
