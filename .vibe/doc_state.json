@@ -5,11 +5,12 @@
   "source_of_truth": "docs",
   "okf_is_derived": true,
   "okf_version": "0.1",
-  "current_phase": "RMD Build Path checkpoint",
+  "current_phase": "RMD-TASK-001",
   "urd_status": "accepted",
   "add_status": "accepted",
   "mdd_status": "accepted-for-planning",
   "tdd_status": "ready-for-build-path",
-  "rmd_status": "review",
-  "implementation_allowed": false
+  "rmd_status": "accepted",
+  "implementation_allowed": true,
+  "active_task": "RMD-TASK-001"
 }
