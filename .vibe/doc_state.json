@@ -5,8 +5,11 @@
   "source_of_truth": "docs",
   "okf_is_derived": true,
   "okf_version": "0.1",
-  "current_phase": "ADD Design Split checkpoint",
+  "current_phase": "RMD Build Path checkpoint",
   "urd_status": "accepted",
-  "add_status": "review",
+  "add_status": "accepted",
+  "mdd_status": "accepted-for-planning",
+  "tdd_status": "ready-for-build-path",
+  "rmd_status": "review",
   "implementation_allowed": false
 }
