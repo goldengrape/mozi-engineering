@@ -5,7 +5,7 @@
 ## Metadata
 
 - document_id: RMD-0001
-- status: review — Build Path checkpoint
+- status: accepted
 - source_docs: URD-0001, ADD-0001, MDD-0001, TDD-0001
 - last_updated: 2026-09-23
 
@@ -128,13 +128,13 @@ First implementation push and every merge remain explicit checkpoint actions.
 - [x] Rollback points exist at risky boundaries.
 - [x] Textbook-body integration is a required task, not a parking-lot idea.
 
-## 🔴 Build Path Checkpoint
+## Checkpoint Record
 
-按 Vibe Coding Skill，在开始写任何功能代码以前，项目所有者需要确认：
+2026-09-23，项目所有者确认 Build Path：
 
-1. 前三步顺序：**案例契约 → Ink 教学逻辑 → 通用播放器**；
-2. 第四步才发布 GitHub Pages；
-3. 第五步把经过验证的 `book.md` 真正回写教材正文；
-4. 每一步独立 branch / tests / PR checkpoint，失败可单独回退。
+1. 案例契约 → Ink 教学逻辑 → 通用播放器；
+2. 之后发布 GitHub Pages；
+3. 最后把验证后的 `book.md` 回写教材正文；
+4. 每一步使用独立 branch / tests / PR checkpoint，并保留单独回退点。
 
-确认后才创建 `feat/rmd-task-001-case-contract`。
+RMD-0001 因此进入 **accepted**。RMD-TASK-001 已获准开始。
