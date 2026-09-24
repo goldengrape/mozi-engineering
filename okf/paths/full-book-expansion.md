@@ -10,7 +10,7 @@ source_ids:
   - RMD-TASK-010
   - RMD-TASK-011
   - RMD-TASK-012
-status: task_008_checkpoint_ready
+status: task_009_checkpoint_ready
 ---
 
 # Core rule
@@ -50,18 +50,18 @@ Ink 继续拥有证据释放、学习状态、分支后果和复盘；浏览器�
 
 # Current checkpoint
 
-RMD-TASK-007 merged as `0113c0e484af8bded2d04861acd535da150ed414`; post-merge Pages run `35956661728` passed.
+RMD-TASK-008 merged as `4d5306a4959c5f86cf0a7acb72ba1211977e5b92`; post-merge Pages run `35961945622` passed.
 
-RMD-TASK-008 is implemented on `feat/rmd-task-008-make-cases-a`.
+RMD-TASK-009 is implemented on `feat/rmd-task-009-make-cases-b`.
 
 Evidence:
 
-- Actions `35956839559`: 41 tests passed, 0 failed;
-- chapters 6–8 compile and complete along tested correction paths;
-- curriculum chapters 1–8 are published;
-- static build generates eight authored cases;
-- build tests derive the expected case set from curriculum status instead of a hard-coded count;
-- generic player scan rejects all curriculum case IDs and method names;
+- Actions `35962501094`: 46 tests passed, 0 failed;
+- chapters 9–12 compile and complete along tested correction paths;
+- curriculum chapters 1–12 are published;
+- static build generates twelve authored cases;
+- published coverage is tested as a contiguous chapter range rather than a fixed hard-coded list;
+- the 相衡 wrong path now requires an explicit learner correction to reversal;
 - existing browser smoke remains green.
 
-PR #12 is unmerged. RMD-TASK-009 is blocked until merge approval.
+PR #13 is unmerged. RMD-TASK-010 is blocked until merge approval.

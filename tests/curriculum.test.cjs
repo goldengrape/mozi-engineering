@@ -66,35 +66,19 @@ test("TDD2-TEST-002: curriculum keeps source structure separate from interactive
   }
 });
 
-test("TDD2-TEST-003: published case identity is tied to the curriculum chapter identity", () => {
+test("TDD2-TEST-003: published chapters are contiguous and case identity matches curriculum", () => {
   const curriculum = loadCurriculum();
   const published = curriculum.chapters.filter(
     (chapter) => chapter.status === "published"
   );
 
+  assert.ok(published.length > 0);
+
+  const highestPublished = published[published.length - 1].chapter_number;
   assert.deepEqual(
-    published.map((chapter) => chapter.case_id),
-    [
-      "jieti-water-001",
-      "hengsuan-balance-001",
-      "dingzhun-torque-001",
-      "chuanzhun-benchmark-001",
-      "canyan-model-001",
-      "fenren-door-001",
-      "zhiou-robot-001",
-      "fengou-service-001"
-    ]
+    published.map((chapter) => chapter.chapter_number),
+    Array.from({ length: highestPublished }, (_, index) => index + 1)
   );
-
-  const manifest = JSON.parse(
-    fs.readFileSync(
-      path.resolve("content/cases/jieti-water-001/manifest.json"),
-      "utf8"
-    )
-  );
-
-  assert.equal(manifest.case_id, published[0].case_id);
-  assert.equal(manifest.textbook.chapter_id, published[0].chapter_id);
 
   for (const chapter of published) {
     const chapterManifest = JSON.parse(

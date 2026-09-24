@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "case_id": "dingdong-guide-001",
+  "title": "一条直线运动为什么会被两根“更稳”的导轨卡死？",
+  "language": "zh-CN",
+  "textbook": {
+    "chapter_id": "09-dingdong",
+    "placement": "worked-example-practice"
+  },
+  "story_source": "story.ink",
+  "book_fragment": "book.md"
+}

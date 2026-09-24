@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "case_id": "shizhi-bracket-001",
+  "title": "一张“尺寸很多”的图为什么仍让三家工厂做出三种零件？",
+  "language": "zh-CN",
+  "textbook": {
+    "chapter_id": "12-shizhi",
+    "placement": "worked-example-practice"
+  },
+  "story_source": "story.ink",
+  "book_fragment": "book.md"
+}

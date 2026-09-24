@@ -705,8 +705,8 @@ Phase 2 不把十五个新案例简单复制成《界体》的按钮分支。互
 | --- | --- | --- | --- | --- |
 | RMD-GIT-006 | RMD-TASK-006 | `feat/rmd-task-006-curriculum-primitives` | merged | PR #10; 30/30 tests + build + browser smoke |
 | RMD-GIT-007 | RMD-TASK-007 | `feat/rmd-task-007-observe-cases` | merged | PR #11; 36/36 tests + five-case build + browser smoke |
-| RMD-GIT-008 | RMD-TASK-008 | `feat/rmd-task-008-make-cases-a` | checkpoint-ready | PR #12; 41/41 tests + eight-case build + browser smoke |
-| RMD-GIT-009 | RMD-TASK-009 | `feat/rmd-task-009-make-cases-b` | pending | chapter 9–12 tests |
+| RMD-GIT-008 | RMD-TASK-008 | `feat/rmd-task-008-make-cases-a` | merged | PR #12; 41/41 tests + eight-case build + browser smoke |
+| RMD-GIT-009 | RMD-TASK-009 | `feat/rmd-task-009-make-cases-b` | checkpoint-ready | PR #13; 46/46 tests + twelve-case build + browser smoke |
 | RMD-GIT-010 | RMD-TASK-010 | `feat/rmd-task-010-run-fail-cases` | pending | chapter 13–16 tests |
 | RMD-GIT-011 | RMD-TASK-011 | `feat/rmd-task-011-mixed-review` | pending | transfer/mixed-case tests |
 | RMD-GIT-012 | RMD-TASK-012 | `docs/rmd-task-012-full-book-integration` | pending | publication QA + public route smoke |
@@ -945,7 +945,7 @@ RMD-GIT-007 completed successfully.
 
 ## RMD-TASK-008 Execution Record
 
-- status: **checkpoint-ready / pending merge approval**
+- status: **merged / completed**
 - branch: `feat/rmd-task-008-make-cases-a`
 - pull request: #12
 - verified implementation head: `e7791a2c67b40fcf2855790d21f2c3ac57629636`
@@ -1026,6 +1026,99 @@ Actions run `35956839559`:
 
 ### Git checkpoint
 
-RMD-GIT-008 is ready for review.
+RMD-GIT-008 completed successfully.
 
-RMD-TASK-009 (制物 chapters 9–12) remains blocked until explicit merge approval.
+- PR #12 merged to `main` as `4d5306a4959c5f86cf0a7acb72ba1211977e5b92`.
+- post-merge Pages run `35961945622` succeeded.
+- RMD-TASK-009 was then started on its own branch.
+
+
+## RMD-TASK-009 Execution Record
+
+- status: **checkpoint-ready / pending merge approval**
+- branch: `feat/rmd-task-009-make-cases-b`
+- pull request: #13
+- verified implementation head: `657e499ec2d0f6a08859623cc6e2ddb1e5ab8d21`
+- GitHub Actions run: `35962501094`
+
+### Source boundary
+
+All four stories are grounded in the existing Chapter 9–12 worked examples.
+
+No new measurements, hidden events or system behavior were added.
+
+Formula values that ordinary text extraction omitted were read directly from the source DOCX formula XML before authoring the cases.
+
+Source-derived facts retained:
+
+- 定动: retain Tx; constrain Ty/Tz/Rx/Ry/Rz; two complete guide references can duplicate constraints; non-parallelism, thermal expansion and installation error may cause internal force/binding; one side primary positioning + one side support with small compensation freedom; verify through full travel, normal load and temperature rise.
+- 容度: A=20±0.1 mm, B=30±0.2 mm, C=50±0.1 mm; nominal total 100 mm; worst-case ±0.4 mm gives 99.6–100.4 mm; functional window 99.7–100.3 mm; revised ±0.05/±0.10/±0.05 mm allocation gives ±0.20 mm; structural alternative is an adjustable shim.
+- 相衡: r₁=18 μm, r₂=6 μm; r₁=s+b, r₂=−s+b; s=6 μm, b=12 μm; a common temperature-model bias remains unresolved by the reversal itself.
+- 示制: original drawing already has hole diameter, outline dimensions and plate thickness; missing hole-position datum, contact-face flatness and assembly direction; factory hole positions differ by 0.6 mm; revised A/B/C functional-interface definitions; independent fourth-factory reproduction.
+
+### Implemented cases
+
+#### Chapter 9 — `dingdong-guide-001`
+
+Mechanics:
+
+`multi DOF selection → overconstraint correction → verification-condition judgment → debrief`
+
+The learner must keep Tx and constrain the other five degrees of freedom, then revise the “two complete guides are always more stable” intuition.
+
+#### Chapter 10 — `rongdu-stack-001`
+
+Mechanics:
+
+`number worst-case deviation → single-part/system distinction → tolerance/structure tradeoff → debrief`
+
+The learner first predicts the ±0.4 mm worst-case total, then compares it with the functional window before selecting a corrective strategy.
+
+#### Chapter 11 — `xiangheng-reversal-001`
+
+Mechanics:
+
+`same-relation temptation → explicit reversal correction → number s → number b → common-bias boundary → debrief`
+
+The wrong “measure the same way again” path remains recoverable and requires the learner to explicitly choose reversal before receiving the second relation.
+
+#### Chapter 12 — `shizhi-bracket-001`
+
+Mechanics:
+
+`multi missing-definition classification → A/B/C functional-interface reveal → independent reproduction judgment → debrief`
+
+The learner separates already-present dimensions from missing design relationships, then uses independent reproduction rather than author-team rereading as the final test.
+
+### Curriculum / build state
+
+Chapters 1–12 are marked `published` in `content/curriculum.json`.
+
+Published-chapter regression no longer hard-codes a fixed list. It checks that published chapters are contiguous from Chapter 1 through the current highest published chapter and that each manifest matches its curriculum identity.
+
+The static build now generates twelve routes.
+
+### CI corrections during authoring
+
+The test loop caught two useful issues:
+
+1. the old curriculum identity test still assumed publication stopped at Chapter 8; it was generalized to contiguous published coverage;
+2. the initial 相衡 wrong path explained why repetition was insufficient but automatically moved on. It was revised so the learner must explicitly choose the reversal step.
+
+### Automated evidence
+
+Actions run `35962501094`:
+
+- `npm test` — **46 passed, 0 failed**;
+- TDD2-TEST-021..025 — passed;
+- all previous MVP / Phase 2 regressions — passed;
+- `npm run build` — passed;
+- build generated **12 cases**;
+- primary case validation — passed;
+- headless Chrome regression smoke — passed.
+
+### Git checkpoint
+
+RMD-GIT-009 is ready for review.
+
+RMD-TASK-010 (运行 / 守败 chapters 13–16) remains blocked until explicit merge approval.
