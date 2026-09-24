@@ -96,8 +96,8 @@ test("TDD2-TEST-005: tag parser recognizes generic primitive configuration", () 
   const config = parseUiTags([
     "ui:type=multi",
     "ui:bind=selected",
-    "ui:option=a|甲",
-    "ui:option=b|乙",
+    "ui:option=a::甲",
+    "ui:option=b::乙",
     "ui:min=1",
     "ui:max=2",
     "ui:submit=提交选择",
@@ -117,7 +117,7 @@ test("TDD2-TEST-005: tag parser recognizes generic primitive configuration", () 
 
 test("TDD2-TEST-006: malformed structured interaction fails instead of guessing", () => {
   assert.throws(
-    () => parseUiTags(["ui:type=multi", "ui:option=a|甲"]),
+    () => parseUiTags(["ui:type=multi", "ui:option=a::甲"]),
     /requires ui:bind/
   );
 
