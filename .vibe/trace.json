@@ -340,6 +340,14 @@
     {
       "id": "BASELINE-CAVEAT-V054",
       "kind": "publication_baseline_caveat"
+    },
+    {
+      "id": "RMD-PR-009",
+      "kind": "pull_request"
+    },
+    {
+      "id": "CI-RUN-35942052613",
+      "kind": "test_run"
     }
   ],
   "links": [
@@ -737,6 +745,21 @@
       "source": "RMD-TASK-005",
       "relation": "qualified_by",
       "target": "BASELINE-CAVEAT-V054"
+    },
+    {
+      "source": "RMD-GIT-005",
+      "relation": "reviewed_by",
+      "target": "RMD-PR-009"
+    },
+    {
+      "source": "TDD-TEST-010",
+      "relation": "evidenced_by",
+      "target": "CI-RUN-35942052613"
+    },
+    {
+      "source": "RMD-TASK-005",
+      "relation": "evidenced_by",
+      "target": "CI-RUN-35942052613"
     }
   ]
 }
