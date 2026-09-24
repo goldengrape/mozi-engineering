@@ -4,7 +4,7 @@
 
 ## Current Phase
 
-URD-0001, ADD-0001 and RMD-0001 are accepted. RMD-TASK-001 is merged. RMD-TASK-002 is implemented and is now at the RMD-GIT-002 merge checkpoint.
+URD-0001, ADD-0001 and RMD-0001 are accepted. RMD-TASK-001 and RMD-TASK-002 are merged. RMD-TASK-003 is implemented and is now at the RMD-GIT-003 merge checkpoint.
 
 ## Requirement → Design
 
@@ -69,7 +69,7 @@ URD-0001, ADD-0001 and RMD-0001 are accepted. RMD-TASK-001 is merged. RMD-TASK-0
 | TDD-TEST-010 | scheduled_in | RMD-TASK-005 | textbook-body integration |
 | RMD-TASK-001 | checkpointed_by | RMD-GIT-001 | PR #3; CI run 35906458582 passed 3/3 tests |
 | RMD-TASK-002 | checkpointed_by | RMD-GIT-002 | PR #5; CI run 35935107490 passed 10/10 tests |
-| RMD-TASK-003 | checkpointed_by | RMD-GIT-003 | feature branch / tests / PR |
+| RMD-TASK-003 | checkpointed_by | RMD-GIT-003 | PR #6; CI run 35936809001 passed 17/17 tests + build + Chrome smoke |
 | RMD-TASK-004 | checkpointed_by | RMD-GIT-004 | feature branch / tests / PR |
 | RMD-TASK-005 | checkpointed_by | RMD-GIT-005 | docs/artifact integration checkpoint |
 
@@ -95,10 +95,22 @@ URD-0001, ADD-0001 and RMD-0001 are accepted. RMD-TASK-001 is merged. RMD-TASK-0
 | Source ID | Relation | Target | Notes |
 | --- | --- | --- | --- |
 | RMD-TASK-002 | implemented_on | feat/rmd-task-002-jieti-story | full Ink branch logic, learning state, state-aware debrief |
-| RMD-GIT-002 | reviewed_by | RMD-PR-005 | PR #5, draft pending merge approval |
-| TDD-TEST-002..006/017..019 | evidenced_by | Actions run 35935107490 | npm test: 10 passed, 0 failed |
+| RMD-GIT-002 | merged_by | RMD-PR-005 | PR #5 merged to main as fd7619a512567cb4366c97ac933192a14fb59f53 |
+| TDD-TEST-002..006/017..019 | evidenced_by | Actions run 35935288962 | npm test: 10 passed, 0 failed |
 | ADD-DP-002/004/005 | realized_in | content/cases/jieti-water-001/story.ink | pedagogy, state and debrief remain in Ink |
 | RMD-TASK-002 | summarized_by | okf/cases/jieti-water-001.md | concise AI retrieval page |
+
+## RMD-TASK-003 Execution Evidence
+
+| Source ID | Relation | Target | Notes |
+| --- | --- | --- | --- |
+| RMD-TASK-003 | implemented_on | feat/rmd-task-003-generic-player | generic player, static builder, local server, tests |
+| RMD-GIT-003 | reviewed_by | RMD-PR-006 | PR #6, draft pending merge approval |
+| TDD-TEST-014/015/020/021 | evidenced_by | Actions run 35936809001 | 17/17 project tests passed |
+| TDD-TEST-007 | evidenced_by | Actions run 35936809001 | generated site opened in headless Chrome through local static server |
+| MDD-API-003 | realized_in | scripts/build.cjs | preflight validate/compile then disposable dist build |
+| MDD-API-004 | realized_in | src/player.js | generic Ink text/choice/restart/error runtime |
+| RMD-TASK-003 | summarized_by | okf/decisions/generic-player-build.md | concise runtime/build retrieval page |
 
 ## Gates
 
@@ -108,7 +120,8 @@ URD-0001, ADD-0001 and RMD-0001 are accepted. RMD-TASK-001 is merged. RMD-TASK-0
 | ADD-0001 | accepted_before | MDD-0001 / TDD-0001 / RMD-0001 | satisfied |
 | RMD-0001 Build Path | accepted_before | RMD-TASK-001 | satisfied |
 | RMD-GIT-001 | completed_before | RMD-TASK-002 | satisfied |
-| RMD-GIT-002 | gates | RMD-TASK-003 | **waiting for merge approval** |
+| RMD-GIT-002 | completed_before | RMD-TASK-003 | satisfied |
+| RMD-GIT-003 | gates | RMD-TASK-004 | **waiting for merge approval** |
 
 ## Trace Update Rule
 
