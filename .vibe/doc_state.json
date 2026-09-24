@@ -5,18 +5,18 @@
   "source_of_truth": "docs",
   "okf_is_derived": true,
   "okf_version": "0.1",
-  "current_phase": "RMD-GIT-010 merge checkpoint",
+  "current_phase": "RMD-GIT-011 merge checkpoint",
   "urd_status": "accepted",
   "add_status": "accepted",
   "mdd_status": "accepted-for-planning",
   "tdd_status": "ready-for-build-path",
   "rmd_status": "accepted",
   "implementation_allowed": true,
-  "active_task": "RMD-TASK-010",
+  "active_task": "RMD-TASK-011",
   "active_task_status": "checkpoint-ready",
-  "active_pr": 14,
-  "next_task": "RMD-TASK-011",
-  "next_task_blocked_by": "RMD-GIT-010 merge approval",
+  "active_pr": 15,
+  "next_task": "RMD-TASK-012",
+  "next_task_blocked_by": "RMD-GIT-011 merge approval",
   "completed_tasks": [
     "RMD-TASK-001",
     "RMD-TASK-002",
@@ -26,7 +26,8 @@
     "RMD-TASK-006",
     "RMD-TASK-007",
     "RMD-TASK-008",
-    "RMD-TASK-009"
+    "RMD-TASK-009",
+    "RMD-TASK-010"
   ],
   "production_pages": {
     "url": "https://goldengrape.github.io/mozi-engineering/",
@@ -39,11 +40,13 @@
     "canonical_release_caveat": "Earlier v0.5.4 artifact bytes are unavailable in the current conversation; replay localized insertion if v0.5.4 remains canonical."
   },
   "checkpoint_evidence": {
-    "workflow_run": 35963452549,
-    "implementation_head": "41e12e73773e4e87abc2d3273dea6c6b8a637211",
-    "tests_passed": 51,
+    "workflow_run": 35965518132,
+    "implementation_head": "2dfac6cc8cfbc799d45467d47464dba2de949930",
+    "tests_passed": 59,
     "tests_failed": 0,
-    "build_cases": 16,
+    "build_cases": 20,
+    "chapter_cases": 16,
+    "mixed_cases": 4,
     "build": "passed",
     "case_validation": "passed",
     "browser_smoke": "passed"
@@ -76,12 +79,19 @@
       15,
       16
     ],
-    "chapter_case_status": "all-16-authored-and-tested"
+    "chapter_case_status": "all-16-authored-and-tested",
+    "mixed_practices": [
+      "mixed-clinical-safety-001",
+      "mixed-bio-repro-001",
+      "mixed-agri-transfer-001",
+      "mixed-payment-ops-001"
+    ],
+    "mixed_case_status": "four-appendix-f-practices-authored-and-tested"
   },
   "last_merge": {
-    "task": "RMD-TASK-009",
-    "pr": 13,
-    "sha": "099b54dd16bd66d3e49d3068a38899e0673a8b80",
-    "pages_run": 35962990512
+    "task": "RMD-TASK-010",
+    "pr": 14,
+    "sha": "2f7e648a8f42c91a7ae0ec4e38ba11f2c277339e",
+    "pages_run": 35964570276
   }
 }
