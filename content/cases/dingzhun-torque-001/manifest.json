@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "case_id": "dingzhun-torque-001",
+  "title": "一把扭矩扳手什么时候开始不可信？",
+  "language": "zh-CN",
+  "textbook": {
+    "chapter_id": "03-dingzhun",
+    "placement": "worked-example-practice"
+  },
+  "story_source": "story.ink",
+  "book_fragment": "book.md"
+}
