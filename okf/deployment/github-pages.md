@@ -8,7 +8,7 @@ source_ids:
   - TDD-TEST-009
   - TDD-TEST-021
   - RMD-TASK-004
-status: pages_enablement_blocked
+status: pages_source_mode_blocked
 ---
 
 # Registry
@@ -61,15 +61,15 @@ Workflow run `35938292249` successfully:
 - built the site;
 - uploaded the Pages artifact.
 
-Deployment then stopped in `actions/configure-pages@v5` because the repository does not yet have a Pages site enabled.
+After the owner enabled Pages, the rerun completed `actions/configure-pages@v5` and `actions/deploy-pages@v5` successfully and returned `https://goldengrape.github.io/mozi-engineering/`.
 
-The official action's `enablement` input cannot solve this using the normal workflow `GITHUB_TOKEN`; enabling Pages requires a separate token with repository administration and Pages write permission.
+Public diagnostics then showed that the live site is still a Jekyll branch build: the root HTML announces `Jekyll v3.10.0`, does not match `dist/index.html`, and all artifact-only assets/case paths return 404. The downloaded production artifact was inspected and contains the missing paths.
 
 # Owner action required
 
 `Settings → Pages → Build and deployment → Source → GitHub Actions`
 
-Then rerun the production Pages workflow.
+The exact **Source** must be `GitHub Actions`, not `Deploy from a branch`. Then rerun the production Pages workflow.
 
 # Remaining gate
 
