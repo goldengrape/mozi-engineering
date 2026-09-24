@@ -8,7 +8,7 @@ source_ids:
   - RMD-TASK-003
   - RMD-TASK-004
   - RMD-TASK-005
-status: task_005_checkpoint_ready
+status: complete
 ---
 
 # 顺序
@@ -21,7 +21,7 @@ status: task_005_checkpoint_ready
 
 # 当前状态
 
-RMD-TASK-001 至 RMD-TASK-003 已完成。RMD-TASK-004 已合入 main；RMD-TASK-004 已完成。RMD-TASK-005 已把真实公网入口、纸面替代练习和二维码方案集成到可访问的 v0.5.3 Word/EPUB 出版源，当前停在 RMD-GIT-005 checkpoint。
+RMD-TASK-001 至 RMD-TASK-003 已完成。RMD-TASK-004 已合入 main；RMD-TASK-004 已完成。RMD-TASK-005 已合入 main；单案例 MVP 的五个实现切片全部完成。全书扩展转入 Phase 2。
 
 # Current checkpoint
 
@@ -56,3 +56,10 @@ The stable repository block and public route are complete.
 Candidate publication artifacts were generated from the currently accessible v0.5.3 DOCX/EPUB source. They passed DOCX render QA and EPUB structural/link checks.
 
 Project history references a later v0.5.4 terminology-revision artifact, but those bytes are not currently available. The Task 005 candidates are therefore not mislabeled as a newer release; if v0.5.4 remains canonical, replay the same localized insertion onto it before release naming.
+
+
+# Completion
+
+PR #9 merged to `main` as `9402a213b0bb527f189d06c7dcb44d3ea4c492c6`.
+
+The single-case MVP path is complete. Further work is tracked in `okf/paths/full-book-expansion.md`.
