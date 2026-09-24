@@ -4,7 +4,7 @@
 
 ## Current Phase
 
-URD-0001, ADD-0001 and RMD-0001 are accepted. RMD-TASK-001 through RMD-TASK-003 are complete. RMD-TASK-004 code is merged. Actions deployment succeeds, but the live Pages site is still a Jekyll branch build rather than the uploaded `dist/` artifact; Source must be switched to GitHub Actions.
+URD-0001, ADD-0001 and RMD-0001 are accepted. RMD-TASK-001 through RMD-TASK-003 are complete. RMD-TASK-004 is complete. Pages Source is GitHub Actions; the deployed artifact is live and the public home/case routes passed desktop and 390px mobile-width smoke checks.
 
 ## Requirement → Design
 
@@ -130,7 +130,16 @@ URD-0001, ADD-0001 and RMD-0001 are accepted. RMD-TASK-001 through RMD-TASK-003 
 | RMD-GIT-004 | merged_as | bbbeca30c6a0242d7860d04686b7d9b4a6d3ae05 | PR #7 merged to main |
 | RMD-TASK-004 | deployment_attempted_by | Actions run 35938292249 | build + artifact upload succeeded |
 | Actions run 35938292249 | deployment_succeeded | https://goldengrape.github.io/mozi-engineering/ | Configure + Deploy succeeded after Pages enablement |
-| public Pages diagnostics | detected | branch/Jekyll source | root 200 but artifact assets/cases 404; live HTML says Jekyll v3.10.0 |
+| public Pages smoke | evidenced_by | Actions run 35940775884 | all required public routes 200; desktop + 390px Chrome smoke passed |
+
+## RMD-TASK-004 Completion Evidence
+
+| Source ID | Relation | Target | Notes |
+| --- | --- | --- | --- |
+| RMD-TASK-004 | deployed_to | https://goldengrape.github.io/mozi-engineering/ | GitHub Actions Pages source |
+| CI-RUN-35938292249 | deployment_succeeded | production Pages | Configure + Deploy succeeded after source switch |
+| CI-RUN-35940775884 | public_smoke_passed | production Pages | all required routes 200; desktop and 390px Chrome rendering passed |
+| RMD-TASK-004 | completed_before | RMD-TASK-005 | gate satisfied |
 
 ## Gates
 
@@ -142,9 +151,9 @@ URD-0001, ADD-0001 and RMD-0001 are accepted. RMD-TASK-001 through RMD-TASK-003 
 | RMD-GIT-001 | completed_before | RMD-TASK-002 | satisfied |
 | RMD-GIT-002 | completed_before | RMD-TASK-003 | satisfied |
 | RMD-GIT-003 | completed_before | RMD-TASK-004 | satisfied |
-| RMD-GIT-004 | triggered | production Pages deployment | workflow 35938292249: build succeeded, configure-pages failed because Pages is not enabled |
-| repository Pages source mode | gates | production artifact visibility | **owner action required: Source = GitHub Actions** |
-| production Pages smoke | gates | RMD-TASK-005 | pending |
+| RMD-GIT-004 | completed_by | production Pages deployment | workflow 35938292249 rerun succeeded after Source = GitHub Actions |
+| repository Pages source mode | configured_as | GitHub Actions | satisfied |
+| production Pages smoke | completed_before | RMD-TASK-005 | satisfied |
 
 ## Trace Update Rule
 
