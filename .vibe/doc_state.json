@@ -5,23 +5,24 @@
   "source_of_truth": "docs",
   "okf_is_derived": true,
   "okf_version": "0.1",
-  "current_phase": "RMD-GIT-005 merge checkpoint",
+  "current_phase": "RMD-TASK-006 active",
   "urd_status": "accepted",
   "add_status": "accepted",
   "mdd_status": "accepted-for-planning",
   "tdd_status": "ready-for-build-path",
   "rmd_status": "accepted",
   "implementation_allowed": true,
-  "active_task": "RMD-TASK-005",
-  "active_task_status": "checkpoint-ready",
-  "active_pr": 9,
-  "next_task": null,
-  "next_task_blocked_by": null,
+  "active_task": "RMD-TASK-006",
+  "active_task_status": "implementation",
+  "active_pr": null,
+  "next_task": "RMD-TASK-007",
+  "next_task_blocked_by": "RMD-GIT-006 merge approval",
   "completed_tasks": [
     "RMD-TASK-001",
     "RMD-TASK-002",
     "RMD-TASK-003",
-    "RMD-TASK-004"
+    "RMD-TASK-004",
+    "RMD-TASK-005"
   ],
   "production_pages": {
     "url": "https://goldengrape.github.io/mozi-engineering/",
@@ -40,5 +41,22 @@
     "build": "passed",
     "case_validation": "passed",
     "browser_smoke": "passed"
+  },
+  "phase2": {
+    "goal": "extend interactive Ink layer across all sixteen textbook chapters",
+    "curriculum_registry": "content/curriculum.json",
+    "interaction_protocol": "docs/INTERACTION_PROTOCOL.md",
+    "supported_primitives": [
+      "choice",
+      "multi",
+      "number",
+      "rank"
+    ]
+  },
+  "last_merge": {
+    "task": "RMD-TASK-005",
+    "pr": 9,
+    "sha": "9402a213b0bb527f189d06c7dcb44d3ea4c492c6",
+    "pages_run": 35942538225
   }
 }
