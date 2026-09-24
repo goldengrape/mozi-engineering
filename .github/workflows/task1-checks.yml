@@ -72,3 +72,45 @@ jobs:
           grep -q "1000 m³" /tmp/mozi-dom.html
           grep -q "先查主表究竟把哪些用水算在一起" /tmp/mozi-dom.html
           grep -q "先按“楼内漏水 180 m³”处理" /tmp/mozi-dom.html
+
+
+      - name: Public Pages smoke
+        shell: bash
+        env:
+          PUBLIC_BASE: https://goldengrape.github.io/mozi-engineering
+        run: |
+          set -euo pipefail
+
+          curl --fail --silent --show-error --location "$PUBLIC_BASE/" > /tmp/public-home.html
+          curl --fail --silent --show-error --location "$PUBLIC_BASE/cases/jieti-water-001/" > /tmp/public-case.html
+          curl --fail --silent --show-error --location "$PUBLIC_BASE/cases/jieti-water-001/manifest.json" > /tmp/public-manifest.json
+          curl --fail --silent --show-error --location "$PUBLIC_BASE/cases/jieti-water-001/story.json" > /tmp/public-story.json
+          curl --fail --silent --show-error --location "$PUBLIC_BASE/assets/ink.js" > /tmp/public-ink.js
+          curl --fail --silent --show-error --location "$PUBLIC_BASE/assets/player.js" > /tmp/public-player.js
+
+          grep -q "造物之理" /tmp/public-home.html
+          grep -q "jieti-water-001" /tmp/public-manifest.json
+          grep -q "教学楼为什么多用了 18% 的水" /tmp/public-manifest.json
+
+          if grep -E '<script[^>]+src=["'\''']https?://' /tmp/public-case.html; then
+            echo "Remote script dependency found in public case HTML" >&2
+            exit 1
+          fi
+
+          chrome_bin="$(command -v google-chrome || command -v chromium || command -v chromium-browser || true)"
+          if [ -z "$chrome_bin" ]; then
+            echo "No Chrome/Chromium binary found on runner" >&2
+            exit 1
+          fi
+
+          "$chrome_bin"             --headless             --no-sandbox             --disable-gpu             --window-size=1440,1000             --virtual-time-budget=5000             --dump-dom             "$PUBLIC_BASE/cases/jieti-water-001/"             > /tmp/public-desktop-dom.html
+
+          "$chrome_bin"             --headless             --no-sandbox             --disable-gpu             --window-size=390,844             --virtual-time-budget=5000             --dump-dom             "$PUBLIC_BASE/cases/jieti-water-001/"             > /tmp/public-mobile-dom.html
+
+          for dom in /tmp/public-desktop-dom.html /tmp/public-mobile-dom.html; do
+            grep -q "1000 m³" "$dom"
+            grep -q "先查主表究竟把哪些用水算在一起" "$dom"
+            grep -q "先按“楼内漏水 180 m³”处理" "$dom"
+          done
+
+          echo "Public Pages smoke passed for desktop and 390px mobile viewport."
