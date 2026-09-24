@@ -31,3 +31,12 @@ status: accepted
 `jieti-water-001`
 
 展示标题可以修改，已发布 case ID 原则上不改。
+
+
+# Published first-case entry
+
+The stable public entry for the first textbook task is:
+
+`https://goldengrape.github.io/mozi-engineering/cases/jieti-water-001/`
+
+The printed/Word form may pair this visible URL with a QR code. EPUB uses the same URL as a clickable link. The URL or QR is never the only exercise content; the no-web first-judgment task remains in the body.
