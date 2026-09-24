@@ -79,7 +79,7 @@
 | RMD-GIT-002 | RMD-TASK-002 | `feat/rmd-task-002-jieti-story` | `feat: implement RMD-TASK-002 jieti story` | #5 | merged | 10/10 tests + source review |
 | RMD-GIT-003 | RMD-TASK-003 | `feat/rmd-task-003-generic-player` | `feat: implement RMD-TASK-003 generic player` | #6 | merged | 17/17 tests + build + headless Chrome smoke |
 | RMD-GIT-004 | RMD-TASK-004 | `feat/rmd-task-004-pages` | `feat: implement RMD-TASK-004 pages deployment` | #7 | completed | 19/19 tests + successful Actions deployment + public desktop/mobile smoke |
-| RMD-GIT-005 | RMD-TASK-005 | `docs/rmd-task-005-textbook-integration` | `docs: integrate RMD-TASK-005 into textbook body` | #9 | checkpoint-ready | 21/21 tests + book contract + DOCX/EPUB artifact QA |
+| RMD-GIT-005 | RMD-TASK-005 | `docs/rmd-task-005-textbook-integration` | `docs: integrate RMD-TASK-005 into textbook body` | #9 | merged | 21/21 tests + book contract + DOCX/EPUB artifact QA |
 
 First implementation push and every merge remain explicit checkpoint actions.
 
@@ -562,7 +562,7 @@ RMD-TASK-005 is now unblocked and ready to integrate the validated interaction b
 
 ## RMD-TASK-005 Execution Record
 
-- status: **checkpoint-ready / pending merge approval**
+- status: **merged / completed**
 - branch: `docs/rmd-task-005-textbook-integration`
 - case_id: `jieti-water-001`
 - public route: `https://goldengrape.github.io/mozi-engineering/cases/jieti-water-001/`
@@ -669,6 +669,67 @@ PR #9 head was verified by GitHub Actions run `35942052613`:
 RMD-GIT-005 is ready for review.
 
 - pull request: #9;
-- merge status: **pending explicit approval**;
-- repository integration can be merged independently of the publication-version naming caveat;
-- no merge has been performed.
+- merge status: **merged**;
+- PR #9 merged into `main` as `9402a213b0bb527f189d06c7dcb44d3ea4c492c6`;
+- post-merge Pages build/deploy run `35942538225` succeeded.
+
+
+# Phase 2 — Full-book Ink expansion
+
+2026-09-24，项目所有者确认继续把 Ink 互动层扩展到全书，并明确授权开始执行。
+
+教材来源结构保持十六章：
+
+- 察物：界体、衡算、定准、传准、参验；
+- 制物：分任、制耦、分构、定动、容度、相衡、示制；
+- 运行：序作、通滞；
+- 守败：防误、限败。
+
+Phase 2 不把十五个新案例简单复制成《界体》的按钮分支。互动原语保持少而通用，案例特定判断继续留在 Ink。
+
+## Phase 2 Ordered Tasks
+
+| ID | Task | Depends On | Main Outputs | Done When |
+| --- | --- | --- | --- | --- |
+| RMD-TASK-006 | 建立十六章 curriculum registry 与通用互动原语协议/runtime | RMD-TASK-005 | `content/curriculum.json`, `docs/INTERACTION_PROTOCOL.md`, generic multi/number/rank runtime, Phase 2 tests | 16 章来源结构固定；structured primitives 通过真实 Ink fixture；现有《界体》回归不破坏 |
+| RMD-TASK-007 | 完成察物第 2–5 章互动案例 | RMD-TASK-006 | 衡算、定准、传准、参验 case packages + book fragments + story tests | 四章均有无标签开场、错误/修正路径、state-aware debrief；build 自动出现新 routes |
+| RMD-TASK-008 | 完成制物第 6–8 章 | RMD-TASK-007 | 分任、制耦、分构 cases | 功能/依赖/分界三种学习动作可执行，JS 无篇目专用逻辑 |
+| RMD-TASK-009 | 完成制物第 9–12 章 | RMD-TASK-008 | 定动、容度、相衡、示制 cases | 约束、数值预测、关系改变、独立复现均有可执行练习 |
+| RMD-TASK-010 | 完成运行/守败第 13–16 章 | RMD-TASK-009 | 序作、通滞、防误、限败 cases | 排序、瓶颈预测、攻击设计、故障状态控制可执行 |
+| RMD-TASK-011 | 加入跨章混合检索/迁移练习 | RMD-TASK-010 | 至少四个无方法标签 mixed cases | 学习者必须从症状判断下一动作，不能按章节标签答题 |
+| RMD-TASK-012 | 建立一条贯穿案例并回写全书出版物 | RMD-TASK-011 | longitudinal case + full-book link/QR/no-web integration | Web/Word/EPUB 身份一致，全文入口与纸面替代练习通过 QA |
+
+## Phase 2 Git Checkpoints
+
+| ID | RMD Task | Branch | Merge Status | Required Evidence |
+| --- | --- | --- | --- | --- |
+| RMD-GIT-006 | RMD-TASK-006 | `feat/rmd-task-006-curriculum-primitives` | active | TDD2-TEST-001..009 + regression suite |
+| RMD-GIT-007 | RMD-TASK-007 | `feat/rmd-task-007-observe-cases` | pending | chapter 2–5 path tests + build/browser smoke |
+| RMD-GIT-008 | RMD-TASK-008 | `feat/rmd-task-008-make-cases-a` | pending | chapter 6–8 tests |
+| RMD-GIT-009 | RMD-TASK-009 | `feat/rmd-task-009-make-cases-b` | pending | chapter 9–12 tests |
+| RMD-GIT-010 | RMD-TASK-010 | `feat/rmd-task-010-run-fail-cases` | pending | chapter 13–16 tests |
+| RMD-GIT-011 | RMD-TASK-011 | `feat/rmd-task-011-mixed-review` | pending | transfer/mixed-case tests |
+| RMD-GIT-012 | RMD-TASK-012 | `docs/rmd-task-012-full-book-integration` | pending | publication QA + public route smoke |
+
+## RMD-TASK-006 Scope
+
+Source facts and interaction design are deliberately separated.
+
+`content/curriculum.json` records the textbook-derived chapter/method/worked-example structure and, in a separate `design` object, the interactive primitive allocation.
+
+Generic runtime protocol:
+
+- `choice` — ordinary Ink choices;
+- `multi` — checkbox-style selection/classification/edge selection;
+- `number` — numeric prediction or calculation;
+- `rank` — ordering/state precedence.
+
+Structured interaction contract:
+
+1. Ink emits generic `ui:` tags;
+2. exactly one Ink commit choice is present;
+3. the player validates the learner input;
+4. the player writes only the declared Ink variable;
+5. Ink resumes and owns interpretation, branching and feedback.
+
+No answer key or method-specific scoring is allowed in JavaScript.
