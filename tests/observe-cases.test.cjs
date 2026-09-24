@@ -119,7 +119,7 @@ test("TDD2-TEST-012: Chapter 3 treats the reference as stateful and traces from 
   assert.match(opening.text, /52 N·m/);
 
   let out = choose(story, /把扳手调回 50 N·m/);
-  assert.match(out.text, /当前值/);
+  assert.match(out.text, /当前输出|现在是什么状态/);
   out = choose(story, /先停用/);
   assert.match(out.text, /最近一次可信状态/);
 
@@ -160,7 +160,7 @@ test("TDD2-TEST-013: Chapter 4 computes and revises the minimum downstream impac
 
   out = choose(story, /无法精确沿支链追查/);
   assert.match(out.text, /《传准》/);
-  assert.match(out.text, /\{C,D,E\}/);
+  assert.match(out.text, /C、D、E/);
   assert.equal(value(story, "recognized_records_value"), true);
   assert.equal(value(story, "case_complete"), true);
 });
