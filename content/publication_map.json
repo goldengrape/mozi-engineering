@@ -13,7 +13,7 @@
     {
       "case_id": "hengsuan-balance-001",
       "anchor": "3. 完整例题：先把 5 kg/h 留在账上",
-      "after_nonempty": 1,
+      "after_nonempty": 0,
       "epub_file": "EPUB/text/ch002.xhtml",
       "route": "https://goldengrape.github.io/mozi-engineering/cases/hengsuan-balance-001/"
     },
@@ -69,14 +69,14 @@
     {
       "case_id": "rongdu-stack-001",
       "anchor": "3. 完整例题：三个零件都合格，为什么总成仍越界？",
-      "after_nonempty": 1,
+      "after_nonempty": 0,
       "epub_file": "EPUB/text/ch003.xhtml",
       "route": "https://goldengrape.github.io/mozi-engineering/cases/rongdu-stack-001/"
     },
     {
       "case_id": "xiangheng-reversal-001",
       "anchor": "3. 完整例题：两次读数怎样分出工件斜度和仪器零偏？",
-      "after_nonempty": 1,
+      "after_nonempty": 0,
       "epub_file": "EPUB/text/ch003.xhtml",
       "route": "https://goldengrape.github.io/mozi-engineering/cases/xiangheng-reversal-001/"
     },
@@ -111,7 +111,7 @@
     {
       "case_id": "xianbai-battery-001",
       "anchor": "3. 完整例题：电池模块过热以后，不要把“停机”当成全部处理",
-      "after_nonempty": 1,
+      "after_nonempty": 0,
       "epub_file": "EPUB/text/ch005.xhtml",
       "route": "https://goldengrape.github.io/mozi-engineering/cases/xianbai-battery-001/"
     },
