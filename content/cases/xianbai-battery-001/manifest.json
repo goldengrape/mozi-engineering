@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "case_id": "xianbai-battery-001",
+  "title": "电池模块过热以后，不要把“停机”当成全部处理",
+  "language": "zh-CN",
+  "textbook": {
+    "chapter_id": "16-xianbai",
+    "placement": "worked-example-practice"
+  },
+  "story_source": "story.ink",
+  "book_fragment": "book.md"
+}

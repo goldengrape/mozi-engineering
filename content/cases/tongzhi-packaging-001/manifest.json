@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "case_id": "tongzhi-packaging-001",
+  "title": "把包装提速一倍，为什么产量不变？",
+  "language": "zh-CN",
+  "textbook": {
+    "chapter_id": "14-tongzhi",
+    "placement": "worked-example-practice"
+  },
+  "story_source": "story.ink",
+  "book_fragment": "book.md"
+}

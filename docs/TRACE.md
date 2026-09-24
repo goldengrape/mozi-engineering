@@ -4,7 +4,7 @@
 
 ## Current Phase
 
-MVP RMD-TASK-001..005 and Phase 2 RMD-TASK-006..008 are merged. RMD-TASK-009 implements 制物 chapters 9–12 and is at the RMD-GIT-009 merge checkpoint.
+MVP RMD-TASK-001..005 and Phase 2 RMD-TASK-006..009 are merged. RMD-TASK-010 completes chapter-level cases 13–16 and is at the RMD-GIT-010 merge checkpoint.
 
 ## Requirement → Design
 
@@ -216,6 +216,18 @@ MVP RMD-TASK-001..005 and Phase 2 RMD-TASK-006..008 are merged. RMD-TASK-009 imp
 | RMD-TASK-009 | generated_as | twelve-case static build | chapters 1–12 published |
 | RMD-TASK-009 | summarized_by | okf/cases/make-chapters-9-12.md | concise retrieval page |
 
+## RMD-TASK-010 Execution Evidence
+
+| Source ID | Relation | Target | Notes |
+| --- | --- | --- | --- |
+| RMD-GIT-009 | merged_as | 099b54dd16bd66d3e49d3068a38899e0673a8b80 | PR #13 |
+| RMD-TASK-009 | deployed_by | Actions run 35962990512 | post-merge Pages deploy succeeded |
+| RMD-TASK-010 | implemented_on | feat/rmd-task-010-run-fail-cases | 序作 / 通滞 / 防误 / 限败 case packages |
+| RMD-GIT-010 | reviewed_by | RMD-PR-014 | PR #14 |
+| TDD2-TEST-026..030 | evidenced_by | Actions run 35963452549 | 51/51 total tests passed |
+| RMD-TASK-010 | generated_as | sixteen-case static build | chapters 1–16 published |
+| RMD-TASK-010 | summarized_by | okf/cases/run-fail-chapters-13-16.md | concise retrieval page |
+
 ## Gates
 
 | Source | Relation | Target | Status |
@@ -243,6 +255,6 @@ MVP RMD-TASK-001..005 and Phase 2 RMD-TASK-006..008 are merged. RMD-TASK-009 imp
 | RMD-GIT-006 | completed_before | RMD-TASK-007 | satisfied |
 | RMD-GIT-007 | completed_before | RMD-TASK-008 | satisfied |
 | RMD-GIT-008 | completed_before | RMD-TASK-009 | satisfied |
-| RMD-GIT-009 | gates | RMD-TASK-010 | **waiting for merge approval** |
-| RMD-GIT-010 | gates | RMD-TASK-011 | pending |
+| RMD-GIT-009 | completed_before | RMD-TASK-010 | satisfied |
+| RMD-GIT-010 | gates | RMD-TASK-011 | **waiting for merge approval** |
 | RMD-GIT-011 | gates | RMD-TASK-012 | pending |

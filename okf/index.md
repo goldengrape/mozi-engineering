@@ -8,7 +8,7 @@ okf_version: "0.1"
 
 ## Current phase
 
-The project is at **RMD-GIT-009 merge checkpoint**. 第一部《察物》 is complete and 第二部《制物》 chapters 6–12 now have authored interactive cases; twelve routes pass the full regression suite.
+The project is at **RMD-GIT-010 merge checkpoint**. All sixteen textbook chapters now have authored interactive cases; sixteen routes pass the full regression suite. The next slice moves from chapter-local practice to mixed retrieval/transfer.
 
 - first prototype: `jieti-water-001`, based on the textbook's “教学楼用水增加 18%” case;
 - interactive task belongs in the textbook body;
@@ -54,6 +54,7 @@ Software test success validates the mechanism implementation, not long-term lear
 - [察物第 2–5 章互动案例](cases/observe-chapters-2-5.md) — 衡算、定准、传准、参验的不同互动机制与来源边界。
 - [制物第 6–8 章互动案例](cases/make-chapters-6-8.md) — 分任、制耦、分构的功能/依赖/分界训练与来源边界。
 - [制物第 9–12 章互动案例](cases/make-chapters-9-12.md) — 定动、容度、相衡、示制的约束/偏差传播/反转/独立复现训练。
+- [运行与守败第 13–16 章互动案例](cases/run-fail-chapters-13-16.md) — 序作、通滞、防误、限败的依赖/瓶颈/防错/故障状态训练。
 - [通用播放器与静态构建](decisions/generic-player-build.md) — Web runtime、build output 和无案例耦合边界。
 - [GitHub Pages 发布](deployment/github-pages.md) — registry 扩展、project Pages 路径与生产部署门槛。
 

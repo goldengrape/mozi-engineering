@@ -2,6 +2,8 @@
 
 | Date | Changed By | Files | Summary | Trace Impact |
 | --- | --- | --- | --- | --- |
+| 2026-09-24 | ChatGPT | content/cases/{xuzuo-bridge-001,tongzhi-packaging-001,fangwu-gas-001,xianbai-battery-001}/*, content/curriculum.json, tests/*, PR #14, Actions 35963452549 | 完成 RMD-TASK-010：序作、通滞、防误、限败四章互动案例；51/51 tests、十六案例 build、case validation、browser smoke 全部通过。 | RMD-GIT-010 checkpoint-ready；RMD-TASK-011 等待 merge approval |
+| 2026-09-24 | project owner + ChatGPT | PR #13 merge 099b54dd, Pages 35962990512 | RMD-TASK-009 已合并；制物第 9–12 章进入 main 并成功重新部署 Pages。 | RMD-GIT-009 satisfied；RMD-TASK-010 unblocked |
 | 2026-09-24 | ChatGPT | content/cases/{dingdong-guide-001,rongdu-stack-001,xiangheng-reversal-001,shizhi-bracket-001}/*, content/curriculum.json, tests/*, PR #13, Actions 35962501094 | 完成 RMD-TASK-009：定动、容度、相衡、示制四章互动案例；直接从 DOCX 公式 XML 核准容度/相衡数值；46/46 tests、十二案例 build、browser smoke 通过。 | RMD-GIT-009 checkpoint-ready；RMD-TASK-010 等待 merge approval |
 | 2026-09-24 | project owner + ChatGPT | PR #12 merge 4d5306a4, Pages 35961945622 | RMD-TASK-008 已合并；制物第 6–8 章进入 main 并成功重新部署 Pages。 | RMD-GIT-008 satisfied；RMD-TASK-009 unblocked |
 | 2026-09-24 | ChatGPT | content/cases/{fenren-door-001,zhiou-robot-001,fengou-service-001}/*, content/curriculum.json, tests/*, PR #12, Actions 35956839559 | 完成 RMD-TASK-008：制物第 6–8 章分别训练功能/实现分离、逐边制耦、分界收益/接口责任；41/41 tests、八案例 build、case validation、browser smoke 通过。 | RMD-GIT-008 checkpoint-ready；RMD-TASK-009 等待 merge approval |

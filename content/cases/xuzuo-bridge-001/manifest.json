@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "case_id": "xuzuo-bridge-001",
+  "title": "施工流程里哪些“先后”只是资源问题？",
+  "language": "zh-CN",
+  "textbook": {
+    "chapter_id": "13-xuzuo",
+    "placement": "worked-example-practice"
+  },
+  "story_source": "story.ink",
+  "book_fragment": "book.md"
+}

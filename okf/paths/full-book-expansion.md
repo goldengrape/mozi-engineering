@@ -10,7 +10,7 @@ source_ids:
   - RMD-TASK-010
   - RMD-TASK-011
   - RMD-TASK-012
-status: task_009_checkpoint_ready
+status: task_010_checkpoint_ready
 ---
 
 # Core rule
@@ -50,18 +50,19 @@ Ink 继续拥有证据释放、学习状态、分支后果和复盘；浏览器�
 
 # Current checkpoint
 
-RMD-TASK-008 merged as `4d5306a4959c5f86cf0a7acb72ba1211977e5b92`; post-merge Pages run `35961945622` passed.
+RMD-TASK-009 merged as `099b54dd16bd66d3e49d3068a38899e0673a8b80`; post-merge Pages run `35962990512` passed.
 
-RMD-TASK-009 is implemented on `feat/rmd-task-009-make-cases-b`.
+RMD-TASK-010 is implemented on `feat/rmd-task-010-run-fail-cases`.
 
 Evidence:
 
-- Actions `35962501094`: 46 tests passed, 0 failed;
-- chapters 9–12 compile and complete along tested correction paths;
-- curriculum chapters 1–12 are published;
-- static build generates twelve authored cases;
-- published coverage is tested as a contiguous chapter range rather than a fixed hard-coded list;
-- the 相衡 wrong path now requires an explicit learner correction to reversal;
+- Actions `35963452549`: 51 tests passed, 0 failed;
+- chapters 13–16 compile and complete along tested correction paths;
+- all sixteen curriculum chapters are published;
+- static build generates sixteen authored chapter cases;
+- TDD2-TEST-030 verifies case/chapter identity and no-web book fragments across the whole sixteen-chapter set;
 - existing browser smoke remains green.
 
-PR #13 is unmerged. RMD-TASK-010 is blocked until merge approval.
+The chapter-level expansion is now complete. The next slice changes the learning problem: RMD-TASK-011 must present mixed, unlabeled cases that require method retrieval/transfer rather than chapter-local recognition.
+
+PR #14 is unmerged. RMD-TASK-011 is blocked until merge approval.

@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "case_id": "fangwu-gas-001",
+  "title": "把“不要接错气瓶”改成接错也接不上",
+  "language": "zh-CN",
+  "textbook": {
+    "chapter_id": "15-fangwu",
+    "placement": "worked-example-practice"
+  },
+  "story_source": "story.ink",
+  "book_fragment": "book.md"
+}
