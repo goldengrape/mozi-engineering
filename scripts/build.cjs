@@ -95,6 +95,12 @@ function buildSite(
     ])
   );
 
+  for (const caseId of practiceByCase.keys()) {
+    if (curriculumByCase.has(caseId)) {
+      throw new Error(`case_id appears in both curriculum and practice registry: ${caseId}`);
+    }
+  }
+
   const catalogByCase = new Map([...curriculumByCase, ...practiceByCase]);
 
   for (const item of prepared) {
