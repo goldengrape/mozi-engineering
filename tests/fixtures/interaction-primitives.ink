@@ -4,9 +4,9 @@ VAR rank_answer = ""
 
 # ui:type=multi
 # ui:bind=multi_answer
-# ui:option=a|甲
-# ui:option=b|乙
-# ui:option=c|丙
+# ui:option=a::甲
+# ui:option=b::乙
+# ui:option=c::丙
 # ui:min=1
 # ui:max=2
 # ui:submit=提交多选
@@ -31,9 +31,9 @@ VAR rank_answer = ""
 === rank_step ===
 # ui:type=rank
 # ui:bind=rank_answer
-# ui:option=a|步骤甲
-# ui:option=b|步骤乙
-# ui:option=c|步骤丙
+# ui:option=a::步骤甲
+# ui:option=b::步骤乙
+# ui:option=c::步骤丙
 # ui:submit=提交顺序
 请安排三个步骤。
 * [继续]
