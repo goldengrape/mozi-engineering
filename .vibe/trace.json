@@ -408,6 +408,34 @@
     {
       "id": "TDD2-TEST-010..015",
       "kind": "phase2_test_set"
+    },
+    {
+      "id": "MERGE-0113c0e484af8bded2d04861acd535da150ed414",
+      "kind": "merge_commit"
+    },
+    {
+      "id": "CI-RUN-35956661728",
+      "kind": "deployment_run"
+    },
+    {
+      "id": "RMD-TASK-008",
+      "kind": "task"
+    },
+    {
+      "id": "RMD-GIT-008",
+      "kind": "git_checkpoint"
+    },
+    {
+      "id": "RMD-PR-012",
+      "kind": "pull_request"
+    },
+    {
+      "id": "TDD2-TEST-016..020",
+      "kind": "phase2_test_set"
+    },
+    {
+      "id": "CI-RUN-35956839559",
+      "kind": "test_run"
     }
   ],
   "links": [
@@ -905,6 +933,46 @@
       "source": "RMD-TASK-007",
       "relation": "summarized_by",
       "target": "okf/cases/observe-chapters-2-5.md"
+    },
+    {
+      "source": "RMD-GIT-007",
+      "relation": "merged_as",
+      "target": "MERGE-0113c0e484af8bded2d04861acd535da150ed414"
+    },
+    {
+      "source": "RMD-TASK-007",
+      "relation": "deployed_by",
+      "target": "CI-RUN-35956661728"
+    },
+    {
+      "source": "RMD-GIT-007",
+      "relation": "completed_before",
+      "target": "RMD-TASK-008"
+    },
+    {
+      "source": "RMD-TASK-008",
+      "relation": "checkpointed_by",
+      "target": "RMD-GIT-008"
+    },
+    {
+      "source": "RMD-GIT-008",
+      "relation": "reviewed_by",
+      "target": "RMD-PR-012"
+    },
+    {
+      "source": "RMD-TASK-008",
+      "relation": "verified_by",
+      "target": "TDD2-TEST-016..020"
+    },
+    {
+      "source": "TDD2-TEST-016..020",
+      "relation": "evidenced_by",
+      "target": "CI-RUN-35956839559"
+    },
+    {
+      "source": "RMD-TASK-008",
+      "relation": "summarized_by",
+      "target": "okf/cases/make-chapters-6-8.md"
     }
   ]
 }
