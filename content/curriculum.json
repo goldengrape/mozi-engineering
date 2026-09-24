@@ -1,0 +1,313 @@
+{
+  "schema_version": 1,
+  "source": {
+    "title": "《造物之理》｜跨时代工程方法导论",
+    "baseline": "v0.5.3",
+    "note": "source fields preserve the current textbook chapter/worked-example structure; design fields belong to the interactive layer"
+  },
+  "supported_primitives": [
+    "choice",
+    "multi",
+    "number",
+    "rank"
+  ],
+  "chapters": [
+    {
+      "chapter_number": 1,
+      "chapter_id": "01-jieti",
+      "method": "界体",
+      "part": "察物",
+      "chapter_title": "界体：先决定“算什么”，再谈答案",
+      "worked_example_title": "18% 的用水增长到底属于谁？",
+      "source_page": 12,
+      "source_line": 306,
+      "case_id": "jieti-water-001",
+      "status": "published",
+      "design": {
+        "primary_primitives": [
+          "choice"
+        ],
+        "mechanism": "换界—新证据—改判断"
+      }
+    },
+    {
+      "chapter_number": 2,
+      "chapter_id": "02-hengsuan",
+      "method": "衡算",
+      "part": "察物",
+      "chapter_title": "衡算：让总量彼此约束，让“不合”成为线索",
+      "worked_example_title": "先把 5 kg/h 留在账上",
+      "source_page": 17,
+      "source_line": 413,
+      "case_id": "hengsuan-balance-001",
+      "status": "planned",
+      "design": {
+        "primary_primitives": [
+          "number",
+          "multi"
+        ],
+        "mechanism": "先算残差，再在跨界交换、内部过程、测量记录之间取证"
+      }
+    },
+    {
+      "chapter_number": 3,
+      "chapter_id": "03-dingzhun",
+      "method": "定准",
+      "part": "察物",
+      "chapter_title": "定准：标准也会老化",
+      "worked_example_title": "一把扭矩扳手什么时候开始不可信？",
+      "source_page": 21,
+      "source_line": 506,
+      "case_id": "dingzhun-torque-001",
+      "status": "planned",
+      "design": {
+        "primary_primitives": [
+          "choice"
+        ],
+        "mechanism": "沿时间线判断可信状态、停用与追查范围"
+      }
+    },
+    {
+      "chapter_number": 4,
+      "chapter_id": "04-chuanzhun",
+      "method": "传准",
+      "part": "察物",
+      "chapter_title": "传准：可信不是复制出来的，而是逐级建立并可回溯的",
+      "worked_example_title": "一个高程基准失效，哪些点要重测？",
+      "source_page": 25,
+      "source_line": 603,
+      "case_id": "chuanzhun-benchmark-001",
+      "status": "planned",
+      "design": {
+        "primary_primitives": [
+          "multi"
+        ],
+        "mechanism": "沿传递关系选择最小受影响集合"
+      }
+    },
+    {
+      "chapter_number": 5,
+      "chapter_id": "05-canyan",
+      "method": "参验",
+      "part": "察物",
+      "chapter_title": "参验：一致不等于正确，重复也不等于独立",
+      "worked_example_title": "93% 的模型为什么可能比 88% 更不可信？",
+      "source_page": 30,
+      "source_line": 710,
+      "case_id": "canyan-model-001",
+      "status": "planned",
+      "design": {
+        "primary_primitives": [
+          "choice",
+          "multi"
+        ],
+        "mechanism": "逐步重设计试验，并检查新证据是否真正独立"
+      }
+    },
+    {
+      "chapter_number": 6,
+      "chapter_id": "06-fenren",
+      "method": "分任",
+      "part": "制物",
+      "chapter_title": "分任：先问必须发生什么，不要先数零件",
+      "worked_example_title": "先设计自动门的功能，再决定用什么零件",
+      "source_page": 35,
+      "source_line": 847,
+      "case_id": "fenren-door-001",
+      "status": "planned",
+      "design": {
+        "primary_primitives": [
+          "multi"
+        ],
+        "mechanism": "从现成零件诱饵中剥离必须发生的功能"
+      }
+    },
+    {
+      "chapter_number": 7,
+      "chapter_id": "07-zhiou",
+      "method": "制耦",
+      "part": "制物",
+      "chapter_title": "制耦：把“一改就牵一片”画出来，并逐条问它是否必要",
+      "worked_example_title": "一个参数为什么要改四个模块？",
+      "source_page": 40,
+      "source_line": 951,
+      "case_id": "zhiou-robot-001",
+      "status": "planned",
+      "design": {
+        "primary_primitives": [
+          "multi"
+        ],
+        "mechanism": "逐边审查改变传播，保留必要耦合并解除无益耦合"
+      }
+    },
+    {
+      "chapter_number": 8,
+      "chapter_id": "08-fengou",
+      "method": "分构",
+      "part": "制物",
+      "chapter_title": "分构：每一道分界都会生出新的接口责任",
+      "worked_example_title": "把一个服务拆成三个，真的更简单了吗？",
+      "source_page": 44,
+      "source_line": 1051,
+      "case_id": "fengou-service-001",
+      "status": "planned",
+      "design": {
+        "primary_primitives": [
+          "choice",
+          "multi"
+        ],
+        "mechanism": "比较候选分界与新生接口责任"
+      }
+    },
+    {
+      "chapter_number": 9,
+      "chapter_id": "09-dingdong",
+      "method": "定动",
+      "part": "制物",
+      "chapter_title": "定动：让该动的动，不该动的停",
+      "worked_example_title": "一条直线运动为什么会被两根“更稳”的导轨卡死？",
+      "source_page": 48,
+      "source_line": 1137,
+      "case_id": "dingdong-guide-001",
+      "status": "planned",
+      "design": {
+        "primary_primitives": [
+          "multi"
+        ],
+        "mechanism": "配置欲动自由度与约束，暴露欠约束和重复约束"
+      }
+    },
+    {
+      "chapter_number": 10,
+      "chapter_id": "10-rongdu",
+      "method": "容度",
+      "part": "制物",
+      "chapter_title": "容度：工程不是消灭差异，而是规定什么差异仍可工作",
+      "worked_example_title": "三个零件都合格，为什么总成仍越界？",
+      "source_page": 52,
+      "source_line": 1227,
+      "case_id": "rongdu-stack-001",
+      "status": "planned",
+      "design": {
+        "primary_primitives": [
+          "number",
+          "choice"
+        ],
+        "mechanism": "先预测偏差传播，再比较功能窗口和容差分配"
+      }
+    },
+    {
+      "chapter_number": 11,
+      "chapter_id": "11-xiangheng",
+      "method": "相衡",
+      "part": "制物",
+      "chapter_title": "相衡：没有更好的尺时，用新的关系把偏差显出来",
+      "worked_example_title": "两次读数怎样分出工件斜度和仪器零偏？",
+      "source_page": 56,
+      "source_line": 1336,
+      "case_id": "xiangheng-reversal-001",
+      "status": "planned",
+      "design": {
+        "primary_primitives": [
+          "choice",
+          "number"
+        ],
+        "mechanism": "改变测量关系，使不同偏差以可分辨方式进入读数"
+      }
+    },
+    {
+      "chapter_number": 12,
+      "chapter_id": "12-shizhi",
+      "method": "示制",
+      "part": "制物",
+      "chapter_title": "示制：把设计写出来，让未参与原设计的人也能复现",
+      "worked_example_title": "一张“尺寸很多”的图为什么仍让三家工厂做出三种零件？",
+      "source_page": 60,
+      "source_line": 1437,
+      "case_id": "shizhi-bracket-001",
+      "status": "planned",
+      "design": {
+        "primary_primitives": [
+          "multi"
+        ],
+        "mechanism": "补足关键定义，再交给未参与设计者独立复现"
+      }
+    },
+    {
+      "chapter_number": 13,
+      "chapter_id": "13-xuzuo",
+      "method": "序作",
+      "part": "运行",
+      "chapter_title": "序作：先后来自状态依赖，不来自习惯",
+      "worked_example_title": "施工流程里哪些“先后”只是资源问题？",
+      "source_page": 65,
+      "source_line": 1555,
+      "case_id": "xuzuo-bridge-001",
+      "status": "planned",
+      "design": {
+        "primary_primitives": [
+          "rank",
+          "multi"
+        ],
+        "mechanism": "排真实状态依赖，删除资源造成的假先后并标不可逆点"
+      }
+    },
+    {
+      "chapter_number": 14,
+      "chapter_id": "14-tongzhi",
+      "method": "通滞",
+      "part": "运行",
+      "chapter_title": "通滞：整体速度由限制段决定，限制还会移动",
+      "worked_example_title": "把包装提速一倍，为什么产量不变？",
+      "source_page": 69,
+      "source_line": 1650,
+      "case_id": "tongzhi-packaging-001",
+      "status": "planned",
+      "design": {
+        "primary_primitives": [
+          "number",
+          "choice"
+        ],
+        "mechanism": "先预测整体完成率，再改善限制段并观察限制转移"
+      }
+    },
+    {
+      "chapter_number": 15,
+      "chapter_id": "15-fangwu",
+      "method": "防误",
+      "part": "守败",
+      "chapter_title": "防误：把可预见的人误改写成结构问题",
+      "worked_example_title": "把“不要接错气瓶”改成接错也接不上",
+      "source_page": 75,
+      "source_line": 1768,
+      "case_id": "fangwu-gas-001",
+      "status": "planned",
+      "design": {
+        "primary_primitives": [
+          "multi",
+          "choice"
+        ],
+        "mechanism": "列错法、选结构阻断，再故意攻击绕过路径"
+      }
+    },
+    {
+      "chapter_number": 16,
+      "chapter_id": "16-xianbai",
+      "method": "限败",
+      "part": "守败",
+      "chapter_title": "限败：失败已经发生以后，先控制状态，再谈恢复",
+      "worked_example_title": "电池模块过热以后，不要把“停机”当成全部处理",
+      "source_page": 79,
+      "source_line": 1866,
+      "case_id": "xianbai-battery-001",
+      "status": "planned",
+      "design": {
+        "primary_primitives": [
+          "rank",
+          "choice"
+        ],
+        "mechanism": "按故障状态推进止、隔、限、降、复，并验证恢复条件"
+      }
+    }
+  ]
+}
