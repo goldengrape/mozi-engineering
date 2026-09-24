@@ -170,6 +170,16 @@ MVP RMD-TASK-001..005 are complete and merged. Phase 2 full-book expansion is ac
 | RMD-TASK-006 | verified_by | TDD2-TEST-001..009 | full-book registry + generic runtime |
 | RMD-TASK-006 | summarized_by | okf/paths/full-book-expansion.md | Phase 2 slices |
 
+## RMD-TASK-006 Execution Evidence
+
+| Source ID | Relation | Target | Notes |
+| --- | --- | --- | --- |
+| RMD-TASK-006 | implemented_on | feat/rmd-task-006-curriculum-primitives | curriculum registry + generic primitive runtime |
+| RMD-GIT-006 | reviewed_by | RMD-PR-010 | PR #10 |
+| TDD2-TEST-001..009 | evidenced_by | Actions run 35949487336 | 30/30 total tests passed |
+| INTERACTION-PROTOCOL-001 | realized_in | src/player.js | multi / number / rank; answer meaning remains in Ink |
+| CURRICULUM-001 | realized_in | content/curriculum.json | 16 textbook chapters in source order |
+
 ## Gates
 
 | Source | Relation | Target | Status |
@@ -194,7 +204,7 @@ MVP RMD-TASK-001..005 are complete and merged. Phase 2 full-book expansion is ac
 | Source | Relation | Target | Status |
 | --- | --- | --- | --- |
 | RMD-GIT-005 | completed_before | RMD-TASK-006 | satisfied |
-| RMD-GIT-006 | gates | RMD-TASK-007 | active |
+| RMD-GIT-006 | gates | RMD-TASK-007 | **waiting for merge approval** |
 | RMD-GIT-007 | gates | RMD-TASK-008 | pending |
 | RMD-GIT-008 | gates | RMD-TASK-009 | pending |
 | RMD-GIT-009 | gates | RMD-TASK-010 | pending |
