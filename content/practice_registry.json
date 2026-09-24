@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "source": {
+    "title": "《造物之理》｜跨时代工程方法导论",
+    "baseline": "v0.5.3",
+    "note": "mixed practices are grounded in Appendix F transfer experiments; design mechanics are separate from source-derived context"
+  },
+  "practices": [
+    {
+      "practice_id": "mixed-f1-clinical-safety",
+      "case_id": "mixed-clinical-safety-001",
+      "manifest_chapter_id": "appendix-f1",
+      "title": "一批检验结果可能不可信，同时给药差错又在发生",
+      "kind": "mixed",
+      "status": "published",
+      "source_section": "F1",
+      "source_title": "临床/患者安全：从可信检查到不良事件控制",
+      "source_context": "某医疗机构发现一批检验结果可能受校准问题影响，同时希望减少静脉给药差错。",
+      "design": {
+        "primary_primitives": [
+          "choice"
+        ],
+        "mechanism": "先分问题边界，再追可信链、防止可预见错误，并在不良事件后控制状态"
+      }
+    },
+    {
+      "practice_id": "mixed-f2-bio-repro",
+      "case_id": "mixed-bio-repro-001",
+      "manifest_chapter_id": "appendix-f2",
+      "title": "重复很多次，为什么证据仍可能同源？",
+      "kind": "mixed",
+      "status": "published",
+      "source_section": "F2",
+      "source_title": "生物实验：从批次效应到跨实验室复现",
+      "source_context": "研究某处理是否改变细胞表型。实验跨多个培养批次、试剂批号和仪器平台进行。",
+      "design": {
+        "primary_primitives": [
+          "choice",
+          "multi"
+        ],
+        "mechanism": "从边界、批次混杂、独立平台和可复现记录中选择下一动作"
+      }
+    },
+    {
+      "practice_id": "mixed-f3-agri-transfer",
+      "case_id": "mixed-agri-transfer-001",
+      "manifest_chapter_id": "appendix-f3",
+      "title": "水肥方案、收获窗口和故障处置混在一起时，先做什么？",
+      "kind": "mixed",
+      "status": "published",
+      "source_section": "F3",
+      "source_title": "农业/开放自然系统：田间试验—水—肥—收获窗口",
+      "source_context": "比较两种水肥管理方案，并要求最终进入收获和仓储流程。",
+      "design": {
+        "primary_primitives": [
+          "choice",
+          "multi"
+        ],
+        "mechanism": "在变化边界、试验混杂、状态/时间窗与容量瓶颈、故障控制之间切换"
+      }
+    },
+    {
+      "practice_id": "mixed-f4-payment-ops",
+      "case_id": "mixed-payment-ops-001",
+      "manifest_chapter_id": "appendix-f4",
+      "title": "对账、数据版本、权限和事故传播同时出现时，下一步是什么？",
+      "kind": "mixed",
+      "status": "published",
+      "source_section": "F4",
+      "source_title": "金融/支付运营：从数据血缘到风险隔离",
+      "source_context": "一套支付/交易运营系统使用多个数据源、风险模型、账户权限和清算环节。",
+      "design": {
+        "primary_primitives": [
+          "choice",
+          "multi"
+        ],
+        "mechanism": "从对账残差、来源/传播、权限防错和故障隔离中检索合适动作"
+      }
+    }
+  ]
+}
