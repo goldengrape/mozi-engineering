@@ -8,7 +8,7 @@ okf_version: "0.1"
 
 ## Current phase
 
-The project is in **RMD-TASK-004, blocked on the Pages source mode**. PR #7 is merged and Actions deployment succeeds, but the live site is still a Jekyll branch build instead of the uploaded `dist/` artifact.
+The project is at **RMD-TASK-005 ready**. RMD-TASK-004 is complete and the public GitHub Pages artifact has passed desktop and 390px mobile-width smoke checks.
 
 - first prototype: `jieti-water-001`, based on the textbook's “教学楼用水增加 18%” case;
 - interactive task belongs in the textbook body;
@@ -16,7 +16,7 @@ The project is in **RMD-TASK-004, blocked on the Pages source mode**. PR #7 is m
 - first learning mechanism to validate: unlabeled judgment → branch consequence/new evidence → method switching/revision → debrief;
 - ADD design is decoupled and accepted.
 
-RMD-0001 is accepted. RMD-TASK-001 through RMD-TASK-003 are complete; Task 004 is merged; public diagnostics show Source must be switched from branch/Jekyll publishing to GitHub Actions before final smoke testing.
+RMD-0001 is accepted. RMD-TASK-001 through RMD-TASK-003 are complete; Task 004 is complete; production Pages is served from GitHub Actions and verified at `https://goldengrape.github.io/mozi-engineering/`.
 
 ## Current architecture
 
