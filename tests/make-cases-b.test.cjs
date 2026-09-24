@@ -123,7 +123,7 @@ test("TDD2-TEST-023: Chapter 11 changes the comparison relation and separates s 
   assert.match(out.text, /同一比较关系/);
   assert.equal(value(story, "repeated_same_relation"), true);
 
-  out = choose(story, /把仪器反转/);
+  out = choose(story, /反转仪器/);
   assert.match(out.text, /r₂ = 6 μm/);
   let config = parseUiTags(out.tags);
   assert.equal(config.type, "number");
