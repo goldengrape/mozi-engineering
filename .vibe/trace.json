@@ -272,6 +272,26 @@
     {
       "id": "OKF-PAGE-004",
       "kind": "okf_concept"
+    },
+    {
+      "id": "MERGE-fd7619a512567cb4366c97ac933192a14fb59f53",
+      "kind": "merge_commit"
+    },
+    {
+      "id": "CI-RUN-35935288962",
+      "kind": "test_run"
+    },
+    {
+      "id": "RMD-PR-006",
+      "kind": "pull_request"
+    },
+    {
+      "id": "CI-RUN-35936809001",
+      "kind": "test_run"
+    },
+    {
+      "id": "OKF-PAGE-005",
+      "kind": "okf_concept"
     }
   ],
   "links": [
@@ -547,8 +567,58 @@
     },
     {
       "source": "RMD-GIT-002",
-      "relation": "gates",
+      "relation": "merged_as",
+      "target": "MERGE-fd7619a512567cb4366c97ac933192a14fb59f53"
+    },
+    {
+      "source": "RMD-GIT-002",
+      "relation": "completed_before",
       "target": "RMD-TASK-003"
+    },
+    {
+      "source": "TDD-TEST-002",
+      "relation": "evidenced_by",
+      "target": "CI-RUN-35935288962"
+    },
+    {
+      "source": "RMD-GIT-003",
+      "relation": "reviewed_by",
+      "target": "RMD-PR-006"
+    },
+    {
+      "source": "TDD-TEST-014",
+      "relation": "evidenced_by",
+      "target": "CI-RUN-35936809001"
+    },
+    {
+      "source": "TDD-TEST-015",
+      "relation": "evidenced_by",
+      "target": "CI-RUN-35936809001"
+    },
+    {
+      "source": "TDD-TEST-020",
+      "relation": "evidenced_by",
+      "target": "CI-RUN-35936809001"
+    },
+    {
+      "source": "TDD-TEST-021",
+      "relation": "evidenced_by",
+      "target": "CI-RUN-35936809001"
+    },
+    {
+      "source": "TDD-TEST-007",
+      "relation": "evidenced_by",
+      "target": "CI-RUN-35936809001"
+    },
+    {
+      "source": "RMD-TASK-003",
+      "relation": "summarized_by",
+      "target": "okf/decisions/generic-player-build.md"
+    },
+    {
+      "source": "RMD-GIT-003",
+      "relation": "gates",
+      "target": "RMD-TASK-004"
     }
   ]
 }
