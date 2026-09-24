@@ -706,8 +706,8 @@ Phase 2 不把十五个新案例简单复制成《界体》的按钮分支。互
 | RMD-GIT-006 | RMD-TASK-006 | `feat/rmd-task-006-curriculum-primitives` | merged | PR #10; 30/30 tests + build + browser smoke |
 | RMD-GIT-007 | RMD-TASK-007 | `feat/rmd-task-007-observe-cases` | merged | PR #11; 36/36 tests + five-case build + browser smoke |
 | RMD-GIT-008 | RMD-TASK-008 | `feat/rmd-task-008-make-cases-a` | merged | PR #12; 41/41 tests + eight-case build + browser smoke |
-| RMD-GIT-009 | RMD-TASK-009 | `feat/rmd-task-009-make-cases-b` | checkpoint-ready | PR #13; 46/46 tests + twelve-case build + browser smoke |
-| RMD-GIT-010 | RMD-TASK-010 | `feat/rmd-task-010-run-fail-cases` | pending | chapter 13–16 tests |
+| RMD-GIT-009 | RMD-TASK-009 | `feat/rmd-task-009-make-cases-b` | merged | PR #13; 46/46 tests + twelve-case build + browser smoke |
+| RMD-GIT-010 | RMD-TASK-010 | `feat/rmd-task-010-run-fail-cases` | checkpoint-ready | PR #14; 51/51 tests + sixteen-case build + browser smoke |
 | RMD-GIT-011 | RMD-TASK-011 | `feat/rmd-task-011-mixed-review` | pending | transfer/mixed-case tests |
 | RMD-GIT-012 | RMD-TASK-012 | `docs/rmd-task-012-full-book-integration` | pending | publication QA + public route smoke |
 
@@ -1035,7 +1035,7 @@ RMD-GIT-008 completed successfully.
 
 ## RMD-TASK-009 Execution Record
 
-- status: **checkpoint-ready / pending merge approval**
+- status: **merged / completed**
 - branch: `feat/rmd-task-009-make-cases-b`
 - pull request: #13
 - verified implementation head: `657e499ec2d0f6a08859623cc6e2ddb1e5ab8d21`
@@ -1119,6 +1119,84 @@ Actions run `35962501094`:
 
 ### Git checkpoint
 
-RMD-GIT-009 is ready for review.
+RMD-GIT-009 completed successfully.
 
-RMD-TASK-010 (运行 / 守败 chapters 13–16) remains blocked until explicit merge approval.
+- PR #13 merged to `main` as `099b54dd16bd66d3e49d3068a38899e0673a8b80`.
+- post-merge Pages run `35962990512` succeeded.
+- RMD-TASK-010 was then started on its own branch.
+
+
+## RMD-TASK-010 Execution Record
+
+- status: **checkpoint-ready / pending merge approval**
+- branch: `feat/rmd-task-010-run-fail-cases`
+- pull request: #14
+- verified implementation head: `41e12e73773e4e87abc2d3273dea6c6b8a637211`
+- GitHub Actions run: `35963452549`
+
+### Source boundary
+
+All four stories are grounded in the existing Chapter 13–16 worked examples.
+
+No new measurements, hidden causes or events were added.
+
+Source-derived facts retained:
+
+- 序作: A 支模, B 绑扎钢筋, C 安装预埋件, D 隐蔽验收, E 浇筑混凝土, F 养护, G 拆模; real dependencies A→B/C, B/C→D, D→E, E→F, F→G; B/C may run in parallel; one-crane conflict is a resource constraint; D is the release point before E obscures the work.
+- 通滞: capacities 12/15/8/20 件/小时; initial whole-flow rate about 8; packaging 20→40 does not improve the whole; upstream at 15 increases WIP; stage 3 raised to 14 moves the bottleneck to stage 1 at 12.
+- 防误: identical nitrogen / flammable-gas connectors with color labels; low light, color-vision differences, missing labels and distraction leave the wrong path open; redesign uses different keying, different mechanical dimensions and a full-lock valve interlock; verification attacks reverse insertion, partial insertion, cross-connection and interlock bypass.
+- 限败: module temperature above alarm threshold; stop charge/discharge; isolate with contactor and adjacent propagation cut; reduce cabinet power / strengthen cooling / monitor adjacent modules; repair; verify insulation, temperature rise, communication and function; only then restore Normal; “alarm → restart” is explicitly unsafe.
+
+### Implemented cases
+
+#### Chapter 13 — `xuzuo-bridge-001`
+
+Mechanics:
+
+`rank real state chain → resource-vs-logic judgment → release-point judgment → debrief`
+
+The rank UI uses one design-derived B/C parallel stage to preserve the source fact that B and C do not require an arbitrary precedence.
+
+#### Chapter 14 — `tongzhi-packaging-001`
+
+Mechanics:
+
+`number initial throughput → packaging temptation → WIP consequence → number moved throughput → bottleneck-reidentification judgment → debrief`
+
+#### Chapter 15 — `fangwu-gas-001`
+
+Mechanics:
+
+`label-dependence temptation → multi structural controls → multi attack paths → debrief`
+
+#### Chapter 16 — `xianbai-battery-001`
+
+Mechanics:
+
+`restart temptation → rank stop/isolate/degrade/repair/verify/restore → repaired-vs-verified judgment → debrief`
+
+### Curriculum / build state
+
+All sixteen textbook chapters are now marked `published` in `content/curriculum.json`.
+
+The static build generates sixteen chapter routes without any case-specific changes to `src/player.js`.
+
+TDD2-TEST-030 verifies all sixteen manifests and no-web book fragments against the curriculum.
+
+### Automated evidence
+
+Actions run `35963452549`:
+
+- `npm test` — **51 passed, 0 failed**;
+- TDD2-TEST-026..030 — passed;
+- all previous MVP / Phase 2 regressions — passed;
+- `npm run build` — passed;
+- build generated **16 cases**;
+- primary case validation — passed;
+- headless Chrome regression smoke — passed.
+
+### Git checkpoint
+
+RMD-GIT-010 is ready for review.
+
+RMD-TASK-011 (mixed retrieval / transfer cases) remains blocked until explicit merge approval.
