@@ -10,7 +10,7 @@ source_ids:
   - RMD-TASK-010
   - RMD-TASK-011
   - RMD-TASK-012
-status: task_006_active
+status: task_006_checkpoint_ready
 ---
 
 # Core rule
@@ -46,3 +46,19 @@ Ink 继续拥有证据释放、学习状态、分支后果和复盘；浏览器�
 - design-derived：case ID、互动原语、互动机制与实现状态。
 
 不能用互动设计反向改写教材来源事实。
+
+
+# Current checkpoint
+
+RMD-TASK-006 is implemented on `feat/rmd-task-006-curriculum-primitives`.
+
+Evidence:
+
+- Actions `35949487336`: 30 tests passed, 0 failed;
+- all TDD2-TEST-001..009 passed;
+- full MVP regression suite remains green;
+- static build and browser smoke passed;
+- a real Ink fixture executes `multi → number → rank`;
+- option-tag grammar was corrected from Ink-conflicting `|` to `::`.
+
+PR #10 remains draft and unmerged. RMD-TASK-007 is blocked until merge approval.
