@@ -78,7 +78,7 @@
 | RMD-GIT-001 | RMD-TASK-001 | `feat/rmd-task-001-case-contract-clean` | `feat: implement RMD-TASK-001 case contract` | #3 | merged | 3/3 tests + compile check |
 | RMD-GIT-002 | RMD-TASK-002 | `feat/rmd-task-002-jieti-story` | `feat: implement RMD-TASK-002 jieti story` | #5 | merged | 10/10 tests + source review |
 | RMD-GIT-003 | RMD-TASK-003 | `feat/rmd-task-003-generic-player` | `feat: implement RMD-TASK-003 generic player` | #6 | merged | 17/17 tests + build + headless Chrome smoke |
-| RMD-GIT-004 | RMD-TASK-004 | `feat/rmd-task-004-pages` | `feat: implement RMD-TASK-004 pages deployment` | #7 | merged; deployment blocked by repo setting | 19/19 tests + registry/path checks; Pages build artifact succeeded; repo Pages enablement required |
+| RMD-GIT-004 | RMD-TASK-004 | `feat/rmd-task-004-pages` | `feat: implement RMD-TASK-004 pages deployment` | #7 | completed | 19/19 tests + successful Actions deployment + public desktop/mobile smoke |
 | RMD-GIT-005 | RMD-TASK-005 | `docs/rmd-task-005-textbook-integration` | `docs: integrate RMD-TASK-005 into textbook body` | pending | pending | textbook diff / artifact check |
 
 First implementation push and every merge remain explicit checkpoint actions.
@@ -392,7 +392,7 @@ RMD-GIT-003 completed successfully.
 
 ## RMD-TASK-004 Execution Record — pre-deploy checkpoint
 
-- status: **merged / deployment blocked by Pages source mode**
+- status: **completed**
 - branch: `feat/rmd-task-004-pages`
 - pull request: #7
 - project-check head: `0091107e045e687dc56b9bd18f891051bfcd0696`
@@ -529,3 +529,32 @@ The important part is **Source = GitHub Actions**, not merely “Pages enabled�
 RMD-TASK-004 remains **not complete** until the live site is actually serving the Actions-deployed artifact and the public smoke checks pass.
 
 RMD-TASK-005 remains blocked.
+
+
+### Final Pages completion evidence
+
+After the repository Pages **Source** was switched to `GitHub Actions`, the deploy job from workflow run `35938292249` was rerun and completed successfully.
+
+Live site:
+
+`https://goldengrape.github.io/mozi-engineering/`
+
+Final public smoke run `35940775884` verified:
+
+- home page → HTTP 200;
+- `assets/style.css` → HTTP 200;
+- `assets/ink.js` → HTTP 200;
+- `assets/player.js` → HTTP 200;
+- `cases/index.json` → HTTP 200;
+- `cases/jieti-water-001/` → HTTP 200;
+- case `manifest.json` → HTTP 200;
+- case `story.json` → HTTP 200;
+- public root matches the generated `dist/index.html`;
+- public case HTML has no remote script dependency;
+- headless Chrome renders the live case at 1440×1000;
+- headless Chrome renders the same live case at 390×844;
+- both widths show the 1000 → 1180 opening and both first learner choices.
+
+RMD-TASK-004 is therefore **complete**.
+
+RMD-TASK-005 is now unblocked and ready to integrate the validated interaction block into the textbook body.
