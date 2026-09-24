@@ -79,7 +79,7 @@
 | RMD-GIT-002 | RMD-TASK-002 | `feat/rmd-task-002-jieti-story` | `feat: implement RMD-TASK-002 jieti story` | #5 | merged | 10/10 tests + source review |
 | RMD-GIT-003 | RMD-TASK-003 | `feat/rmd-task-003-generic-player` | `feat: implement RMD-TASK-003 generic player` | #6 | merged | 17/17 tests + build + headless Chrome smoke |
 | RMD-GIT-004 | RMD-TASK-004 | `feat/rmd-task-004-pages` | `feat: implement RMD-TASK-004 pages deployment` | #7 | completed | 19/19 tests + successful Actions deployment + public desktop/mobile smoke |
-| RMD-GIT-005 | RMD-TASK-005 | `docs/rmd-task-005-textbook-integration` | `docs: integrate RMD-TASK-005 into textbook body` | pending | checkpoint-ready | book contract + DOCX/EPUB artifact QA |
+| RMD-GIT-005 | RMD-TASK-005 | `docs/rmd-task-005-textbook-integration` | `docs: integrate RMD-TASK-005 into textbook body` | #9 | checkpoint-ready | 21/21 tests + book contract + DOCX/EPUB artifact QA |
 
 First implementation push and every merge remain explicit checkpoint actions.
 
@@ -654,8 +654,21 @@ Therefore this task does **not** relabel the generated v0.5.3-based candidates a
 
 If v0.5.4 remains the canonical publishing baseline, replay this localized Chapter 1 insertion onto those files before declaring a new release. The repository `book.md`, public case URL, QR payload and insertion design are already stable.
 
+### Repository CI
+
+PR #9 head was verified by GitHub Actions run `35942052613`:
+
+- `npm test` — **21 passed, 0 failed**;
+- the two new Task 005 book-integration tests passed;
+- `npm run build` — passed;
+- `npm run check:case` — passed;
+- local headless Chrome case smoke — passed.
+
 ### Git checkpoint
 
 RMD-GIT-005 is ready for review.
 
-Repository integration can be merged independently of the publication-version naming caveat. No merge has been performed.
+- pull request: #9;
+- merge status: **pending explicit approval**;
+- repository integration can be merged independently of the publication-version naming caveat;
+- no merge has been performed.
