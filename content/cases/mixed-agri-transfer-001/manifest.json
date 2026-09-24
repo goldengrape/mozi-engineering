@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "case_id": "mixed-agri-transfer-001",
+  "title": "水肥方案、收获窗口和故障处置混在一起时，先做什么？",
+  "language": "zh-CN",
+  "textbook": {
+    "chapter_id": "appendix-f3",
+    "placement": "appendix-f-transfer-practice"
+  },
+  "story_source": "story.ink",
+  "book_fragment": "book.md"
+}
