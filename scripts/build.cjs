@@ -97,6 +97,15 @@ function buildSite(
         `case_id missing from curriculum registry: ${item.caseId}`
       );
     }
+
+    const curriculumEntry = curriculumByCase.get(item.caseId);
+    if (
+      item.pkg.manifest.textbook.chapter_id !== curriculumEntry.chapter_id
+    ) {
+      throw new Error(
+        `curriculum chapter mismatch for ${item.caseId}: manifest=${item.pkg.manifest.textbook.chapter_id}, curriculum=${curriculumEntry.chapter_id}`
+      );
+    }
   }
 
   for (const chapter of curriculum.chapters) {
