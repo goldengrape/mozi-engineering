@@ -3,7 +3,7 @@
   "source": {
     "title": "《造物之理》｜跨时代工程方法导论",
     "baseline": "v0.5.3",
-    "note": "mixed practices are grounded in Appendix F transfer experiments; design mechanics are separate from source-derived context"
+    "note": "Appendix F mixed practices and Appendix G longitudinal practice are source-grounded; design mechanics are separate from source-derived context"
   },
   "practices": [
     {
@@ -75,6 +75,25 @@
           "multi"
         ],
         "mechanism": "从对账残差、来源/传播、权限防错和故障隔离中检索合适动作"
+      }
+    },
+    {
+      "practice_id": "longitudinal-g-ai-timeline",
+      "case_id": "longitudinal-ai-timeline-001",
+      "manifest_chapter_id": "appendix-g",
+      "title": "一条历史灾异时间线怎样从漂亮原型变成可交付作品？",
+      "kind": "longitudinal",
+      "status": "published",
+      "source_section": "G1–G10",
+      "source_title": "人与 AI 协作造物——一个 vibe coding 贯穿案例",
+      "source_context": "数字人文课程作业：制作可交互的历史灾异时间线，主要通过自然语言让 AI 生成代码，且课堂演示时需要离线可用。",
+      "design": {
+        "primary_primitives": [
+          "choice",
+          "multi",
+          "rank"
+        ],
+        "mechanism": "同一项目连续经历边界、功能、改变传播、来源/复验、可复现定义、容度、状态依赖、防误与限败"
       }
     }
   ]
