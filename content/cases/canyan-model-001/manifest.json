@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "case_id": "canyan-model-001",
+  "title": "93% 的模型为什么可能比 88% 更不可信？",
+  "language": "zh-CN",
+  "textbook": {
+    "chapter_id": "05-canyan",
+    "placement": "worked-example-practice"
+  },
+  "story_source": "story.ink",
+  "book_fragment": "book.md"
+}

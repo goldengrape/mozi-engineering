@@ -8,7 +8,7 @@ okf_version: "0.1"
 
 ## Current phase
 
-The project is at **RMD-GIT-006 merge checkpoint**. The full-book curriculum registry and generic choice/multi/number/rank protocol are implemented and tested.
+The project is at **RMD-GIT-007 merge checkpoint**. 第一部《察物》 now has five authored interactive cases; chapters 2–5 passed path and build regression tests.
 
 - first prototype: `jieti-water-001`, based on the textbook's “教学楼用水增加 18%” case;
 - interactive task belongs in the textbook body;
@@ -51,6 +51,7 @@ Software test success validates the mechanism implementation, not long-term lear
 - [首个互动案例的构建路径](paths/mvp-build-path.md) — 已完成的单案例 MVP 路径。
 - [全书互动扩展路径](paths/full-book-expansion.md) — 十六章、混合复习与贯穿案例的 Phase 2 路径。
 - [jieti-water-001 案例逻辑](cases/jieti-water-001.md) — 证据释放、学习状态、复盘与方法切换边界。
+- [察物第 2–5 章互动案例](cases/observe-chapters-2-5.md) — 衡算、定准、传准、参验的不同互动机制与来源边界。
 - [通用播放器与静态构建](decisions/generic-player-build.md) — Web runtime、build output 和无案例耦合边界。
 - [GitHub Pages 发布](deployment/github-pages.md) — registry 扩展、project Pages 路径与生产部署门槛。
 

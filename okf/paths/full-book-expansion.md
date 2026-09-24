@@ -10,7 +10,7 @@ source_ids:
   - RMD-TASK-010
   - RMD-TASK-011
   - RMD-TASK-012
-status: task_006_checkpoint_ready
+status: task_007_checkpoint_ready
 ---
 
 # Core rule
@@ -50,15 +50,16 @@ Ink 继续拥有证据释放、学习状态、分支后果和复盘；浏览器�
 
 # Current checkpoint
 
-RMD-TASK-006 is implemented on `feat/rmd-task-006-curriculum-primitives`.
+RMD-TASK-006 merged as `aad604f94fd8451e35bc3fe8c888327476f94c27`; post-merge Pages run `35951015502` passed.
+
+RMD-TASK-007 is implemented on `feat/rmd-task-007-observe-cases`.
 
 Evidence:
 
-- Actions `35949487336`: 30 tests passed, 0 failed;
-- all TDD2-TEST-001..009 passed;
-- full MVP regression suite remains green;
-- static build and browser smoke passed;
-- a real Ink fixture executes `multi → number → rank`;
-- option-tag grammar was corrected from Ink-conflicting `|` to `::`.
+- Actions `35951410738`: 36 tests passed, 0 failed;
+- chapters 2–5 compile and complete along tested paths;
+- wrong naming / wrong scope / wrong impact-set / same-source evidence paths remain recoverable;
+- static build now generates five authored cases;
+- existing Chapter 1 browser smoke remains green.
 
-PR #10 remains draft and unmerged. RMD-TASK-007 is blocked until merge approval.
+PR #11 is unmerged. RMD-TASK-008 is blocked until merge approval.

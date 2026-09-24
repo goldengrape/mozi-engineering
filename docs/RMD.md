@@ -703,8 +703,8 @@ Phase 2 不把十五个新案例简单复制成《界体》的按钮分支。互
 
 | ID | RMD Task | Branch | Merge Status | Required Evidence |
 | --- | --- | --- | --- | --- |
-| RMD-GIT-006 | RMD-TASK-006 | `feat/rmd-task-006-curriculum-primitives` | checkpoint-ready | PR #10; 30/30 tests + build + browser smoke |
-| RMD-GIT-007 | RMD-TASK-007 | `feat/rmd-task-007-observe-cases` | pending | chapter 2–5 path tests + build/browser smoke |
+| RMD-GIT-006 | RMD-TASK-006 | `feat/rmd-task-006-curriculum-primitives` | merged | PR #10; 30/30 tests + build + browser smoke |
+| RMD-GIT-007 | RMD-TASK-007 | `feat/rmd-task-007-observe-cases` | checkpoint-ready | PR #11; 36/36 tests + five-case build + browser smoke |
 | RMD-GIT-008 | RMD-TASK-008 | `feat/rmd-task-008-make-cases-a` | pending | chapter 6–8 tests |
 | RMD-GIT-009 | RMD-TASK-009 | `feat/rmd-task-009-make-cases-b` | pending | chapter 9–12 tests |
 | RMD-GIT-010 | RMD-TASK-010 | `feat/rmd-task-010-run-fail-cases` | pending | chapter 13–16 tests |
@@ -737,7 +737,7 @@ No answer key or method-specific scoring is allowed in JavaScript.
 
 ## RMD-TASK-006 Execution Record
 
-- status: **checkpoint-ready / pending merge approval**
+- status: **merged / completed**
 - branch: `feat/rmd-task-006-curriculum-primitives`
 - pull request: #10
 - verified implementation head: `90d357b9a230a3b293480523d3469f8d94b42944`
@@ -827,6 +827,115 @@ and verifies the submitted values are written into Ink state.
 
 ### Git checkpoint
 
-RMD-GIT-006 is ready for review.
+RMD-GIT-006 completed successfully.
 
-RMD-TASK-007 (察物 chapters 2–5) remains blocked until explicit merge approval.
+- PR #10 merged to `main` as `aad604f94fd8451e35bc3fe8c888327476f94c27`.
+- post-merge Pages run `35951015502` succeeded.
+- RMD-TASK-007 was then started on its own branch.
+
+
+## RMD-TASK-007 Execution Record
+
+- status: **checkpoint-ready / pending merge approval**
+- branch: `feat/rmd-task-007-observe-cases`
+- pull request: #11
+- verified head: `d756f104d78e923996e85c37f3df0361e980d5d0`
+- GitHub Actions run: `35951410738`
+
+### Source boundary
+
+All four stories are grounded in the existing Chapter 2–5 worked examples.
+
+No new measurements, dates, events or hidden causes were added.
+
+Source-derived facts retained:
+
+- 衡算: 100 kg/h input, 72 kg/h product, 8 kg/h tail gas, +15 kg/h inventory; 5 kg/h unexplained difference; three investigation classes; shared 2% systematic calibration bias as false-closure risk.
+- 定准: 50 N·m use, June 1 pass, August 20 drop, September 1 ≈52 N·m output at a 50 N·m setting; 有疑—停用; trace from the last trusted state; recalibrate then verify.
+- 传准: A→B, B→C, B→D, C→E; B shifted +3 mm; minimum affected set C/D/E; A excluded.
+- 参验: A=88%, B=93%; sample-level split leaks records from the same user across train/test; redesign by user grouping, independent final test set, separated evaluation pipeline and another-source validation; reevaluation A=87.5%, B=88.1%.
+
+### Implemented cases
+
+#### Chapter 2 — `hengsuan-balance-001`
+
+Mechanics:
+
+`number → cause/hold choice → multi investigation → false-closure judgment → debrief`
+
+The learner may prematurely call the 5 kg/h difference “loss”. The story does not mark that with a score; it explains that a residual is not yet a cause and keeps the path recoverable.
+
+#### Chapter 3 — `dingzhun-torque-001`
+
+Mechanics:
+
+`state decision → trace-start decision → recalibration/reverification decision → debrief`
+
+The learner can initially “adjust and continue”, then revise to 有疑—停用 and recover the last-trusted-time logic.
+
+#### Chapter 4 — `chuanzhun-benchmark-001`
+
+Mechanics:
+
+`multi minimum-impact set → retry if over/under-selected → record-lineage judgment → debrief`
+
+The structured commit uses a sticky Ink choice because the learner may revisit the same structured step.
+
+#### Chapter 5 — `canyan-model-001`
+
+Mechanics:
+
+`initial 93% judgment → leakage reveal → multi redesign → 87.5/88.1 reveal → independence judgment → debrief`
+
+The learner must replace the shared bias source rather than accumulate more same-source repetitions.
+
+### Book fragments
+
+Each case includes a `book.md` that:
+
+- uses the stable case ID and planned public route;
+- gives a first action before the worked explanation;
+- includes a no-web paper exercise;
+- avoids adding case facts beyond the textbook worked example.
+
+### Curriculum state
+
+Chapters 1–5 are now marked `published` in `content/curriculum.json`.
+
+The static build generates five routes:
+
+```text
+canyan-model-001
+chuanzhun-benchmark-001
+dingzhun-torque-001
+hengsuan-balance-001
+jieti-water-001
+```
+
+### CI corrections during authoring
+
+The test loop caught three authoring-layer issues before checkpoint:
+
+1. literal Ink braces in the 传准 prose were parsed as expressions;
+2. two knot transitions needed explicit diverts;
+3. retryable structured commit choices must use sticky `+`, not one-shot `*`.
+
+The regression tests were also updated from the old “site has one case” assumption to the real five-case registry.
+
+### Automated evidence
+
+Actions run `35951410738`:
+
+- `npm test` — **36 passed, 0 failed**;
+- all TDD2-TEST-010..015 — passed;
+- all previous MVP and Task 006 tests — passed;
+- `npm run build` — passed;
+- build generated **5 cases**;
+- primary case validation — passed;
+- headless Chrome regression smoke — passed.
+
+### Git checkpoint
+
+RMD-GIT-007 is ready for review.
+
+RMD-TASK-008 (制物 chapters 6–8) remains blocked until explicit merge approval.

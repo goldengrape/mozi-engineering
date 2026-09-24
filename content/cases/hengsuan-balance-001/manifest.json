@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "case_id": "hengsuan-balance-001",
+  "title": "先把 5 kg/h 留在账上",
+  "language": "zh-CN",
+  "textbook": {
+    "chapter_id": "02-hengsuan",
+    "placement": "worked-example-practice"
+  },
+  "story_source": "story.ink",
+  "book_fragment": "book.md"
+}
