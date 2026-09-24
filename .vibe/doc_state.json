@@ -5,7 +5,7 @@
   "source_of_truth": "docs",
   "okf_is_derived": true,
   "okf_version": "0.1",
-  "current_phase": "RMD-GIT-004 pre-deploy merge checkpoint",
+  "current_phase": "RMD-TASK-004 blocked on Pages enablement",
   "urd_status": "accepted",
   "add_status": "accepted",
   "mdd_status": "accepted-for-planning",
@@ -13,13 +13,19 @@
   "rmd_status": "accepted",
   "implementation_allowed": true,
   "active_task": "RMD-TASK-004",
-  "active_task_status": "pre-deploy-checkpoint-ready",
-  "active_pr": 7,
+  "active_task_status": "merged-deployment-blocked",
+  "active_pr": null,
   "next_task": "RMD-TASK-005",
-  "next_task_blocked_by": "RMD-GIT-004 merge approval + public Pages smoke",
+  "next_task_blocked_by": "repository Pages enablement + successful public Pages smoke",
   "completed_tasks": [
     "RMD-TASK-001",
     "RMD-TASK-002",
     "RMD-TASK-003"
-  ]
+  ],
+  "external_blocker": {
+    "id": "PAGES-ENABLEMENT",
+    "owner_action": "Enable GitHub Pages with Source = GitHub Actions in repository Settings > Pages",
+    "failed_workflow_run": 35938292249,
+    "reason": "actions/configure-pages could not find an enabled Pages site"
+  }
 }
