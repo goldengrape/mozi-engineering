@@ -372,6 +372,14 @@
     {
       "id": "INTERACTION-PROTOCOL-001",
       "kind": "runtime_contract"
+    },
+    {
+      "id": "RMD-PR-010",
+      "kind": "pull_request"
+    },
+    {
+      "id": "CI-RUN-35949487336",
+      "kind": "test_run"
     }
   ],
   "links": [
@@ -814,6 +822,21 @@
       "source": "RMD-TASK-006",
       "relation": "checkpointed_by",
       "target": "RMD-GIT-006"
+    },
+    {
+      "source": "RMD-GIT-006",
+      "relation": "reviewed_by",
+      "target": "RMD-PR-010"
+    },
+    {
+      "source": "TDD2-TEST-001..009",
+      "relation": "evidenced_by",
+      "target": "CI-RUN-35949487336"
+    },
+    {
+      "source": "RMD-TASK-006",
+      "relation": "evidenced_by",
+      "target": "CI-RUN-35949487336"
     }
   ]
 }
