@@ -40,7 +40,7 @@ A 在旧测试集上准确率 88%，B 达到 93%。
 # ui:min=1
 # ui:max=4
 # ui:submit=提交试验设计
-* [继续]
++ [继续]
     {redesign_items == "user_group,independent_test,separate_eval,external_data":
         你没有只“多跑几次”，而是同时改变了数据分组、最终测试、评测流程和证据来源。
         -> reevaluate
