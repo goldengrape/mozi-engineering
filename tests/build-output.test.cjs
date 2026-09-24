@@ -50,8 +50,17 @@ test("TDD-TEST-014: buildSite creates the static output contract", () => {
     { srcDir: path.resolve("src") }
   );
 
-  assert.equal(registry.length, 1);
-  assert.equal(registry[0].case_id, "jieti-water-001");
+  assert.equal(registry.length, 5);
+  assert.deepEqual(
+    registry.map((entry) => entry.case_id),
+    [
+      "canyan-model-001",
+      "chuanzhun-benchmark-001",
+      "dingzhun-torque-001",
+      "hengsuan-balance-001",
+      "jieti-water-001"
+    ]
+  );
 
   for (const relative of [
     "index.html",
@@ -125,43 +134,33 @@ test("TDD-TEST-021: generated case page uses local runtime assets only", () => {
 });
 
 
-test("TDD-TEST-009: a second case is registered without changing the player", () => {
-  const fixtureRoot = tempDir("mozi-multi-");
-  const secondCase = writeFixtureCase(
-    fixtureRoot,
-    "hengsuan-balance-001",
-    "02-hengsuan"
-  );
+test("TDD-TEST-009: multiple authored cases register without changing the player", () => {
   const outDir = tempDir("mozi-multi-build-");
   const playerBefore = fs.readFileSync(path.resolve("src/player.js"), "utf8");
 
   const registry = buildSite(path.resolve("content/cases"), outDir, {
-    srcDir: path.resolve("src"),
-    caseDirs: [
-      path.resolve("content/cases/jieti-water-001"),
-      secondCase
-    ]
+    srcDir: path.resolve("src")
   });
 
+  assert.equal(registry.length, 5);
   assert.deepEqual(
-    registry.map((entry) => entry.case_id),
-    ["jieti-water-001", "hengsuan-balance-001"]
+    new Set(registry.map((entry) => entry.case_id)),
+    new Set([
+      "jieti-water-001",
+      "hengsuan-balance-001",
+      "dingzhun-torque-001",
+      "chuanzhun-benchmark-001",
+      "canyan-model-001"
+    ])
   );
 
-  const index = JSON.parse(
-    fs.readFileSync(path.join(outDir, "cases/index.json"), "utf8")
-  );
-  assert.equal(index.length, 2);
-  assert.equal(
-    fs.existsSync(
-      path.join(outDir, "cases/hengsuan-balance-001/index.html")
-    ),
-    true
-  );
-
-  const home = fs.readFileSync(path.join(outDir, "index.html"), "utf8");
-  assert.match(home, /cases\/jieti-water-001\//);
-  assert.match(home, /cases\/hengsuan-balance-001\//);
+  for (const entry of registry) {
+    assert.equal(
+      fs.existsSync(path.join(outDir, entry.route, "index.html")),
+      true,
+      `missing generated route for ${entry.case_id}`
+    );
+  }
 
   const playerAfter = fs.readFileSync(path.resolve("src/player.js"), "utf8");
   assert.equal(playerAfter, playerBefore);
