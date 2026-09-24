@@ -2,6 +2,7 @@
 
 | Date | Changed By | Files | Summary | Trace Impact |
 | --- | --- | --- | --- | --- |
+| 2026-09-24 | project owner + ChatGPT | Pages settings, workflow 35938292249, public diagnostics, docs/*, .vibe/*, okf/* | 用户启用 Pages 后，Configure/Deploy 重跑成功并返回公开 URL；但公网首页仍由 Jekyll v3.10.0 从仓库源生成，Actions artifact 中存在的 assets/cases 在公网全部 404，说明 Pages Source 仍为分支/Jekyll 而不是 GitHub Actions。 | RMD-TASK-004 转为 source-mode blocker；需 Settings → Pages → Source = GitHub Actions |
 | 2026-09-24 | project owner + ChatGPT | PR #7, docs/*, .vibe/*, okf/* | 项目所有者批准并合并 RMD-TASK-004（bbbeca30）；生产 workflow 35938292249 的 build 与 Pages artifact 上传成功，但 configure-pages 因仓库尚未启用 Pages 而失败。官方 action 的自动 enablement 需要非 GITHUB_TOKEN 且具 administration:write + pages:write 的凭据，当前连接不具备该管理权限。 | RMD-GIT-004 已合并；新增 repository Pages enablement 外部阻塞；RMD-TASK-005 继续阻塞 |
 | 2026-09-24 | ChatGPT | tests/build-output.test.cjs, .github/workflows/pages.yml, .github/workflows/task1-checks.yml, docs/*, .vibe/*, okf/* | 完成 RMD-TASK-004 的合并前实现：第二案例 registry 测试、project Pages 相对路径检查、官方 Pages Actions 工作流；分支 CI 19/19 通过。公网部署必须等 PR #7 合入 main 后验证。 | RMD-GIT-004 pre-deploy checkpoint；RMD-TASK-005 仍被 public Pages smoke 阻塞 |
 | 2026-09-23 | ChatGPT | src/*, scripts/build.cjs, scripts/serve.cjs, tests/build-output.test.cjs, tests/player.test.cjs, package.json, .github/workflows/task1-checks.yml, docs/*, .vibe/*, okf/* | 完成 RMD-TASK-003：通用 Ink 播放器、静态构建、无 CDN runtime、本地服务器、17/17 自动测试与真实 headless Chrome 开场烟测；PR #6 等待 merge checkpoint。 | RMD-GIT-003 merged as bb50df7；RMD-TASK-004 已开始并完成合并前实现 |
