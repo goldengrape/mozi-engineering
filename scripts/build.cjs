@@ -5,6 +5,7 @@ const {
   loadCasePackage,
   compileStory
 } = require("./case-package.cjs");
+const { loadCurriculum } = require("./curriculum.cjs");
 
 function htmlEscape(value) {
   return String(value)
@@ -55,6 +56,9 @@ function buildSite(
   const srcDir = options.srcDir || path.resolve("src");
   const caseDirs = options.caseDirs || discoverCaseDirs(sourceRoot);
   const prepared = prepareCases(caseDirs);
+  const curriculumPath =
+    options.curriculumPath || path.resolve("content/curriculum.json");
+  const curriculum = loadCurriculum(curriculumPath);
 
   if (prepared.length === 0) {
     throw new Error(`no cases found in ${sourceRoot}`);
@@ -68,6 +72,11 @@ function buildSite(
   fs.mkdirSync(path.join(outDir, "assets"), { recursive: true });
   fs.mkdirSync(path.join(outDir, "cases"), { recursive: true });
 
+  fs.writeFileSync(
+    path.join(outDir, "curriculum.json"),
+    JSON.stringify(curriculum, null, 2) + "\n"
+  );
+
   fs.copyFileSync(runtimePath, path.join(outDir, "assets", "ink.js"));
   fs.copyFileSync(
     path.join(srcDir, "player.js"),
@@ -77,6 +86,29 @@ function buildSite(
     path.join(srcDir, "style.css"),
     path.join(outDir, "assets", "style.css")
   );
+
+  const curriculumByCase = new Map(
+    curriculum.chapters.map((chapter) => [chapter.case_id, chapter])
+  );
+
+  for (const item of prepared) {
+    if (!curriculumByCase.has(item.caseId)) {
+      throw new Error(
+        `case_id missing from curriculum registry: ${item.caseId}`
+      );
+    }
+  }
+
+  for (const chapter of curriculum.chapters) {
+    if (
+      chapter.status === "published" &&
+      !prepared.some((item) => item.caseId === chapter.case_id)
+    ) {
+      throw new Error(
+        `published curriculum case missing package: ${chapter.case_id}`
+      );
+    }
+  }
 
   const registry = [];
 
@@ -96,8 +128,13 @@ function buildSite(
     );
     fs.writeFileSync(path.join(caseOut, "index.html"), page);
 
+    const curriculumEntry = curriculumByCase.get(item.caseId);
+
     registry.push({
       case_id: item.caseId,
+      chapter_id: curriculumEntry.chapter_id,
+      method: curriculumEntry.method,
+      part: curriculumEntry.part,
       title: item.pkg.manifest.title,
       route: `cases/${item.caseId}/`
     });
