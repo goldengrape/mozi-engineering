@@ -40,7 +40,7 @@
       "source_page": 17,
       "source_line": 413,
       "case_id": "hengsuan-balance-001",
-      "status": "planned",
+      "status": "published",
       "design": {
         "primary_primitives": [
           "number",
@@ -59,7 +59,7 @@
       "source_page": 21,
       "source_line": 506,
       "case_id": "dingzhun-torque-001",
-      "status": "planned",
+      "status": "published",
       "design": {
         "primary_primitives": [
           "choice"
@@ -77,7 +77,7 @@
       "source_page": 25,
       "source_line": 603,
       "case_id": "chuanzhun-benchmark-001",
-      "status": "planned",
+      "status": "published",
       "design": {
         "primary_primitives": [
           "multi"
@@ -95,7 +95,7 @@
       "source_page": 30,
       "source_line": 710,
       "case_id": "canyan-model-001",
-      "status": "planned",
+      "status": "published",
       "design": {
         "primary_primitives": [
           "choice",
