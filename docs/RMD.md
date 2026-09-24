@@ -76,8 +76,8 @@
 | ID | RMD Task | Branch | Commit Message | PR | Merge Status | Required Evidence |
 | --- | --- | --- | --- | --- | --- | --- |
 | RMD-GIT-001 | RMD-TASK-001 | `feat/rmd-task-001-case-contract-clean` | `feat: implement RMD-TASK-001 case contract` | #3 | merged | 3/3 tests + compile check |
-| RMD-GIT-002 | RMD-TASK-002 | `feat/rmd-task-002-jieti-story` | `feat: implement RMD-TASK-002 jieti story` | #5 | checkpoint-ready | PATH-A/B + recovery/debrief tests; source review |
-| RMD-GIT-003 | RMD-TASK-003 | `feat/rmd-task-003-generic-player` | `feat: implement RMD-TASK-003 generic player` | pending | pending | npm run check + local browser smoke |
+| RMD-GIT-002 | RMD-TASK-002 | `feat/rmd-task-002-jieti-story` | `feat: implement RMD-TASK-002 jieti story` | #5 | merged | 10/10 tests + source review |
+| RMD-GIT-003 | RMD-TASK-003 | `feat/rmd-task-003-generic-player` | `feat: implement RMD-TASK-003 generic player` | #6 | checkpoint-ready | 17/17 tests + build + headless Chrome smoke |
 | RMD-GIT-004 | RMD-TASK-004 | `feat/rmd-task-004-pages` | `feat: implement RMD-TASK-004 pages deployment` | pending | pending | Actions/Pages status + public smoke |
 | RMD-GIT-005 | RMD-TASK-005 | `docs/rmd-task-005-textbook-integration` | `docs: integrate RMD-TASK-005 into textbook body` | pending | pending | textbook diff / artifact check |
 
@@ -189,11 +189,11 @@ RMD-GIT-001 completed successfully.
 
 ## RMD-TASK-002 Execution Record
 
-- status: **checkpoint-ready / pending merge approval**
+- status: **merged / completed**
 - branch: `feat/rmd-task-002-jieti-story`
 - pull request: #5
 - case_id: `jieti-water-001`
-- GitHub Actions run: `35935107490`
+- GitHub Actions run: `35935288962`
 - compiled story JSON: 9122 bytes
 
 ### Source boundary
@@ -287,6 +287,102 @@ The story tests cover:
 
 ### Git checkpoint
 
-RMD-GIT-002 is ready for review.
+RMD-GIT-002 completed successfully.
 
-No merge has been performed. RMD-TASK-003 (generic player + static build) remains blocked until PR #5 is explicitly approved for merge.
+- PR #5 merged into `main` as squash commit `fd7619a512567cb4366c97ac933192a14fb59f53`.
+- RMD-TASK-002 is complete.
+- RMD-TASK-003 was authorized by the same owner instruction to continue execution and has been implemented on its own branch.
+
+
+## RMD-TASK-003 Execution Record
+
+- status: **checkpoint-ready / pending merge approval**
+- branch: `feat/rmd-task-003-generic-player`
+- pull request: #6
+- implementation head verified: `4558106ec426cb534eeeadec2d4bc9ccc00eeca9`
+- GitHub Actions run: `35936809001`
+
+### Delivered
+
+Generic browser layer:
+
+- `src/player.js` — case-agnostic Ink player;
+- `src/case.html` — generated-case shell;
+- `src/index.html` — local exercise index;
+- `src/style.css` — mobile-first reading/choice styles, visible focus and reduced-motion rule.
+
+Build/runtime layer:
+
+- `scripts/build.cjs` validates case packages before writing output;
+- Ink source is compiled to `story.json`;
+- npm's locked local `inkjs` runtime is copied to `dist/assets/ink.js`;
+- no CDN is required;
+- duplicate case IDs abort before rewriting an existing output directory;
+- `scripts/serve.cjs` serves `dist/` using Node's built-in HTTP server.
+
+Generated contract:
+
+```text
+dist/
+  index.html
+  assets/
+    ink.js
+    player.js
+    style.css
+  cases/
+    index.json
+    jieti-water-001/
+      index.html
+      manifest.json
+      story.json
+```
+
+### Decoupling evidence
+
+`src/player.js` knows only:
+
+- story output text;
+- current choices;
+- completion;
+- restart;
+- load failure.
+
+Automated TDD-TEST-020 rejects case-specific terms or state such as `jieti-water-001`, 《界体》, 漏水 or `checked_boundary` inside the player.
+
+All pedagogical branching remains in `story.ink`.
+
+### Automated evidence
+
+GitHub Actions run `35936809001`:
+
+- locked dependency install — passed;
+- `npm test` — **17 passed, 0 failed**;
+- `npm run build` — passed; built 1 case;
+- `npm run check:case` — passed;
+- headless Chrome static-browser smoke — passed.
+
+Covered Task 003 oracles include:
+
+- TDD-TEST-014 — static output contract and duplicate-ID preflight failure;
+- TDD-TEST-015 — generic player renders choices, handles load error/retry, and can restart;
+- TDD-TEST-020 — no case-specific pedagogy in `src/player.js`;
+- TDD-TEST-021 — generated page uses local runtime assets, not a remote CDN;
+- additional runtime path test — the generic player carries the real case through a complete PATH-A to the 《界体》→《衡算》 switch and completion.
+
+### Browser smoke
+
+CI starts `npm run serve`, opens the generated route in real headless Chrome, executes the local inkjs runtime and player, and verifies that the rendered DOM contains:
+
+- the “1000 m³” opening;
+- the “先查主表究竟把哪些用水算在一起” choice;
+- the “先按‘楼内漏水 180 m³’处理” choice.
+
+The complete click path is separately exercised through the same generic player code with the real inkjs Story runtime in Node's test harness.
+
+Visual/mobile-device review is still appropriate before public release; it belongs naturally with RMD-TASK-004 Pages smoke rather than changing Task 003's runtime architecture.
+
+### Git checkpoint
+
+RMD-GIT-003 is ready for review.
+
+No merge has been performed. RMD-TASK-004 (case registry hardening + GitHub Pages deployment) remains blocked until PR #6 is explicitly approved for merge.

@@ -1,0 +1,118 @@
+:root {
+  font-family: ui-serif, "Noto Serif SC", "Source Han Serif SC", serif;
+  line-height: 1.75;
+  color-scheme: light dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-size: 18px;
+}
+
+.site-shell,
+.case-shell {
+  width: min(46rem, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 2.5rem 0 5rem;
+}
+
+.site-header,
+.case-heading {
+  margin-bottom: 2rem;
+}
+
+.case-kicker {
+  margin: 0 0 0.35rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(1.7rem, 5vw, 2.35rem);
+  line-height: 1.25;
+}
+
+.story-transcript {
+  min-height: 8rem;
+}
+
+.story-line {
+  margin: 0 0 1rem;
+}
+
+.story-choices {
+  display: grid;
+  gap: 0.75rem;
+  margin: 1.75rem 0;
+}
+
+button,
+.case-link {
+  font: inherit;
+}
+
+.choice-button,
+.secondary-action,
+.case-link {
+  display: block;
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border: 1px solid currentColor;
+  border-radius: 0.35rem;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+}
+
+.choice-button:focus-visible,
+.secondary-action:focus-visible,
+.case-link:focus-visible {
+  outline: 3px solid currentColor;
+  outline-offset: 3px;
+}
+
+.choice-button:hover,
+.secondary-action:hover,
+.case-link:hover {
+  text-decoration: underline;
+}
+
+.story-controls {
+  margin-top: 2rem;
+}
+
+.completion-note,
+.error-detail {
+  font-size: 0.95rem;
+}
+
+.load-error {
+  width: min(46rem, calc(100% - 2rem));
+  margin: 3rem auto;
+}
+
+.case-list {
+  display: grid;
+  gap: 0.75rem;
+  padding: 0;
+  list-style: none;
+}
+
+.case-link {
+  text-decoration: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition: none !important;
+    animation: none !important;
+  }
+}

@@ -7,7 +7,10 @@
     "test": "node --test tests/*.test.cjs",
     "test:contract": "node --test tests/case-contract.test.cjs",
     "test:compile": "node --test tests/ink-compile.test.cjs",
-    "check:case": "node scripts/check-case.cjs content/cases/jieti-water-001"
+    "check:case": "node scripts/check-case.cjs content/cases/jieti-water-001",
+    "build": "node scripts/build.cjs",
+    "serve": "node scripts/serve.cjs",
+    "check": "npm test && npm run build"
   },
   "dependencies": {
     "inkjs": "2.4.0"
