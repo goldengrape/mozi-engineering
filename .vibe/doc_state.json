@@ -5,28 +5,28 @@
   "source_of_truth": "docs",
   "okf_is_derived": true,
   "okf_version": "0.1",
-  "current_phase": "RMD-TASK-004 blocked on Pages source mode",
+  "current_phase": "RMD-TASK-005 ready",
   "urd_status": "accepted",
   "add_status": "accepted",
   "mdd_status": "accepted-for-planning",
   "tdd_status": "ready-for-build-path",
   "rmd_status": "accepted",
   "implementation_allowed": true,
-  "active_task": "RMD-TASK-004",
-  "active_task_status": "merged-deployment-source-mismatch",
+  "active_task": null,
+  "active_task_status": null,
   "active_pr": null,
   "next_task": "RMD-TASK-005",
-  "next_task_blocked_by": "Pages Source must be GitHub Actions + successful public artifact smoke",
+  "next_task_blocked_by": null,
   "completed_tasks": [
     "RMD-TASK-001",
     "RMD-TASK-002",
-    "RMD-TASK-003"
+    "RMD-TASK-003",
+    "RMD-TASK-004"
   ],
-  "external_blocker": {
-    "id": "PAGES-SOURCE-MODE",
-    "owner_action": "Set Settings > Pages > Build and deployment > Source = GitHub Actions",
+  "production_pages": {
+    "url": "https://goldengrape.github.io/mozi-engineering/",
     "deployment_workflow_run": 35938292249,
-    "public_diagnostic_run": 35939424855,
-    "reason": "Live site is a Jekyll branch build; Actions artifact assets and case routes return 404"
+    "public_smoke_run": 35940775884,
+    "status": "passed"
   }
 }
