@@ -29,7 +29,7 @@ const EXPECTED_METHODS = [
   "限败"
 ];
 
-test("Phase 2 curriculum registry covers the sixteen textbook chapters in order", () => {
+test("TDD2-TEST-001: curriculum registry covers the sixteen textbook chapters in order", () => {
   const curriculum = loadCurriculum();
 
   assert.equal(curriculum.chapters.length, 16);
@@ -49,7 +49,7 @@ test("Phase 2 curriculum registry covers the sixteen textbook chapters in order"
   );
 });
 
-test("curriculum keeps source structure separate from interactive design", () => {
+test("TDD2-TEST-002: curriculum keeps source structure separate from interactive design", () => {
   const curriculum = loadCurriculum();
 
   for (const chapter of curriculum.chapters) {
@@ -66,7 +66,7 @@ test("curriculum keeps source structure separate from interactive design", () =>
   }
 });
 
-test("published case identity is tied to the curriculum chapter identity", () => {
+test("TDD2-TEST-003: published case identity is tied to the curriculum chapter identity", () => {
   const curriculum = loadCurriculum();
   const published = curriculum.chapters.filter(
     (chapter) => chapter.status === "published"
@@ -88,7 +88,7 @@ test("published case identity is tied to the curriculum chapter identity", () =>
   assert.equal(manifest.textbook.chapter_id, published[0].chapter_id);
 });
 
-test("static build publishes the curriculum registry", () => {
+test("TDD2-TEST-004: static build publishes the curriculum registry", () => {
   const outDir = fs.mkdtempSync(
     path.join(os.tmpdir(), "mozi-curriculum-build-")
   );
