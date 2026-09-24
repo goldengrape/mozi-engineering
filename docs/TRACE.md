@@ -4,7 +4,7 @@
 
 ## Current Phase
 
-URD-0001, ADD-0001 and RMD-0001 are accepted. RMD-TASK-001 and RMD-TASK-002 are merged. RMD-TASK-003 is implemented and is now at the RMD-GIT-003 merge checkpoint.
+URD-0001, ADD-0001 and RMD-0001 are accepted. RMD-TASK-001 through RMD-TASK-003 are merged. RMD-TASK-004 is implemented through its pre-deploy checkpoint; public Pages evidence waits for PR #7 merge.
 
 ## Requirement → Design
 
@@ -70,7 +70,7 @@ URD-0001, ADD-0001 and RMD-0001 are accepted. RMD-TASK-001 and RMD-TASK-002 are 
 | RMD-TASK-001 | checkpointed_by | RMD-GIT-001 | PR #3; CI run 35906458582 passed 3/3 tests |
 | RMD-TASK-002 | checkpointed_by | RMD-GIT-002 | PR #5; CI run 35935107490 passed 10/10 tests |
 | RMD-TASK-003 | checkpointed_by | RMD-GIT-003 | PR #6; CI run 35936809001 passed 17/17 tests + build + Chrome smoke |
-| RMD-TASK-004 | checkpointed_by | RMD-GIT-004 | feature branch / tests / PR |
+| RMD-TASK-004 | checkpointed_by | RMD-GIT-004 | PR #7; pre-deploy CI 35937736546 passed 19/19 tests |
 | RMD-TASK-005 | checkpointed_by | RMD-GIT-005 | docs/artifact integration checkpoint |
 
 ## AI Retrieval
@@ -105,12 +105,23 @@ URD-0001, ADD-0001 and RMD-0001 are accepted. RMD-TASK-001 and RMD-TASK-002 are 
 | Source ID | Relation | Target | Notes |
 | --- | --- | --- | --- |
 | RMD-TASK-003 | implemented_on | feat/rmd-task-003-generic-player | generic player, static builder, local server, tests |
-| RMD-GIT-003 | reviewed_by | RMD-PR-006 | PR #6, draft pending merge approval |
+| RMD-GIT-003 | merged_by | RMD-PR-006 | PR #6 merged to main as bb50df7de0a609e8e1168cc07b8c56d9e2b3cf6c |
 | TDD-TEST-014/015/020/021 | evidenced_by | Actions run 35936809001 | 17/17 project tests passed |
 | TDD-TEST-007 | evidenced_by | Actions run 35936809001 | generated site opened in headless Chrome through local static server |
 | MDD-API-003 | realized_in | scripts/build.cjs | preflight validate/compile then disposable dist build |
 | MDD-API-004 | realized_in | src/player.js | generic Ink text/choice/restart/error runtime |
 | RMD-TASK-003 | summarized_by | okf/decisions/generic-player-build.md | concise runtime/build retrieval page |
+
+## RMD-TASK-004 Pre-deploy Evidence
+
+| Source ID | Relation | Target | Notes |
+| --- | --- | --- | --- |
+| RMD-TASK-004 | implemented_on | feat/rmd-task-004-pages | registry hardening + Pages workflow |
+| RMD-GIT-004 | reviewed_by | RMD-PR-007 | PR #7, merge required to trigger production Pages |
+| TDD-TEST-009 | evidenced_by | Actions run 35937736546 | second case generated with unchanged player |
+| TDD-TEST-021 | strengthened_by | tests/build-output.test.cjs | repository-relative asset links for project Pages |
+| MDD-MOD-004 | realized_in | .github/workflows/pages.yml | upload dist artifact and deploy to github-pages environment |
+| RMD-TASK-004 | summarized_by | okf/deployment/github-pages.md | concise deployment retrieval page |
 
 ## Gates
 
@@ -121,7 +132,9 @@ URD-0001, ADD-0001 and RMD-0001 are accepted. RMD-TASK-001 and RMD-TASK-002 are 
 | RMD-0001 Build Path | accepted_before | RMD-TASK-001 | satisfied |
 | RMD-GIT-001 | completed_before | RMD-TASK-002 | satisfied |
 | RMD-GIT-002 | completed_before | RMD-TASK-003 | satisfied |
-| RMD-GIT-003 | gates | RMD-TASK-004 | **waiting for merge approval** |
+| RMD-GIT-003 | completed_before | RMD-TASK-004 | satisfied |
+| RMD-GIT-004 | gates | production Pages smoke | **waiting for merge approval** |
+| production Pages smoke | gates | RMD-TASK-005 | pending |
 
 ## Trace Update Rule
 
