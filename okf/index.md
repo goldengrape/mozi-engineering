@@ -8,7 +8,7 @@ okf_version: "0.1"
 
 ## Current phase
 
-The project is in **Phase 2 / RMD-TASK-006 active**. The single-case MVP is complete; work now expands the Ink layer across all sixteen chapters.
+The project is at **RMD-GIT-006 merge checkpoint**. The full-book curriculum registry and generic choice/multi/number/rank protocol are implemented and tested.
 
 - first prototype: `jieti-water-001`, based on the textbook's “教学楼用水增加 18%” case;
 - interactive task belongs in the textbook body;
