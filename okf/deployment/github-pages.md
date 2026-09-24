@@ -8,7 +8,7 @@ source_ids:
   - TDD-TEST-009
   - TDD-TEST-021
   - RMD-TASK-004
-status: predeploy_checkpoint_ready
+status: pages_enablement_blocked
 ---
 
 # Registry
@@ -51,8 +51,26 @@ Pre-deploy branch run `35937736546`:
 - second-case registry test passed;
 - project-Pages relative-path test passed.
 
+# Production attempt
+
+PR #7 merged to `main` as `bbbeca30c6a0242d7860d04686b7d9b4a6d3ae05`.
+
+Workflow run `35938292249` successfully:
+
+- ran project checks;
+- built the site;
+- uploaded the Pages artifact.
+
+Deployment then stopped in `actions/configure-pages@v5` because the repository does not yet have a Pages site enabled.
+
+The official action's `enablement` input cannot solve this using the normal workflow `GITHUB_TOKEN`; enabling Pages requires a separate token with repository administration and Pages write permission.
+
+# Owner action required
+
+`Settings → Pages → Build and deployment → Source → GitHub Actions`
+
+Then rerun the production Pages workflow.
+
 # Remaining gate
 
-Task 004 is not complete until PR #7 is merged and the production Pages workflow succeeds from `main`.
-
-After deployment, verify the public home page and `cases/jieti-water-001/` route at desktop and mobile-width conditions. Only then may RMD-TASK-005 begin.
+Task 004 remains incomplete until the public home page and `cases/jieti-water-001/` route pass desktop/mobile-width smoke checks. Only then may RMD-TASK-005 begin.
