@@ -152,6 +152,14 @@ URD-0001, ADD-0001 and RMD-0001 are accepted. RMD-TASK-001 through RMD-TASK-003 
 | RMD-TASK-005 | artifact_candidate | EPUB v0.5.3 interactive candidate | package/XML/link/QR checks passed |
 | publication baseline | caveat | v0.5.4 | earlier terminology artifact bytes unavailable; no false version relabeling |
 
+## RMD-GIT-005 Checkpoint Evidence
+
+| Source ID | Relation | Target | Notes |
+| --- | --- | --- | --- |
+| RMD-GIT-005 | reviewed_by | RMD-PR-009 | PR #9, draft pending merge approval |
+| TDD-TEST-010 | evidenced_by | Actions run 35942052613 | no-web/textbook contract included in 21/21 passing tests |
+| RMD-TASK-005 | evidenced_by | Actions run 35942052613 | build, case validation and browser smoke passed |
+
 ## Gates
 
 | Source | Relation | Target | Status |
