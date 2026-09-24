@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "case_id": "chuanzhun-benchmark-001",
+  "title": "一个高程基准失效，哪些点要重测？",
+  "language": "zh-CN",
+  "textbook": {
+    "chapter_id": "04-chuanzhun",
+    "placement": "worked-example-practice"
+  },
+  "story_source": "story.ink",
+  "book_fragment": "book.md"
+}
