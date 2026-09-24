@@ -524,6 +524,46 @@
     {
       "id": "PRACTICE-REGISTRY-001",
       "kind": "mixed_practice_registry"
+    },
+    {
+      "id": "MERGE-29cc34f75f8c51636699bba82f421c15bd4d18fb",
+      "kind": "merge_commit"
+    },
+    {
+      "id": "CI-RUN-35968012671",
+      "kind": "deployment_run"
+    },
+    {
+      "id": "RMD-TASK-012",
+      "kind": "task"
+    },
+    {
+      "id": "RMD-GIT-012",
+      "kind": "git_checkpoint"
+    },
+    {
+      "id": "RMD-PR-016",
+      "kind": "pull_request"
+    },
+    {
+      "id": "TDD2-TEST-039..045",
+      "kind": "phase2_test_set"
+    },
+    {
+      "id": "CI-RUN-36071993875",
+      "kind": "test_run"
+    },
+    {
+      "id": "PUBLICATION-MAP-001",
+      "kind": "publication_map"
+    },
+    {
+      "id": "ARTIFACT-DOCX-TASK012-V053",
+      "kind": "publication_candidate"
+    },
+    {
+      "id": "ARTIFACT-EPUB-TASK012-V053",
+      "kind": "publication_candidate"
     }
   ],
   "links": [
@@ -1186,6 +1226,56 @@
       "source": "RMD-TASK-011",
       "relation": "summarized_by",
       "target": "okf/cases/mixed-transfer-f1-f4.md"
+    },
+    {
+      "source": "RMD-GIT-011",
+      "relation": "merged_as",
+      "target": "MERGE-29cc34f75f8c51636699bba82f421c15bd4d18fb"
+    },
+    {
+      "source": "RMD-TASK-011",
+      "relation": "deployed_by",
+      "target": "CI-RUN-35968012671"
+    },
+    {
+      "source": "RMD-GIT-011",
+      "relation": "completed_before",
+      "target": "RMD-TASK-012"
+    },
+    {
+      "source": "RMD-TASK-012",
+      "relation": "uses",
+      "target": "PUBLICATION-MAP-001"
+    },
+    {
+      "source": "RMD-TASK-012",
+      "relation": "verified_by",
+      "target": "TDD2-TEST-039..045"
+    },
+    {
+      "source": "TDD2-TEST-039..045",
+      "relation": "evidenced_by",
+      "target": "CI-RUN-36071993875"
+    },
+    {
+      "source": "RMD-TASK-012",
+      "relation": "produced_candidate",
+      "target": "ARTIFACT-DOCX-TASK012-V053"
+    },
+    {
+      "source": "RMD-TASK-012",
+      "relation": "produced_candidate",
+      "target": "ARTIFACT-EPUB-TASK012-V053"
+    },
+    {
+      "source": "RMD-TASK-012",
+      "relation": "checkpointed_by",
+      "target": "RMD-GIT-012"
+    },
+    {
+      "source": "RMD-GIT-012",
+      "relation": "reviewed_by",
+      "target": "RMD-PR-016"
     }
   ]
 }
