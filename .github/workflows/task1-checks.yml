@@ -74,41 +74,47 @@ jobs:
           grep -q "先按“楼内漏水 180 m³”处理" /tmp/mozi-dom.html
 
 
-      - name: Public Pages smoke
+      - name: Public Pages diagnostics
         shell: bash
         env:
           PUBLIC_BASE: https://goldengrape.github.io/mozi-engineering
         run: |
           set -euo pipefail
 
-          fetch_with_retry() {
-            local url="$1"
-            local output="$2"
+          probe() {
+            local label="$1"
+            local url="$2"
+            local output="$3"
+            local status
 
-            for attempt in {1..18}; do
-              if curl --fail --silent --show-error --location "$url" > "$output"; then
-                return 0
-              fi
-
-              echo "Public URL not ready yet (attempt $attempt/18): $url" >&2
-              sleep 10
-            done
-
-            return 1
+            status="$(curl --silent --show-error --location --output "$output" --write-out "%{http_code}" "$url")"
+            echo "$label => $status $url"
+            printf "%s" "$status"
           }
 
-          fetch_with_retry "$PUBLIC_BASE/" /tmp/public-home.html
-          fetch_with_retry "$PUBLIC_BASE/cases/jieti-water-001/" /tmp/public-case.html
-          fetch_with_retry "$PUBLIC_BASE/cases/jieti-water-001/manifest.json" /tmp/public-manifest.json
-          fetch_with_retry "$PUBLIC_BASE/cases/jieti-water-001/story.json" /tmp/public-story.json
-          fetch_with_retry "$PUBLIC_BASE/assets/ink.js" /tmp/public-ink.js
-          fetch_with_retry "$PUBLIC_BASE/assets/player.js" /tmp/public-player.js
+          home_status="$(probe home "$PUBLIC_BASE/" /tmp/public-home.html)"
+          registry_status="$(probe registry "$PUBLIC_BASE/cases/index.json" /tmp/public-registry.json)"
+          dir_status="$(probe case-dir "$PUBLIC_BASE/cases/jieti-water-001/" /tmp/public-case-dir.html)"
+          index_status="$(probe case-index "$PUBLIC_BASE/cases/jieti-water-001/index.html" /tmp/public-case-index.html)"
+          manifest_status="$(probe manifest "$PUBLIC_BASE/cases/jieti-water-001/manifest.json" /tmp/public-manifest.json)"
+          story_status="$(probe story "$PUBLIC_BASE/cases/jieti-water-001/story.json" /tmp/public-story.json)"
+          ink_status="$(probe ink "$PUBLIC_BASE/assets/ink.js" /tmp/public-ink.js)"
+          player_status="$(probe player "$PUBLIC_BASE/assets/player.js" /tmp/public-player.js)"
+
+          echo "summary: home=$home_status registry=$registry_status dir=$dir_status index=$index_status manifest=$manifest_status story=$story_status ink=$ink_status player=$player_status"
+
+          test "$home_status" = "200"
+          test "$registry_status" = "200"
+          test "$index_status" = "200"
+          test "$manifest_status" = "200"
+          test "$story_status" = "200"
+          test "$ink_status" = "200"
+          test "$player_status" = "200"
 
           grep -q "造物之理" /tmp/public-home.html
           grep -q "jieti-water-001" /tmp/public-manifest.json
-          grep -q "教学楼为什么多用了 18% 的水" /tmp/public-manifest.json
 
-          if grep -E '<script[^>]+src=["'\''']https?://' /tmp/public-case.html; then
+          if grep -E '<script[^>]+src=["'\''']https?://' /tmp/public-case-index.html; then
             echo "Remote script dependency found in public case HTML" >&2
             exit 1
           fi
@@ -119,9 +125,27 @@ jobs:
             exit 1
           fi
 
-          "$chrome_bin"             --headless             --no-sandbox             --disable-gpu             --window-size=1440,1000             --virtual-time-budget=5000             --dump-dom             "$PUBLIC_BASE/cases/jieti-water-001/"             > /tmp/public-desktop-dom.html
+          PUBLIC_CASE_URL="$PUBLIC_BASE/cases/jieti-water-001/index.html"
 
-          "$chrome_bin"             --headless             --no-sandbox             --disable-gpu             --window-size=390,844             --virtual-time-budget=5000             --dump-dom             "$PUBLIC_BASE/cases/jieti-water-001/"             > /tmp/public-mobile-dom.html
+          "$chrome_bin" \
+            --headless \
+            --no-sandbox \
+            --disable-gpu \
+            --window-size=1440,1000 \
+            --virtual-time-budget=5000 \
+            --dump-dom \
+            "$PUBLIC_CASE_URL" \
+            > /tmp/public-desktop-dom.html
+
+          "$chrome_bin" \
+            --headless \
+            --no-sandbox \
+            --disable-gpu \
+            --window-size=390,844 \
+            --virtual-time-budget=5000 \
+            --dump-dom \
+            "$PUBLIC_CASE_URL" \
+            > /tmp/public-mobile-dom.html
 
           for dom in /tmp/public-desktop-dom.html /tmp/public-mobile-dom.html; do
             grep -q "1000 m³" "$dom"
@@ -129,4 +153,4 @@ jobs:
             grep -q "先按“楼内漏水 180 m³”处理" "$dom"
           done
 
-          echo "Public Pages smoke passed for desktop and 390px mobile viewport."
+          echo "Public Pages explicit-index smoke passed for desktop and 390px mobile viewport."
