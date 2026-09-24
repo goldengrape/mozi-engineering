@@ -328,6 +328,18 @@
     {
       "id": "PROD-PAGES-001",
       "kind": "deployment"
+    },
+    {
+      "id": "ARTIFACT-DOCX-TASK005-V053",
+      "kind": "publication_artifact_candidate"
+    },
+    {
+      "id": "ARTIFACT-EPUB-TASK005-V053",
+      "kind": "publication_artifact_candidate"
+    },
+    {
+      "id": "BASELINE-CAVEAT-V054",
+      "kind": "publication_baseline_caveat"
     }
   ],
   "links": [
@@ -710,6 +722,21 @@
       "source": "RMD-TASK-004",
       "relation": "completed_before",
       "target": "RMD-TASK-005"
+    },
+    {
+      "source": "RMD-TASK-005",
+      "relation": "produced_candidate",
+      "target": "ARTIFACT-DOCX-TASK005-V053"
+    },
+    {
+      "source": "RMD-TASK-005",
+      "relation": "produced_candidate",
+      "target": "ARTIFACT-EPUB-TASK005-V053"
+    },
+    {
+      "source": "RMD-TASK-005",
+      "relation": "qualified_by",
+      "target": "BASELINE-CAVEAT-V054"
     }
   ]
 }
