@@ -4,7 +4,7 @@
 
 ## Current Phase
 
-MVP RMD-TASK-001..005 and Phase 2 RMD-TASK-006..007 are merged. RMD-TASK-008 implements 制物 chapters 6–8 and is at the RMD-GIT-008 merge checkpoint.
+MVP RMD-TASK-001..005 and Phase 2 RMD-TASK-006..008 are merged. RMD-TASK-009 implements 制物 chapters 9–12 and is at the RMD-GIT-009 merge checkpoint.
 
 ## Requirement → Design
 
@@ -204,6 +204,18 @@ MVP RMD-TASK-001..005 and Phase 2 RMD-TASK-006..007 are merged. RMD-TASK-008 imp
 | RMD-TASK-008 | generated_as | eight-case static build | curriculum-derived authored set |
 | RMD-TASK-008 | summarized_by | okf/cases/make-chapters-6-8.md | concise retrieval page |
 
+## RMD-TASK-009 Execution Evidence
+
+| Source ID | Relation | Target | Notes |
+| --- | --- | --- | --- |
+| RMD-GIT-008 | merged_as | 4d5306a4959c5f86cf0a7acb72ba1211977e5b92 | PR #12 |
+| RMD-TASK-008 | deployed_by | Actions run 35961945622 | post-merge Pages deploy succeeded |
+| RMD-TASK-009 | implemented_on | feat/rmd-task-009-make-cases-b | 定动 / 容度 / 相衡 / 示制 case packages |
+| RMD-GIT-009 | reviewed_by | RMD-PR-013 | PR #13 |
+| TDD2-TEST-021..025 | evidenced_by | Actions run 35962501094 | 46/46 total tests passed |
+| RMD-TASK-009 | generated_as | twelve-case static build | chapters 1–12 published |
+| RMD-TASK-009 | summarized_by | okf/cases/make-chapters-9-12.md | concise retrieval page |
+
 ## Gates
 
 | Source | Relation | Target | Status |
@@ -230,7 +242,7 @@ MVP RMD-TASK-001..005 and Phase 2 RMD-TASK-006..007 are merged. RMD-TASK-008 imp
 | RMD-GIT-005 | completed_before | RMD-TASK-006 | satisfied |
 | RMD-GIT-006 | completed_before | RMD-TASK-007 | satisfied |
 | RMD-GIT-007 | completed_before | RMD-TASK-008 | satisfied |
-| RMD-GIT-008 | gates | RMD-TASK-009 | **waiting for merge approval** |
-| RMD-GIT-009 | gates | RMD-TASK-010 | pending |
+| RMD-GIT-008 | completed_before | RMD-TASK-009 | satisfied |
+| RMD-GIT-009 | gates | RMD-TASK-010 | **waiting for merge approval** |
 | RMD-GIT-010 | gates | RMD-TASK-011 | pending |
 | RMD-GIT-011 | gates | RMD-TASK-012 | pending |
