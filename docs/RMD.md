@@ -78,7 +78,7 @@
 | RMD-GIT-001 | RMD-TASK-001 | `feat/rmd-task-001-case-contract-clean` | `feat: implement RMD-TASK-001 case contract` | #3 | merged | 3/3 tests + compile check |
 | RMD-GIT-002 | RMD-TASK-002 | `feat/rmd-task-002-jieti-story` | `feat: implement RMD-TASK-002 jieti story` | #5 | merged | 10/10 tests + source review |
 | RMD-GIT-003 | RMD-TASK-003 | `feat/rmd-task-003-generic-player` | `feat: implement RMD-TASK-003 generic player` | #6 | merged | 17/17 tests + build + headless Chrome smoke |
-| RMD-GIT-004 | RMD-TASK-004 | `feat/rmd-task-004-pages` | `feat: implement RMD-TASK-004 pages deployment` | #7 | pre-deploy checkpoint | 19/19 tests + registry/path checks; production Pages smoke after merge |
+| RMD-GIT-004 | RMD-TASK-004 | `feat/rmd-task-004-pages` | `feat: implement RMD-TASK-004 pages deployment` | #7 | merged; deployment blocked by repo setting | 19/19 tests + registry/path checks; Pages build artifact succeeded; repo Pages enablement required |
 | RMD-GIT-005 | RMD-TASK-005 | `docs/rmd-task-005-textbook-integration` | `docs: integrate RMD-TASK-005 into textbook body` | pending | pending | textbook diff / artifact check |
 
 First implementation push and every merge remain explicit checkpoint actions.
@@ -392,7 +392,7 @@ RMD-GIT-003 completed successfully.
 
 ## RMD-TASK-004 Execution Record — pre-deploy checkpoint
 
-- status: **implementation complete / production deployment pending merge**
+- status: **merged / deployment blocked by repository Pages enablement**
 - branch: `feat/rmd-task-004-pages`
 - pull request: #7
 - project-check head: `0091107e045e687dc56b9bd18f891051bfcd0696`
@@ -476,3 +476,53 @@ After PR #7 merge, the Pages workflow must:
 5. remain independent of a CDN or backend.
 
 RMD-GIT-004 therefore acts as a **pre-deploy merge checkpoint**. RMD-TASK-005 remains blocked until public Pages smoke succeeds.
+
+
+### Production deployment attempt
+
+PR #7 was explicitly approved and merged into `main` as squash commit:
+
+`bbbeca30c6a0242d7860d04686b7d9b4a6d3ae05`
+
+This triggered production workflow run `35938292249`.
+
+Result:
+
+- build job — **success**;
+- full project checks — success;
+- Pages artifact upload — success;
+- deploy job — **failed at Configure Pages**;
+- `actions/deploy-pages` was skipped because no Pages site exists yet for the repository.
+
+The exact GitHub error was that the Pages site could not be found and the repository must have Pages enabled/configured to build using GitHub Actions.
+
+This is a repository-administration state, not a build failure.
+
+### Why the workflow cannot enable Pages itself
+
+The official `actions/configure-pages@v5` action supports an `enablement` option, but its own contract states that enabling a previously disabled Pages site requires a token other than the workflow `GITHUB_TOKEN`.
+
+For a GitHub App token, the required permissions are:
+
+```text
+administration: write
+pages: write
+```
+
+The current GitHub connector does not expose repository-administration writes, so this project must not add a secret or bypass that permission boundary just to make CI enable Pages.
+
+### Owner action required
+
+In the repository UI:
+
+```text
+Settings → Pages → Build and deployment → Source → GitHub Actions
+```
+
+After Pages is enabled, rerun workflow `Deploy GitHub Pages` (or make a new main-branch commit that triggers it).
+
+### Current gate
+
+RMD-TASK-004 remains **not complete** until the production workflow deploys successfully and the public site passes the planned smoke checks.
+
+RMD-TASK-005 remains blocked.
