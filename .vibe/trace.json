@@ -318,7 +318,11 @@
       "kind": "deployment_run"
     },
     {
-      "id": "BLOCKER-PAGES-ENABLEMENT",
+      "id": "CI-RUN-35939424855",
+      "kind": "public_smoke_run"
+    },
+    {
+      "id": "BLOCKER-PAGES-SOURCE-MODE",
       "kind": "external_blocker"
     }
   ],
@@ -685,11 +689,16 @@
     },
     {
       "source": "CI-RUN-35938292249",
-      "relation": "blocked_by",
-      "target": "BLOCKER-PAGES-ENABLEMENT"
+      "relation": "deployment_succeeded",
+      "target": "https://goldengrape.github.io/mozi-engineering/"
     },
     {
-      "source": "BLOCKER-PAGES-ENABLEMENT",
+      "source": "CI-RUN-35939424855",
+      "relation": "detected",
+      "target": "BLOCKER-PAGES-SOURCE-MODE"
+    },
+    {
+      "source": "BLOCKER-PAGES-SOURCE-MODE",
       "relation": "gates",
       "target": "production-pages-smoke"
     }
