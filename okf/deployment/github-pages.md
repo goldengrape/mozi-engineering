@@ -8,7 +8,7 @@ source_ids:
   - TDD-TEST-009
   - TDD-TEST-021
   - RMD-TASK-004
-status: predeploy_checkpoint_ready
+status: complete
 ---
 
 # Registry
@@ -51,8 +51,36 @@ Pre-deploy branch run `35937736546`:
 - second-case registry test passed;
 - project-Pages relative-path test passed.
 
-# Remaining gate
+# Production attempt
 
-Task 004 is not complete until PR #7 is merged and the production Pages workflow succeeds from `main`.
+PR #7 merged to `main` as `bbbeca30c6a0242d7860d04686b7d9b4a6d3ae05`.
 
-After deployment, verify the public home page and `cases/jieti-water-001/` route at desktop and mobile-width conditions. Only then may RMD-TASK-005 begin.
+Workflow run `35938292249` successfully:
+
+- ran project checks;
+- built the site;
+- uploaded the Pages artifact.
+
+After the owner enabled Pages, the rerun completed `actions/configure-pages@v5` and `actions/deploy-pages@v5` successfully and returned `https://goldengrape.github.io/mozi-engineering/`.
+
+Public diagnostics then showed that the live site is still a Jekyll branch build: the root HTML announces `Jekyll v3.10.0`, does not match `dist/index.html`, and all artifact-only assets/case paths return 404. The downloaded production artifact was inspected and contains the missing paths.
+
+# Final state
+
+Pages Source is now **GitHub Actions**.
+
+Production deployment workflow `35938292249` succeeded after the source switch.
+
+Public URL:
+
+`https://goldengrape.github.io/mozi-engineering/`
+
+Public smoke run `35940775884` verified:
+
+- home, assets, registry, case route, manifest and story all return HTTP 200;
+- live root matches the generated `dist/index.html`;
+- public case HTML has no remote script dependency;
+- live case renders correctly in headless Chrome at 1440×1000 and 390×844;
+- both viewports show the opening and both first choices.
+
+RMD-TASK-004 is complete. RMD-TASK-005 may begin.

@@ -5,21 +5,28 @@
   "source_of_truth": "docs",
   "okf_is_derived": true,
   "okf_version": "0.1",
-  "current_phase": "RMD-GIT-004 pre-deploy merge checkpoint",
+  "current_phase": "RMD-TASK-005 ready",
   "urd_status": "accepted",
   "add_status": "accepted",
   "mdd_status": "accepted-for-planning",
   "tdd_status": "ready-for-build-path",
   "rmd_status": "accepted",
   "implementation_allowed": true,
-  "active_task": "RMD-TASK-004",
-  "active_task_status": "pre-deploy-checkpoint-ready",
-  "active_pr": 7,
+  "active_task": null,
+  "active_task_status": null,
+  "active_pr": null,
   "next_task": "RMD-TASK-005",
-  "next_task_blocked_by": "RMD-GIT-004 merge approval + public Pages smoke",
+  "next_task_blocked_by": null,
   "completed_tasks": [
     "RMD-TASK-001",
     "RMD-TASK-002",
-    "RMD-TASK-003"
-  ]
+    "RMD-TASK-003",
+    "RMD-TASK-004"
+  ],
+  "production_pages": {
+    "url": "https://goldengrape.github.io/mozi-engineering/",
+    "deployment_workflow_run": 35938292249,
+    "public_smoke_run": 35940775884,
+    "status": "passed"
+  }
 }
