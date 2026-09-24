@@ -17,9 +17,14 @@ VAR case_complete = false
     ~ repeated_same_relation = true
     同一比较关系再测，只会再次得到 s+b 这种混合关系。
     要分开两个未知量，需要改变它们进入读数的方式。
-    -> reversal
+    -> reversal_retry
 
 * [把仪器反转，让表面分量变号而仪器零偏保持同号。]
+    -> reversal
+
+=== reversal_retry ===
+
+* [改为反转仪器，让 s 变号而 b 保持同号。]
     -> reversal
 
 === reversal ===
