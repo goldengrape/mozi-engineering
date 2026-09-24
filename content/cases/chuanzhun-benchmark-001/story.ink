@@ -26,7 +26,7 @@ A 校到 B，B 再校到 C、D，C 又用于 E。
 # ui:min=1
 # ui:max=4
 # ui:submit=提交影响集合
-* [继续]
++ [继续]
     {affected_nodes == "C,D,E":
         你沿 B 的下游支链找到了 C、D、E。
         -> records
