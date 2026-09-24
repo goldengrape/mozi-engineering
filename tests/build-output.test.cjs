@@ -10,7 +10,7 @@ function tempDir(prefix) {
   return fs.mkdtempSync(path.join(os.tmpdir(), prefix));
 }
 
-function writeFixtureCase(parent, caseId) {
+function writeFixtureCase(parent, caseId, chapterId = "fixture") {
   const caseDir = path.join(parent, caseId);
   fs.mkdirSync(caseDir, { recursive: true });
 
@@ -23,7 +23,7 @@ function writeFixtureCase(parent, caseId) {
         title: "fixture",
         language: "zh-CN",
         textbook: {
-          chapter_id: "fixture",
+          chapter_id: chapterId,
           placement: "opening-practice"
         },
         story_source: "story.ink",
@@ -36,7 +36,7 @@ function writeFixtureCase(parent, caseId) {
 
   fs.writeFileSync(
     path.join(caseDir, "book.md"),
-    `---\ncase_id: ${caseId}\nchapter_id: fixture\nplacement: opening-practice\n---\n\nfixture\n`
+    `---\ncase_id: ${caseId}\nchapter_id: ${chapterId}\nplacement: opening-practice\n---\n\nfixture\n`
   );
   fs.writeFileSync(path.join(caseDir, "story.ink"), "hello\n-> END\n");
   return caseDir;
@@ -55,6 +55,7 @@ test("TDD-TEST-014: buildSite creates the static output contract", () => {
 
   for (const relative of [
     "index.html",
+    "curriculum.json",
     "assets/ink.js",
     "assets/player.js",
     "assets/style.css",
@@ -126,7 +127,11 @@ test("TDD-TEST-021: generated case page uses local runtime assets only", () => {
 
 test("TDD-TEST-009: a second case is registered without changing the player", () => {
   const fixtureRoot = tempDir("mozi-multi-");
-  const secondCase = writeFixtureCase(fixtureRoot, "fixture-second-case");
+  const secondCase = writeFixtureCase(
+    fixtureRoot,
+    "hengsuan-balance-001",
+    "02-hengsuan"
+  );
   const outDir = tempDir("mozi-multi-build-");
   const playerBefore = fs.readFileSync(path.resolve("src/player.js"), "utf8");
 
@@ -140,7 +145,7 @@ test("TDD-TEST-009: a second case is registered without changing the player", ()
 
   assert.deepEqual(
     registry.map((entry) => entry.case_id),
-    ["jieti-water-001", "fixture-second-case"]
+    ["jieti-water-001", "hengsuan-balance-001"]
   );
 
   const index = JSON.parse(
@@ -149,14 +154,14 @@ test("TDD-TEST-009: a second case is registered without changing the player", ()
   assert.equal(index.length, 2);
   assert.equal(
     fs.existsSync(
-      path.join(outDir, "cases/fixture-second-case/index.html")
+      path.join(outDir, "cases/hengsuan-balance-001/index.html")
     ),
     true
   );
 
   const home = fs.readFileSync(path.join(outDir, "index.html"), "utf8");
   assert.match(home, /cases\/jieti-water-001\//);
-  assert.match(home, /cases\/fixture-second-case\//);
+  assert.match(home, /cases\/hengsuan-balance-001\//);
 
   const playerAfter = fs.readFileSync(path.resolve("src/player.js"), "utf8");
   assert.equal(playerAfter, playerBefore);
