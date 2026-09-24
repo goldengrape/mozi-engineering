@@ -8,7 +8,7 @@ source_ids:
   - RMD-TASK-003
   - RMD-TASK-004
   - RMD-TASK-005
-status: task_004_predeploy_checkpoint_ready
+status: task_004_pages_enablement_blocked
 ---
 
 # 顺序
@@ -21,18 +21,22 @@ status: task_004_predeploy_checkpoint_ready
 
 # 当前状态
 
-RMD-TASK-001 至 RMD-TASK-003 已合入 main。RMD-TASK-004 的 registry 与 Pages workflow 已实现并通过 19/19 分支测试；公网部署等待 PR #7 合并。
+RMD-TASK-001 至 RMD-TASK-003 已完成。RMD-TASK-004 已合入 main；生产构建与 Pages artifact 上传成功，但仓库尚未启用 Pages，因此公开部署被仓库设置阻塞。
 
 # Current checkpoint
 
-RMD-TASK-004 is implemented on `feat/rmd-task-004-pages` through the pre-deploy checkpoint.
+RMD-TASK-004 code is merged into `main` as `bbbeca30c6a0242d7860d04686b7d9b4a6d3ae05`.
 
-Evidence:
+Production workflow `35938292249`:
 
-- GitHub Actions run `35937736546`: 19 tests passed, 0 failed;
-- second fixture case is registered and built without changing `src/player.js`;
-- generated links are repository-relative and suitable for project Pages;
-- the Pages workflow uploads only generated `dist/`;
-- production deployment is restricted to pushes on `main`.
+- build: success;
+- full checks: success;
+- Pages artifact upload: success;
+- configure Pages: failed because no Pages site is enabled for the repository;
+- deploy: skipped.
 
-PR #7 remains draft and unmerged. A successful public Pages deployment and smoke test are still required before RMD-TASK-004 is complete and RMD-TASK-005 can start.
+Owner action required:
+
+`Settings → Pages → Build and deployment → Source → GitHub Actions`
+
+After enablement, rerun the Pages workflow. RMD-TASK-004 remains incomplete until the public deployment and smoke tests pass. RMD-TASK-005 remains blocked.
