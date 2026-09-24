@@ -1,0 +1,154 @@
+{
+  "schema_version": 1,
+  "source_baseline": "v0.5.3",
+  "note": "Anchors point to existing textbook headings. after_nonempty counts existing non-empty paragraphs after the anchor before the interaction block is inserted.",
+  "entries": [
+    {
+      "case_id": "jieti-water-001",
+      "anchor": "3. 完整例题：18% 的用水增长到底属于谁？",
+      "after_nonempty": 1,
+      "epub_file": "EPUB/text/ch002.xhtml",
+      "route": "https://goldengrape.github.io/mozi-engineering/cases/jieti-water-001/"
+    },
+    {
+      "case_id": "hengsuan-balance-001",
+      "anchor": "3. 完整例题：先把 5 kg/h 留在账上",
+      "after_nonempty": 1,
+      "epub_file": "EPUB/text/ch002.xhtml",
+      "route": "https://goldengrape.github.io/mozi-engineering/cases/hengsuan-balance-001/"
+    },
+    {
+      "case_id": "dingzhun-torque-001",
+      "anchor": "3. 完整例题：一把扭矩扳手什么时候开始不可信？",
+      "after_nonempty": 1,
+      "epub_file": "EPUB/text/ch002.xhtml",
+      "route": "https://goldengrape.github.io/mozi-engineering/cases/dingzhun-torque-001/"
+    },
+    {
+      "case_id": "chuanzhun-benchmark-001",
+      "anchor": "3. 完整例题：一个高程基准失效，哪些点要重测？",
+      "after_nonempty": 1,
+      "epub_file": "EPUB/text/ch002.xhtml",
+      "route": "https://goldengrape.github.io/mozi-engineering/cases/chuanzhun-benchmark-001/"
+    },
+    {
+      "case_id": "canyan-model-001",
+      "anchor": "3. 完整例题：93% 的模型为什么可能比 88% 更不可信？",
+      "after_nonempty": 1,
+      "epub_file": "EPUB/text/ch002.xhtml",
+      "route": "https://goldengrape.github.io/mozi-engineering/cases/canyan-model-001/"
+    },
+    {
+      "case_id": "fenren-door-001",
+      "anchor": "3. 完整例题：先设计自动门的功能，再决定用什么零件",
+      "after_nonempty": 1,
+      "epub_file": "EPUB/text/ch003.xhtml",
+      "route": "https://goldengrape.github.io/mozi-engineering/cases/fenren-door-001/"
+    },
+    {
+      "case_id": "zhiou-robot-001",
+      "anchor": "3. 完整例题：一个参数为什么要改四个模块？",
+      "after_nonempty": 1,
+      "epub_file": "EPUB/text/ch003.xhtml",
+      "route": "https://goldengrape.github.io/mozi-engineering/cases/zhiou-robot-001/"
+    },
+    {
+      "case_id": "fengou-service-001",
+      "anchor": "3. 完整例题：把一个服务拆成三个，真的更简单了吗？",
+      "after_nonempty": 1,
+      "epub_file": "EPUB/text/ch003.xhtml",
+      "route": "https://goldengrape.github.io/mozi-engineering/cases/fengou-service-001/"
+    },
+    {
+      "case_id": "dingdong-guide-001",
+      "anchor": "3. 完整例题：一条直线运动为什么会被两根“更稳”的导轨卡死？",
+      "after_nonempty": 1,
+      "epub_file": "EPUB/text/ch003.xhtml",
+      "route": "https://goldengrape.github.io/mozi-engineering/cases/dingdong-guide-001/"
+    },
+    {
+      "case_id": "rongdu-stack-001",
+      "anchor": "3. 完整例题：三个零件都合格，为什么总成仍越界？",
+      "after_nonempty": 1,
+      "epub_file": "EPUB/text/ch003.xhtml",
+      "route": "https://goldengrape.github.io/mozi-engineering/cases/rongdu-stack-001/"
+    },
+    {
+      "case_id": "xiangheng-reversal-001",
+      "anchor": "3. 完整例题：两次读数怎样分出工件斜度和仪器零偏？",
+      "after_nonempty": 1,
+      "epub_file": "EPUB/text/ch003.xhtml",
+      "route": "https://goldengrape.github.io/mozi-engineering/cases/xiangheng-reversal-001/"
+    },
+    {
+      "case_id": "shizhi-bracket-001",
+      "anchor": "3. 完整例题：一张“尺寸很多”的图为什么仍让三家工厂做出三种零件？",
+      "after_nonempty": 1,
+      "epub_file": "EPUB/text/ch003.xhtml",
+      "route": "https://goldengrape.github.io/mozi-engineering/cases/shizhi-bracket-001/"
+    },
+    {
+      "case_id": "xuzuo-bridge-001",
+      "anchor": "3. 完整例题：施工流程里哪些“先后”只是资源问题？",
+      "after_nonempty": 1,
+      "epub_file": "EPUB/text/ch004.xhtml",
+      "route": "https://goldengrape.github.io/mozi-engineering/cases/xuzuo-bridge-001/"
+    },
+    {
+      "case_id": "tongzhi-packaging-001",
+      "anchor": "3. 完整例题：把包装提速一倍，为什么产量不变？",
+      "after_nonempty": 1,
+      "epub_file": "EPUB/text/ch004.xhtml",
+      "route": "https://goldengrape.github.io/mozi-engineering/cases/tongzhi-packaging-001/"
+    },
+    {
+      "case_id": "fangwu-gas-001",
+      "anchor": "3. 完整例题：把“不要接错气瓶”改成接错也接不上",
+      "after_nonempty": 1,
+      "epub_file": "EPUB/text/ch005.xhtml",
+      "route": "https://goldengrape.github.io/mozi-engineering/cases/fangwu-gas-001/"
+    },
+    {
+      "case_id": "xianbai-battery-001",
+      "anchor": "3. 完整例题：电池模块过热以后，不要把“停机”当成全部处理",
+      "after_nonempty": 1,
+      "epub_file": "EPUB/text/ch005.xhtml",
+      "route": "https://goldengrape.github.io/mozi-engineering/cases/xianbai-battery-001/"
+    },
+    {
+      "case_id": "mixed-clinical-safety-001",
+      "anchor": "F1 临床/患者安全：从可信检查到不良事件控制",
+      "after_nonempty": 1,
+      "epub_file": "EPUB/text/ch012.xhtml",
+      "route": "https://goldengrape.github.io/mozi-engineering/cases/mixed-clinical-safety-001/"
+    },
+    {
+      "case_id": "mixed-bio-repro-001",
+      "anchor": "F2 生物实验：从批次效应到跨实验室复现",
+      "after_nonempty": 1,
+      "epub_file": "EPUB/text/ch012.xhtml",
+      "route": "https://goldengrape.github.io/mozi-engineering/cases/mixed-bio-repro-001/"
+    },
+    {
+      "case_id": "mixed-agri-transfer-001",
+      "anchor": "F3 农业/开放自然系统：田间试验—水肥—收获窗口",
+      "after_nonempty": 1,
+      "epub_file": "EPUB/text/ch012.xhtml",
+      "route": "https://goldengrape.github.io/mozi-engineering/cases/mixed-agri-transfer-001/"
+    },
+    {
+      "case_id": "mixed-payment-ops-001",
+      "anchor": "F4 金融/支付运营：从数据血缘到风险隔离",
+      "after_nonempty": 1,
+      "epub_file": "EPUB/text/ch012.xhtml",
+      "route": "https://goldengrape.github.io/mozi-engineering/cases/mixed-payment-ops-001/"
+    },
+    {
+      "case_id": "longitudinal-ai-timeline-001",
+      "anchor": "附录 G：人与 AI 协作造物——一个 vibe coding 贯穿案例",
+      "after_nonempty": 2,
+      "epub_file": "EPUB/text/ch013.xhtml",
+      "route": "https://goldengrape.github.io/mozi-engineering/cases/longitudinal-ai-timeline-001/"
+    }
+  ]
+}
