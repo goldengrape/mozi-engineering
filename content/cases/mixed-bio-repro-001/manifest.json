@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "case_id": "mixed-bio-repro-001",
+  "title": "重复很多次，为什么证据仍可能同源？",
+  "language": "zh-CN",
+  "textbook": {
+    "chapter_id": "appendix-f2",
+    "placement": "appendix-f-transfer-practice"
+  },
+  "story_source": "story.ink",
+  "book_fragment": "book.md"
+}
