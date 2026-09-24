@@ -348,6 +348,30 @@
     {
       "id": "CI-RUN-35942052613",
       "kind": "test_run"
+    },
+    {
+      "id": "MERGE-9402a213b0bb527f189d06c7dcb44d3ea4c492c6",
+      "kind": "merge_commit"
+    },
+    {
+      "id": "RMD-TASK-006",
+      "kind": "task"
+    },
+    {
+      "id": "RMD-GIT-006",
+      "kind": "git_checkpoint"
+    },
+    {
+      "id": "TDD2-TEST-001..009",
+      "kind": "phase2_test_set"
+    },
+    {
+      "id": "CURRICULUM-001",
+      "kind": "curriculum_registry"
+    },
+    {
+      "id": "INTERACTION-PROTOCOL-001",
+      "kind": "runtime_contract"
     }
   ],
   "links": [
@@ -760,6 +784,36 @@
       "source": "RMD-TASK-005",
       "relation": "evidenced_by",
       "target": "CI-RUN-35942052613"
+    },
+    {
+      "source": "RMD-GIT-005",
+      "relation": "merged_as",
+      "target": "MERGE-9402a213b0bb527f189d06c7dcb44d3ea4c492c6"
+    },
+    {
+      "source": "RMD-GIT-005",
+      "relation": "completed_before",
+      "target": "RMD-TASK-006"
+    },
+    {
+      "source": "RMD-TASK-006",
+      "relation": "uses",
+      "target": "CURRICULUM-001"
+    },
+    {
+      "source": "RMD-TASK-006",
+      "relation": "uses",
+      "target": "INTERACTION-PROTOCOL-001"
+    },
+    {
+      "source": "RMD-TASK-006",
+      "relation": "verified_by",
+      "target": "TDD2-TEST-001..009"
+    },
+    {
+      "source": "RMD-TASK-006",
+      "relation": "checkpointed_by",
+      "target": "RMD-GIT-006"
     }
   ]
 }
