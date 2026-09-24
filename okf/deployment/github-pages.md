@@ -8,7 +8,7 @@ source_ids:
   - TDD-TEST-009
   - TDD-TEST-021
   - RMD-TASK-004
-status: pages_source_mode_blocked
+status: complete
 ---
 
 # Registry
@@ -65,12 +65,22 @@ After the owner enabled Pages, the rerun completed `actions/configure-pages@v5` 
 
 Public diagnostics then showed that the live site is still a Jekyll branch build: the root HTML announces `Jekyll v3.10.0`, does not match `dist/index.html`, and all artifact-only assets/case paths return 404. The downloaded production artifact was inspected and contains the missing paths.
 
-# Owner action required
+# Final state
 
-`Settings → Pages → Build and deployment → Source → GitHub Actions`
+Pages Source is now **GitHub Actions**.
 
-The exact **Source** must be `GitHub Actions`, not `Deploy from a branch`. Then rerun the production Pages workflow.
+Production deployment workflow `35938292249` succeeded after the source switch.
 
-# Remaining gate
+Public URL:
 
-Task 004 remains incomplete until the public home page and `cases/jieti-water-001/` route pass desktop/mobile-width smoke checks. Only then may RMD-TASK-005 begin.
+`https://goldengrape.github.io/mozi-engineering/`
+
+Public smoke run `35940775884` verified:
+
+- home, assets, registry, case route, manifest and story all return HTTP 200;
+- live root matches the generated `dist/index.html`;
+- public case HTML has no remote script dependency;
+- live case renders correctly in headless Chrome at 1440×1000 and 390×844;
+- both viewports show the opening and both first choices.
+
+RMD-TASK-004 is complete. RMD-TASK-005 may begin.
