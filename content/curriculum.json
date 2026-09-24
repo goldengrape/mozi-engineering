@@ -169,7 +169,7 @@
       "source_page": 48,
       "source_line": 1137,
       "case_id": "dingdong-guide-001",
-      "status": "planned",
+      "status": "published",
       "design": {
         "primary_primitives": [
           "multi"
@@ -187,7 +187,7 @@
       "source_page": 52,
       "source_line": 1227,
       "case_id": "rongdu-stack-001",
-      "status": "planned",
+      "status": "published",
       "design": {
         "primary_primitives": [
           "number",
@@ -206,7 +206,7 @@
       "source_page": 56,
       "source_line": 1336,
       "case_id": "xiangheng-reversal-001",
-      "status": "planned",
+      "status": "published",
       "design": {
         "primary_primitives": [
           "choice",
@@ -225,7 +225,7 @@
       "source_page": 60,
       "source_line": 1437,
       "case_id": "shizhi-bracket-001",
-      "status": "planned",
+      "status": "published",
       "design": {
         "primary_primitives": [
           "multi"
