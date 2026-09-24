@@ -292,6 +292,22 @@
     {
       "id": "OKF-PAGE-005",
       "kind": "okf_concept"
+    },
+    {
+      "id": "MERGE-bb50df7de0a609e8e1168cc07b8c56d9e2b3cf6c",
+      "kind": "merge_commit"
+    },
+    {
+      "id": "RMD-PR-007",
+      "kind": "pull_request"
+    },
+    {
+      "id": "CI-RUN-35937736546",
+      "kind": "test_run"
+    },
+    {
+      "id": "OKF-PAGE-006",
+      "kind": "okf_concept"
     }
   ],
   "links": [
@@ -617,8 +633,38 @@
     },
     {
       "source": "RMD-GIT-003",
-      "relation": "gates",
+      "relation": "merged_as",
+      "target": "MERGE-bb50df7de0a609e8e1168cc07b8c56d9e2b3cf6c"
+    },
+    {
+      "source": "RMD-GIT-003",
+      "relation": "completed_before",
       "target": "RMD-TASK-004"
+    },
+    {
+      "source": "RMD-GIT-004",
+      "relation": "reviewed_by",
+      "target": "RMD-PR-007"
+    },
+    {
+      "source": "TDD-TEST-009",
+      "relation": "evidenced_by",
+      "target": "CI-RUN-35937736546"
+    },
+    {
+      "source": "RMD-TASK-004",
+      "relation": "summarized_by",
+      "target": "okf/deployment/github-pages.md"
+    },
+    {
+      "source": "RMD-GIT-004",
+      "relation": "gates",
+      "target": "production-pages-smoke"
+    },
+    {
+      "source": "production-pages-smoke",
+      "relation": "gates",
+      "target": "RMD-TASK-005"
     }
   ]
 }

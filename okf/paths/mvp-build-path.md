@@ -8,7 +8,7 @@ source_ids:
   - RMD-TASK-003
   - RMD-TASK-004
   - RMD-TASK-005
-status: task_003_checkpoint_ready
+status: task_004_predeploy_checkpoint_ready
 ---
 
 # 顺序
@@ -21,19 +21,18 @@ status: task_003_checkpoint_ready
 
 # 当前状态
 
-RMD-TASK-001 与 RMD-TASK-002 已合入 main。RMD-TASK-003 已实现并通过自动测试、静态构建与 headless Chrome 烟测，当前停在 RMD-GIT-003 merge checkpoint。
+RMD-TASK-001 至 RMD-TASK-003 已合入 main。RMD-TASK-004 的 registry 与 Pages workflow 已实现并通过 19/19 分支测试；公网部署等待 PR #7 合并。
 
 # Current checkpoint
 
-RMD-TASK-003 is implemented on `feat/rmd-task-003-generic-player`.
+RMD-TASK-004 is implemented on `feat/rmd-task-004-pages` through the pre-deploy checkpoint.
 
 Evidence:
 
-- GitHub Actions run `35936809001`: 17 tests passed, 0 failed;
-- `npm run build` produced the full single-case static output;
-- the player has no case-specific pedagogy;
-- generated HTML uses local runtime assets only;
-- headless Chrome loaded the locally served generated case and rendered the opening plus both first choices;
-- the generic player test walks the real case through completion.
+- GitHub Actions run `35937736546`: 19 tests passed, 0 failed;
+- second fixture case is registered and built without changing `src/player.js`;
+- generated links are repository-relative and suitable for project Pages;
+- the Pages workflow uploads only generated `dist/`;
+- production deployment is restricted to pushes on `main`.
 
-PR #6 remains draft and unmerged. RMD-TASK-004 is blocked until merge approval.
+PR #7 remains draft and unmerged. A successful public Pages deployment and smoke test are still required before RMD-TASK-004 is complete and RMD-TASK-005 can start.

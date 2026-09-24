@@ -122,3 +122,60 @@ test("TDD-TEST-021: generated case page uses local runtime assets only", () => {
   assert.match(html, /src="\.\.\/\.\.\/assets\/player\.js"/);
   assert.doesNotMatch(html, /<script[^>]+src=["']https?:\/\//i);
 });
+
+
+test("TDD-TEST-009: a second case is registered without changing the player", () => {
+  const fixtureRoot = tempDir("mozi-multi-");
+  const secondCase = writeFixtureCase(fixtureRoot, "fixture-second-case");
+  const outDir = tempDir("mozi-multi-build-");
+  const playerBefore = fs.readFileSync(path.resolve("src/player.js"), "utf8");
+
+  const registry = buildSite(path.resolve("content/cases"), outDir, {
+    srcDir: path.resolve("src"),
+    caseDirs: [
+      path.resolve("content/cases/jieti-water-001"),
+      secondCase
+    ]
+  });
+
+  assert.deepEqual(
+    registry.map((entry) => entry.case_id),
+    ["jieti-water-001", "fixture-second-case"]
+  );
+
+  const index = JSON.parse(
+    fs.readFileSync(path.join(outDir, "cases/index.json"), "utf8")
+  );
+  assert.equal(index.length, 2);
+  assert.equal(
+    fs.existsSync(
+      path.join(outDir, "cases/fixture-second-case/index.html")
+    ),
+    true
+  );
+
+  const home = fs.readFileSync(path.join(outDir, "index.html"), "utf8");
+  assert.match(home, /cases\/jieti-water-001\//);
+  assert.match(home, /cases\/fixture-second-case\//);
+
+  const playerAfter = fs.readFileSync(path.resolve("src/player.js"), "utf8");
+  assert.equal(playerAfter, playerBefore);
+});
+
+test("Pages output uses repository-relative links rather than root-absolute paths", () => {
+  const outDir = tempDir("mozi-pages-paths-");
+  buildSite(path.resolve("content/cases"), outDir, {
+    srcDir: path.resolve("src")
+  });
+
+  const home = fs.readFileSync(path.join(outDir, "index.html"), "utf8");
+  const caseHtml = fs.readFileSync(
+    path.join(outDir, "cases/jieti-water-001/index.html"),
+    "utf8"
+  );
+
+  assert.match(home, /href="\.\/assets\/style\.css"/);
+  assert.match(home, /href="\.\/cases\/jieti-water-001\//);
+  assert.match(caseHtml, /href="\.\.\/\.\.\/assets\/style\.css"/);
+  assert.doesNotMatch(home + caseHtml, /(?:href|src)="\/assets\//);
+});
