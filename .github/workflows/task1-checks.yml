@@ -81,12 +81,28 @@ jobs:
         run: |
           set -euo pipefail
 
-          curl --fail --silent --show-error --location "$PUBLIC_BASE/" > /tmp/public-home.html
-          curl --fail --silent --show-error --location "$PUBLIC_BASE/cases/jieti-water-001/" > /tmp/public-case.html
-          curl --fail --silent --show-error --location "$PUBLIC_BASE/cases/jieti-water-001/manifest.json" > /tmp/public-manifest.json
-          curl --fail --silent --show-error --location "$PUBLIC_BASE/cases/jieti-water-001/story.json" > /tmp/public-story.json
-          curl --fail --silent --show-error --location "$PUBLIC_BASE/assets/ink.js" > /tmp/public-ink.js
-          curl --fail --silent --show-error --location "$PUBLIC_BASE/assets/player.js" > /tmp/public-player.js
+          fetch_with_retry() {
+            local url="$1"
+            local output="$2"
+
+            for attempt in {1..18}; do
+              if curl --fail --silent --show-error --location "$url" > "$output"; then
+                return 0
+              fi
+
+              echo "Public URL not ready yet (attempt $attempt/18): $url" >&2
+              sleep 10
+            done
+
+            return 1
+          }
+
+          fetch_with_retry "$PUBLIC_BASE/" /tmp/public-home.html
+          fetch_with_retry "$PUBLIC_BASE/cases/jieti-water-001/" /tmp/public-case.html
+          fetch_with_retry "$PUBLIC_BASE/cases/jieti-water-001/manifest.json" /tmp/public-manifest.json
+          fetch_with_retry "$PUBLIC_BASE/cases/jieti-water-001/story.json" /tmp/public-story.json
+          fetch_with_retry "$PUBLIC_BASE/assets/ink.js" /tmp/public-ink.js
+          fetch_with_retry "$PUBLIC_BASE/assets/player.js" /tmp/public-player.js
 
           grep -q "造物之理" /tmp/public-home.html
           grep -q "jieti-water-001" /tmp/public-manifest.json
