@@ -114,7 +114,7 @@
       "source_page": 35,
       "source_line": 847,
       "case_id": "fenren-door-001",
-      "status": "planned",
+      "status": "published",
       "design": {
         "primary_primitives": [
           "multi"
@@ -132,7 +132,7 @@
       "source_page": 40,
       "source_line": 951,
       "case_id": "zhiou-robot-001",
-      "status": "planned",
+      "status": "published",
       "design": {
         "primary_primitives": [
           "multi"
@@ -150,7 +150,7 @@
       "source_page": 44,
       "source_line": 1051,
       "case_id": "fengou-service-001",
-      "status": "planned",
+      "status": "published",
       "design": {
         "primary_primitives": [
           "choice",

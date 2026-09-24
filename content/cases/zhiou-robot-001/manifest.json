@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "case_id": "zhiou-robot-001",
+  "title": "一个参数为什么要改四个模块？",
+  "language": "zh-CN",
+  "textbook": {
+    "chapter_id": "07-zhiou",
+    "placement": "worked-example-practice"
+  },
+  "story_source": "story.ink",
+  "book_fragment": "book.md"
+}

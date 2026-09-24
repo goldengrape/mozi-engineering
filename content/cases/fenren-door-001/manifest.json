@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "case_id": "fenren-door-001",
+  "title": "先设计自动门的功能，再决定用什么零件",
+  "language": "zh-CN",
+  "textbook": {
+    "chapter_id": "06-fenren",
+    "placement": "worked-example-practice"
+  },
+  "story_source": "story.ink",
+  "book_fragment": "book.md"
+}

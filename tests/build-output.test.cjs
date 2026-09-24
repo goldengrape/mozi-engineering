@@ -5,6 +5,14 @@ const path = require("node:path");
 const test = require("node:test");
 
 const { buildSite } = require("../scripts/build.cjs");
+const { loadCurriculum } = require("../scripts/curriculum.cjs");
+
+function publishedCaseIds() {
+  return loadCurriculum()
+    .chapters
+    .filter((chapter) => chapter.status === "published")
+    .map((chapter) => chapter.case_id);
+}
 
 function tempDir(prefix) {
   return fs.mkdtempSync(path.join(os.tmpdir(), prefix));
@@ -50,16 +58,11 @@ test("TDD-TEST-014: buildSite creates the static output contract", () => {
     { srcDir: path.resolve("src") }
   );
 
-  assert.equal(registry.length, 5);
+  const expectedPublished = publishedCaseIds();
+  assert.equal(registry.length, expectedPublished.length);
   assert.deepEqual(
-    registry.map((entry) => entry.case_id),
-    [
-      "canyan-model-001",
-      "chuanzhun-benchmark-001",
-      "dingzhun-torque-001",
-      "hengsuan-balance-001",
-      "jieti-water-001"
-    ]
+    new Set(registry.map((entry) => entry.case_id)),
+    new Set(expectedPublished)
   );
 
   for (const relative of [
@@ -142,16 +145,11 @@ test("TDD-TEST-009: multiple authored cases register without changing the player
     srcDir: path.resolve("src")
   });
 
-  assert.equal(registry.length, 5);
+  const expectedPublished = publishedCaseIds();
+  assert.equal(registry.length, expectedPublished.length);
   assert.deepEqual(
     new Set(registry.map((entry) => entry.case_id)),
-    new Set([
-      "jieti-water-001",
-      "hengsuan-balance-001",
-      "dingzhun-torque-001",
-      "chuanzhun-benchmark-001",
-      "canyan-model-001"
-    ])
+    new Set(expectedPublished)
   );
 
   for (const entry of registry) {

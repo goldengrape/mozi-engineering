@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "case_id": "fengou-service-001",
+  "title": "把一个服务拆成三个，真的更简单了吗？",
+  "language": "zh-CN",
+  "textbook": {
+    "chapter_id": "08-fengou",
+    "placement": "worked-example-practice"
+  },
+  "story_source": "story.ink",
+  "book_fragment": "book.md"
+}
