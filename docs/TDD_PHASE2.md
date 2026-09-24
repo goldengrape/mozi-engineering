@@ -52,3 +52,15 @@ A primitive is not accepted if answer meaning or chapter-specific scoring is mov
 - RMD-TASK-010 — 运行 / 守败 chapters 13–16
 - RMD-TASK-011 — mixed retrieval/transfer cases
 - RMD-TASK-012 — longitudinal case + whole-book publication integration
+
+
+## Chapter-case path test ranges
+
+| IDs | Slice | Oracle focus |
+| --- | --- | --- |
+| TDD2-TEST-010..015 | 察物 chapters 2–5 | residual-vs-cause, stateful reference, downstream lineage, independent evidence, stable book identity |
+| TDD2-TEST-016..020 | 制物 chapters 6–8 | function-vs-implementation, coupling-edge necessity, interface burden, generic-player decoupling |
+| TDD2-TEST-021..025 | 制物 chapters 9–12 | DOF/overconstraint, tolerance propagation, reversal identifiability, reproducible specification |
+| TDD2-TEST-026..030 | 运行 / 守败 chapters 13–16 | state precedence vs resource conflict, moving bottleneck, structural mistake-proofing, failure-state sequencing, all-16 publication identity |
+
+TDD2-TEST-030 is the first whole-book chapter-case contract: all sixteen curriculum entries must be published, have matching case/chapter identity, and retain a no-web exercise in the book fragment.
