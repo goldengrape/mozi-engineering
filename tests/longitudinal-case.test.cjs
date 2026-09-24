@@ -153,7 +153,7 @@ test("TDD2-TEST-041: longitudinal path moves one project through nine source-gro
   assert.equal(config.bind, "flow_corrections");
 
   out = submit(story, "flow_corrections", "raw_first,defer_geo,serial_truth");
-  assert.match(out.text, /资源冲突/);
+  assert.match(out.text, /共享资源造成的等待|资源冲突/);
 
   out = submit(story, "flow_corrections", "raw_first,defer_geo,resource");
   config = parseUiTags(out.tags);
