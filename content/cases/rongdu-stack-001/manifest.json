@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "case_id": "rongdu-stack-001",
+  "title": "三个零件都合格，为什么总成仍越界？",
+  "language": "zh-CN",
+  "textbook": {
+    "chapter_id": "10-rongdu",
+    "placement": "worked-example-practice"
+  },
+  "story_source": "story.ink",
+  "book_fragment": "book.md"
+}
