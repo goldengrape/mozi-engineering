@@ -1,3 +1,4 @@
+# Production Pages deployment: intentionally triggered only from main.
 name: Deploy GitHub Pages
 
 on:
