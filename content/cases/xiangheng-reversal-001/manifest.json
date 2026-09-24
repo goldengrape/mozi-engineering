@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "case_id": "xiangheng-reversal-001",
+  "title": "两次读数怎样分出工件斜度和仪器零偏？",
+  "language": "zh-CN",
+  "textbook": {
+    "chapter_id": "11-xiangheng",
+    "placement": "worked-example-practice"
+  },
+  "story_source": "story.ink",
+  "book_fragment": "book.md"
+}
