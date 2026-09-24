@@ -5,7 +5,7 @@
   "source_of_truth": "docs",
   "okf_is_derived": true,
   "okf_version": "0.1",
-  "current_phase": "RMD-TASK-006 active",
+  "current_phase": "RMD-GIT-006 merge checkpoint",
   "urd_status": "accepted",
   "add_status": "accepted",
   "mdd_status": "accepted-for-planning",
@@ -13,8 +13,8 @@
   "rmd_status": "accepted",
   "implementation_allowed": true,
   "active_task": "RMD-TASK-006",
-  "active_task_status": "implementation",
-  "active_pr": null,
+  "active_task_status": "checkpoint-ready",
+  "active_pr": 10,
   "next_task": "RMD-TASK-007",
   "next_task_blocked_by": "RMD-GIT-006 merge approval",
   "completed_tasks": [
@@ -35,8 +35,9 @@
     "canonical_release_caveat": "Earlier v0.5.4 artifact bytes are unavailable in the current conversation; replay localized insertion if v0.5.4 remains canonical."
   },
   "checkpoint_evidence": {
-    "workflow_run": 35942052613,
-    "tests_passed": 21,
+    "workflow_run": 35949487336,
+    "implementation_head": "90d357b9a230a3b293480523d3469f8d94b42944",
+    "tests_passed": 30,
     "tests_failed": 0,
     "build": "passed",
     "case_validation": "passed",
