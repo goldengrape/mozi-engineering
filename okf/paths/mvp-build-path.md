@@ -8,7 +8,7 @@ source_ids:
   - RMD-TASK-003
   - RMD-TASK-004
   - RMD-TASK-005
-status: task_004_complete_task_005_ready
+status: task_005_checkpoint_ready
 ---
 
 # 顺序
@@ -21,7 +21,7 @@ status: task_004_complete_task_005_ready
 
 # 当前状态
 
-RMD-TASK-001 至 RMD-TASK-003 已完成。RMD-TASK-004 已合入 main；RMD-TASK-004 已完成：Pages Source 已切换为 GitHub Actions，生产 artifact 已上线并通过桌面/390px 公网烟测。RMD-TASK-005 已解锁。
+RMD-TASK-001 至 RMD-TASK-003 已完成。RMD-TASK-004 已合入 main；RMD-TASK-004 已完成。RMD-TASK-005 已把真实公网入口、纸面替代练习和二维码方案集成到可访问的 v0.5.3 Word/EPUB 出版源，当前停在 RMD-GIT-005 checkpoint。
 
 # Current checkpoint
 
@@ -47,3 +47,12 @@ Final production evidence:
 - 1440×1000 and 390×844 headless Chrome both rendered the opening and first two choices.
 
 RMD-TASK-004 is complete. RMD-TASK-005 is ready.
+
+
+# Task 005 publication note
+
+The stable repository block and public route are complete.
+
+Candidate publication artifacts were generated from the currently accessible v0.5.3 DOCX/EPUB source. They passed DOCX render QA and EPUB structural/link checks.
+
+Project history references a later v0.5.4 terminology-revision artifact, but those bytes are not currently available. The Task 005 candidates are therefore not mislabeled as a newer release; if v0.5.4 remains canonical, replay the same localized insertion onto it before release naming.

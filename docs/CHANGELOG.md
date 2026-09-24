@@ -2,6 +2,8 @@
 
 | Date | Changed By | Files | Summary | Trace Impact |
 | --- | --- | --- | --- | --- |
+| 2026-09-24 | ChatGPT | PR #9, Actions 35942052613, docs/*, .vibe/* | RMD-TASK-005 仓库检查完成：21/21 tests、build、case validation、browser smoke 全部通过；PR #9 进入最后 merge checkpoint。 | RMD-GIT-005 checkpoint-ready；等待显式 merge approval |
+| 2026-09-24 | ChatGPT | content/cases/jieti-water-001/book.md, tests/book-integration.test.cjs, DOCX/EPUB candidate artifacts, docs/*, .vibe/*, okf/* | 完成 RMD-TASK-005 的正文集成实现：book.md 绑定真实公网 URL；Word/EPUB 的《界体》18% 用水例题加入先判断、网页/二维码入口、无网页练习与“做完再看”分隔。DOCX 144 页渲染检查，EPUB 结构/链接/QR 检查通过。 | RMD-GIT-005 checkpoint-ready；出版候选基于当前可访问 v0.5.3，未冒充历史中的 v0.5.4 |
 | 2026-09-24 | project owner + ChatGPT | Pages Source, workflow 35938292249, public smoke 35940775884, docs/*, .vibe/*, okf/* | Pages Source 切换为 GitHub Actions 后，生产 artifact 正常上线；首页、assets、registry、案例页、manifest、story 全部 200；真实 headless Chrome 在桌面与 390px 手机宽度均成功渲染开场与两个选择。RMD-TASK-004 完成。 | production Pages smoke satisfied；RMD-TASK-005 解锁 |
 | 2026-09-24 | project owner + ChatGPT | Pages settings, workflow 35938292249, public diagnostics, docs/*, .vibe/*, okf/* | 用户启用 Pages 后，Configure/Deploy 重跑成功并返回公开 URL；但公网首页仍由 Jekyll v3.10.0 从仓库源生成，Actions artifact 中存在的 assets/cases 在公网全部 404，说明 Pages Source 仍为分支/Jekyll 而不是 GitHub Actions。 | RMD-TASK-004 转为 source-mode blocker；需 Settings → Pages → Source = GitHub Actions |
 | 2026-09-24 | project owner + ChatGPT | PR #7, docs/*, .vibe/*, okf/* | 项目所有者批准并合并 RMD-TASK-004（bbbeca30）；生产 workflow 35938292249 的 build 与 Pages artifact 上传成功，但 configure-pages 因仓库尚未启用 Pages 而失败。官方 action 的自动 enablement 需要非 GITHUB_TOKEN 且具 administration:write + pages:write 的凭据，当前连接不具备该管理权限。 | RMD-GIT-004 已合并；新增 repository Pages enablement 外部阻塞；RMD-TASK-005 继续阻塞 |

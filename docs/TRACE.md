@@ -141,6 +141,25 @@ URD-0001, ADD-0001 and RMD-0001 are accepted. RMD-TASK-001 through RMD-TASK-003 
 | CI-RUN-35940775884 | public_smoke_passed | production Pages | all required routes 200; desktop and 390px Chrome rendering passed |
 | RMD-TASK-004 | completed_before | RMD-TASK-005 | gate satisfied |
 
+## RMD-TASK-005 Execution Evidence
+
+| Source ID | Relation | Target | Notes |
+| --- | --- | --- | --- |
+| RMD-TASK-005 | implemented_on | docs/rmd-task-005-textbook-integration | real public route bound into book.md |
+| TDD-TEST-010 | evidenced_by | book.md + publication candidates | no-web first judgment remains executable |
+| URD-REQ-011/012 | realized_in | Chapter 1 publication insertion | stable case identity +正文入口 |
+| RMD-TASK-005 | artifact_candidate | DOCX v0.5.3 interactive candidate | 144-page render; pages 10–29 inspected; 124 other pages render-identical |
+| RMD-TASK-005 | artifact_candidate | EPUB v0.5.3 interactive candidate | package/XML/link/QR checks passed |
+| publication baseline | caveat | v0.5.4 | earlier terminology artifact bytes unavailable; no false version relabeling |
+
+## RMD-GIT-005 Checkpoint Evidence
+
+| Source ID | Relation | Target | Notes |
+| --- | --- | --- | --- |
+| RMD-GIT-005 | reviewed_by | RMD-PR-009 | PR #9, draft pending merge approval |
+| TDD-TEST-010 | evidenced_by | Actions run 35942052613 | no-web/textbook contract included in 21/21 passing tests |
+| RMD-TASK-005 | evidenced_by | Actions run 35942052613 | build, case validation and browser smoke passed |
+
 ## Gates
 
 | Source | Relation | Target | Status |

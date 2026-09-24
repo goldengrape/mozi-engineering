@@ -79,7 +79,7 @@
 | RMD-GIT-002 | RMD-TASK-002 | `feat/rmd-task-002-jieti-story` | `feat: implement RMD-TASK-002 jieti story` | #5 | merged | 10/10 tests + source review |
 | RMD-GIT-003 | RMD-TASK-003 | `feat/rmd-task-003-generic-player` | `feat: implement RMD-TASK-003 generic player` | #6 | merged | 17/17 tests + build + headless Chrome smoke |
 | RMD-GIT-004 | RMD-TASK-004 | `feat/rmd-task-004-pages` | `feat: implement RMD-TASK-004 pages deployment` | #7 | completed | 19/19 tests + successful Actions deployment + public desktop/mobile smoke |
-| RMD-GIT-005 | RMD-TASK-005 | `docs/rmd-task-005-textbook-integration` | `docs: integrate RMD-TASK-005 into textbook body` | pending | pending | textbook diff / artifact check |
+| RMD-GIT-005 | RMD-TASK-005 | `docs/rmd-task-005-textbook-integration` | `docs: integrate RMD-TASK-005 into textbook body` | #9 | checkpoint-ready | 21/21 tests + book contract + DOCX/EPUB artifact QA |
 
 First implementation push and every merge remain explicit checkpoint actions.
 
@@ -558,3 +558,117 @@ Final public smoke run `35940775884` verified:
 RMD-TASK-004 is therefore **complete**.
 
 RMD-TASK-005 is now unblocked and ready to integrate the validated interaction block into the textbook body.
+
+
+## RMD-TASK-005 Execution Record
+
+- status: **checkpoint-ready / pending merge approval**
+- branch: `docs/rmd-task-005-textbook-integration`
+- case_id: `jieti-water-001`
+- public route: `https://goldengrape.github.io/mozi-engineering/cases/jieti-water-001/`
+
+### Repository textbook block
+
+`content/cases/jieti-water-001/book.md` now contains the real public route instead of a publication-time placeholder.
+
+It preserves the accepted structure:
+
+1. unlabeled opening fact;
+2. first learner judgment — “你第一步会查什么？为什么？”;
+3. public interactive entry;
+4. paper/no-web fallback;
+5. explicit instruction not to name the 180 m³ difference as a cause before evidence.
+
+Two repository contract tests were added for the stable public URL, no-web task, and no method-label answer before the first judgment.
+
+### Publication artifact integration
+
+The currently available publication-source files in this conversation are:
+
+- `墨经补完_跨时代工程学教材_v0.5.3_插图版(1).docx`
+- `造物之理_跨时代工程方法导论_v0.5.3(1).epub`
+
+The validated interaction block was inserted into the existing Chapter 1 section:
+
+`3. 完整例题：18% 的用水增长到底属于谁？`
+
+The body order is now:
+
+```text
+existing opening fact
+→ 先不要翻看完整分析
+→ 先做判断
+→ first-action question
+→ public link + QR code
+→ no-web two-item paper task
+→ “不要先把 180 m³ 命名成某个原因”
+→ 做完再看：完整分析
+→ existing 第一界 / 第二界 / 第三界 worked explanation
+```
+
+No new case measurements or events were added.
+
+### Generated candidate artifacts
+
+Because the accessible publication baseline is v0.5.3, the generated files are deliberately named **candidate** artifacts rather than pretending to supersede a later release:
+
+- `墨经补完_跨时代工程学教材_v0.5.3_互动练习集成候选版.docx`
+  - SHA-256: `dca82a137c875d4aa6970812207112e3c336e007c32afa5af1bd674a22aca261`
+- `造物之理_跨时代工程方法导论_v0.5.3_互动练习集成候选版.epub`
+  - SHA-256: `ae590571f2d9e45fd1a0e52f7501ed023dc9e7c641dda9b404d4b4c12098d16e`
+- QR payload:
+  - `https://goldengrape.github.io/mozi-engineering/cases/jieti-water-001/`
+  - decoded locally and matched exactly.
+
+### DOCX QA
+
+The DOCX was rendered using the required Word-document QA path.
+
+Result:
+
+- 144 rendered pages;
+- changed render region: pages 10–29;
+- pages 1–9 and 30–144 are byte-for-byte identical to the original rendered pages — 124 unchanged pages;
+- every changed page 10–29 was visually inspected;
+- the new interactive block has no clipping or overlap;
+- the QR code is legible and centered;
+- the visible full URL and Word hyperlink relationship both point to the public route;
+- existing worked-example content follows the “做完再看：完整分析” divider.
+
+### EPUB QA
+
+The EPUB candidate passed:
+
+- ZIP integrity check;
+- required `mimetype` first and stored uncompressed;
+- XML parsing for XHTML / OPF / NCX / container files;
+- QR image present in package and OPF manifest;
+- external interactive hyperlink present;
+- no embedded interactive script — EPUB remains a reading artifact that links to the web runtime.
+
+### Publication baseline note
+
+An earlier v0.5.4 terminology-revision artifact is referenced in project history, but its DOCX/EPUB bytes are not available in the current conversation file surface.
+
+Therefore this task does **not** relabel the generated v0.5.3-based candidates as v0.5.4 or v0.5.5.
+
+If v0.5.4 remains the canonical publishing baseline, replay this localized Chapter 1 insertion onto those files before declaring a new release. The repository `book.md`, public case URL, QR payload and insertion design are already stable.
+
+### Repository CI
+
+PR #9 head was verified by GitHub Actions run `35942052613`:
+
+- `npm test` — **21 passed, 0 failed**;
+- the two new Task 005 book-integration tests passed;
+- `npm run build` — passed;
+- `npm run check:case` — passed;
+- local headless Chrome case smoke — passed.
+
+### Git checkpoint
+
+RMD-GIT-005 is ready for review.
+
+- pull request: #9;
+- merge status: **pending explicit approval**;
+- repository integration can be merged independently of the publication-version naming caveat;
+- no merge has been performed.

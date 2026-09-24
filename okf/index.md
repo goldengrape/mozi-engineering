@@ -8,7 +8,7 @@ okf_version: "0.1"
 
 ## Current phase
 
-The project is at **RMD-TASK-005 ready**. RMD-TASK-004 is complete and the public GitHub Pages artifact has passed desktop and 390px mobile-width smoke checks.
+The project is at the **RMD-GIT-005 merge checkpoint**. The stable textbook block is bound to the live case and candidate Word/EPUB integrations have passed artifact QA.
 
 - first prototype: `jieti-water-001`, based on the textbook's “教学楼用水增加 18%” case;
 - interactive task belongs in the textbook body;
@@ -16,7 +16,7 @@ The project is at **RMD-TASK-005 ready**. RMD-TASK-004 is complete and the publi
 - first learning mechanism to validate: unlabeled judgment → branch consequence/new evidence → method switching/revision → debrief;
 - ADD design is decoupled and accepted.
 
-RMD-0001 is accepted. RMD-TASK-001 through RMD-TASK-003 are complete; Task 004 is complete; production Pages is served from GitHub Actions and verified at `https://goldengrape.github.io/mozi-engineering/`.
+RMD-0001 is accepted. Tasks 001–004 are complete. Task 005 is implemented on the accessible v0.5.3 publication baseline; historical v0.5.4 bytes are unavailable, so candidate artifacts are not falsely version-bumped.
 
 ## Current architecture
 

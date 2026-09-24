@@ -14,7 +14,9 @@ placement: opening-practice
 
 <!-- interactive-entry: jieti-water-001 -->
 
-**互动版：** 出版时由案例 ID `jieti-water-001` 生成稳定网页链接或二维码。
+**网页版互动练习：** https://goldengrape.github.io/mozi-engineering/cases/jieti-water-001/
+
+纸书排版同时提供指向同一地址的二维码；EPUB 中使用可点击链接。
 
 **如果现在不能打开网页：** 先在纸上写下两个内容：
 
