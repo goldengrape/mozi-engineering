@@ -112,14 +112,14 @@
       if (key === "type") config.type = value;
       else if (key === "bind") config.bind = value;
       else if (key === "option") {
-        const separator = value.indexOf("|");
-        if (separator <= 0 || separator === value.length - 1) {
+        const separator = value.indexOf("::");
+        if (separator <= 0 || separator === value.length - 2) {
           throw new Error(`invalid ui:option value: ${value}`);
         }
 
         config.options.push({
           id: value.slice(0, separator).trim(),
-          label: value.slice(separator + 1).trim()
+          label: value.slice(separator + 2).trim()
         });
       } else if (key === "min") config.min = parseNumber(value, key);
       else if (key === "max") config.max = parseNumber(value, key);
