@@ -74,7 +74,13 @@ test("TDD2-TEST-003: published case identity is tied to the curriculum chapter i
 
   assert.deepEqual(
     published.map((chapter) => chapter.case_id),
-    ["jieti-water-001"]
+    [
+      "jieti-water-001",
+      "hengsuan-balance-001",
+      "dingzhun-torque-001",
+      "chuanzhun-benchmark-001",
+      "canyan-model-001"
+    ]
   );
 
   const manifest = JSON.parse(
@@ -86,6 +92,17 @@ test("TDD2-TEST-003: published case identity is tied to the curriculum chapter i
 
   assert.equal(manifest.case_id, published[0].case_id);
   assert.equal(manifest.textbook.chapter_id, published[0].chapter_id);
+
+  for (const chapter of published) {
+    const chapterManifest = JSON.parse(
+      fs.readFileSync(
+        path.resolve("content/cases", chapter.case_id, "manifest.json"),
+        "utf8"
+      )
+    );
+    assert.equal(chapterManifest.case_id, chapter.case_id);
+    assert.equal(chapterManifest.textbook.chapter_id, chapter.chapter_id);
+  }
 });
 
 test("TDD2-TEST-004: static build publishes the curriculum registry", () => {
