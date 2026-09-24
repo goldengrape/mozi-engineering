@@ -243,7 +243,7 @@
       "source_page": 65,
       "source_line": 1555,
       "case_id": "xuzuo-bridge-001",
-      "status": "planned",
+      "status": "published",
       "design": {
         "primary_primitives": [
           "rank",
@@ -262,7 +262,7 @@
       "source_page": 69,
       "source_line": 1650,
       "case_id": "tongzhi-packaging-001",
-      "status": "planned",
+      "status": "published",
       "design": {
         "primary_primitives": [
           "number",
@@ -281,7 +281,7 @@
       "source_page": 75,
       "source_line": 1768,
       "case_id": "fangwu-gas-001",
-      "status": "planned",
+      "status": "published",
       "design": {
         "primary_primitives": [
           "multi",
@@ -300,7 +300,7 @@
       "source_page": 79,
       "source_line": 1866,
       "case_id": "xianbai-battery-001",
-      "status": "planned",
+      "status": "published",
       "design": {
         "primary_primitives": [
           "rank",
