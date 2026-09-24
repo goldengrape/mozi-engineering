@@ -29,8 +29,8 @@ Required tags:
 ```ink
 # ui:type=multi
 # ui:bind=selected_items
-# ui:option=a|第一项
-# ui:option=b|第二项
+# ui:option=a::第一项
+# ui:option=b::第二项
 ```
 
 Optional tags:
@@ -66,9 +66,9 @@ Use when the learner must place a fixed set of actions/items in order.
 ```ink
 # ui:type=rank
 # ui:bind=ordered_steps
-# ui:option=a|步骤 A
-# ui:option=b|步骤 B
-# ui:option=c|步骤 C
+# ui:option=a::步骤 A
+# ui:option=b::步骤 B
+# ui:option=c::步骤 C
 # ui:submit=提交顺序
 ```
 
@@ -96,7 +96,7 @@ Recognized tags:
 ```text
 ui:type=<multi|number|rank>
 ui:bind=<ink variable>
-ui:option=<stable-id>|<visible label>
+ui:option=<stable-id>::<visible label>
 ui:min=<number>
 ui:max=<number>
 ui:step=<number>
