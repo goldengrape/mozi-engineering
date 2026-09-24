@@ -704,8 +704,8 @@ Phase 2 不把十五个新案例简单复制成《界体》的按钮分支。互
 | ID | RMD Task | Branch | Merge Status | Required Evidence |
 | --- | --- | --- | --- | --- |
 | RMD-GIT-006 | RMD-TASK-006 | `feat/rmd-task-006-curriculum-primitives` | merged | PR #10; 30/30 tests + build + browser smoke |
-| RMD-GIT-007 | RMD-TASK-007 | `feat/rmd-task-007-observe-cases` | checkpoint-ready | PR #11; 36/36 tests + five-case build + browser smoke |
-| RMD-GIT-008 | RMD-TASK-008 | `feat/rmd-task-008-make-cases-a` | pending | chapter 6–8 tests |
+| RMD-GIT-007 | RMD-TASK-007 | `feat/rmd-task-007-observe-cases` | merged | PR #11; 36/36 tests + five-case build + browser smoke |
+| RMD-GIT-008 | RMD-TASK-008 | `feat/rmd-task-008-make-cases-a` | checkpoint-ready | PR #12; 41/41 tests + eight-case build + browser smoke |
 | RMD-GIT-009 | RMD-TASK-009 | `feat/rmd-task-009-make-cases-b` | pending | chapter 9–12 tests |
 | RMD-GIT-010 | RMD-TASK-010 | `feat/rmd-task-010-run-fail-cases` | pending | chapter 13–16 tests |
 | RMD-GIT-011 | RMD-TASK-011 | `feat/rmd-task-011-mixed-review` | pending | transfer/mixed-case tests |
@@ -836,7 +836,7 @@ RMD-GIT-006 completed successfully.
 
 ## RMD-TASK-007 Execution Record
 
-- status: **checkpoint-ready / pending merge approval**
+- status: **merged / completed**
 - branch: `feat/rmd-task-007-observe-cases`
 - pull request: #11
 - verified head: `d756f104d78e923996e85c37f3df0361e980d5d0`
@@ -936,6 +936,96 @@ Actions run `35951410738`:
 
 ### Git checkpoint
 
-RMD-GIT-007 is ready for review.
+RMD-GIT-007 completed successfully.
 
-RMD-TASK-008 (制物 chapters 6–8) remains blocked until explicit merge approval.
+- PR #11 merged to `main` as `0113c0e484af8bded2d04861acd535da150ed414`.
+- post-merge Pages run `35956661728` succeeded.
+- RMD-TASK-008 was then started on its own branch.
+
+
+## RMD-TASK-008 Execution Record
+
+- status: **checkpoint-ready / pending merge approval**
+- branch: `feat/rmd-task-008-make-cases-a`
+- pull request: #12
+- verified implementation head: `e7791a2c67b40fcf2855790d21f2c3ac57629636`
+- GitHub Actions run: `35956839559`
+
+### Source boundary
+
+All three stories are grounded in the existing Chapter 6–8 worked examples.
+
+No new measurements, components, hidden events or system behavior were added.
+
+Source-derived facts retained:
+
+- 分任: automatic-door requirement; six functional statements; infrared / millimeter-wave / pressure-mat sensing alternatives; motor / cylinder / spring-storage actuation alternatives; mechanical or loss-of-power release.
+- 制耦: functions L/N/O/T/P; original propagation edges L→N/O/T/P; N/O require positioning timing; T only needs a stable “position reached task point” interface; P only needs standardized power requests; L→T and L→P are unnecessary.
+- 分构: order/inventory/billing split; localization benefits; seven interface duties; scheme A has three bidirectional collaboration groups; scheme B uses stable event notification with no direct inventory-billing dependency; same-transaction / high-speed-memory coupling is a boundary case against forced splitting.
+
+### Implemented cases
+
+#### Chapter 6 — `fenren-door-001`
+
+Mechanics:
+
+`multi function-vs-implementation classification → implementation replacement judgment → debrief`
+
+The learner must select the six source-defined functions from a mixed list containing current component names. Wrong mixtures return to the same structured step.
+
+#### Chapter 7 — `zhiou-robot-001`
+
+Mechanics:
+
+`multi edge-removal judgment → retry → ordering-vs-necessity judgment → debrief`
+
+The learner removes only L→T and L→P, then explicitly distinguishes a sortable dependency matrix from a justified dependency structure.
+
+#### Chapter 8 — `fengou-service-001`
+
+Mechanics:
+
+`multi interface-duty classification → A/B boundary comparison → forced-split boundary condition → debrief`
+
+The learner separates localization benefits from the seven interface duties, then compares the two source schemes and handles the same-transaction/high-speed-state exception.
+
+### Book fragments
+
+Each case includes a `book.md` that:
+
+- uses the stable case ID and planned public route;
+- asks for action before the complete worked explanation;
+- includes a no-web paper exercise;
+- contains a source-constraint note.
+
+### Curriculum / build state
+
+Chapters 1–8 are now marked `published` in `content/curriculum.json`.
+
+Build regression tests no longer hard-code a site case count. They derive the authored set from curriculum entries whose status is `published`.
+
+The static build now generates eight routes.
+
+### Decoupling evidence
+
+TDD2-TEST-020 scans the complete curriculum and rejects any case ID or method name found inside `src/player.js`.
+
+Thus adding 《分任》《制耦》《分构》 required no case-specific browser logic.
+
+### Automated evidence
+
+Actions run `35956839559`:
+
+- `npm test` — **41 passed, 0 failed**;
+- TDD2-TEST-016..020 — passed;
+- all previous MVP / Task 006 / Task 007 tests — passed;
+- `npm run build` — passed;
+- build generated **8 cases**;
+- primary case validation — passed;
+- headless Chrome regression smoke — passed.
+
+### Git checkpoint
+
+RMD-GIT-008 is ready for review.
+
+RMD-TASK-009 (制物 chapters 9–12) remains blocked until explicit merge approval.
