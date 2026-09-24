@@ -4,7 +4,7 @@
 
 ## Current Phase
 
-MVP RMD-TASK-001..005 are complete and merged. Phase 2 full-book expansion is active at RMD-TASK-006: curriculum registry + generic structured Ink primitives.
+MVP RMD-TASK-001..005 and Phase 2 RMD-TASK-006 are merged. RMD-TASK-007 implements the remaining 察物 chapters 2–5 and is at the RMD-GIT-007 merge checkpoint.
 
 ## Requirement → Design
 
@@ -180,6 +180,18 @@ MVP RMD-TASK-001..005 are complete and merged. Phase 2 full-book expansion is ac
 | INTERACTION-PROTOCOL-001 | realized_in | src/player.js | multi / number / rank; answer meaning remains in Ink |
 | CURRICULUM-001 | realized_in | content/curriculum.json | 16 textbook chapters in source order |
 
+## RMD-TASK-007 Execution Evidence
+
+| Source ID | Relation | Target | Notes |
+| --- | --- | --- | --- |
+| RMD-GIT-006 | merged_as | aad604f94fd8451e35bc3fe8c888327476f94c27 | PR #10 |
+| RMD-TASK-006 | deployed_by | Actions run 35951015502 | post-merge Pages deploy succeeded |
+| RMD-TASK-007 | implemented_on | feat/rmd-task-007-observe-cases | four 察物 case packages |
+| RMD-GIT-007 | reviewed_by | RMD-PR-011 | PR #11 |
+| TDD2-TEST-010..015 | evidenced_by | Actions run 35951410738 | 36/36 total tests passed |
+| RMD-TASK-007 | generated_as | five-case static build | build produced chapters 1–5 routes |
+| RMD-TASK-007 | summarized_by | okf/cases/observe-chapters-2-5.md | concise retrieval page |
+
 ## Gates
 
 | Source | Relation | Target | Status |
@@ -204,8 +216,8 @@ MVP RMD-TASK-001..005 are complete and merged. Phase 2 full-book expansion is ac
 | Source | Relation | Target | Status |
 | --- | --- | --- | --- |
 | RMD-GIT-005 | completed_before | RMD-TASK-006 | satisfied |
-| RMD-GIT-006 | gates | RMD-TASK-007 | **waiting for merge approval** |
-| RMD-GIT-007 | gates | RMD-TASK-008 | pending |
+| RMD-GIT-006 | completed_before | RMD-TASK-007 | satisfied |
+| RMD-GIT-007 | gates | RMD-TASK-008 | **waiting for merge approval** |
 | RMD-GIT-008 | gates | RMD-TASK-009 | pending |
 | RMD-GIT-009 | gates | RMD-TASK-010 | pending |
 | RMD-GIT-010 | gates | RMD-TASK-011 | pending |
