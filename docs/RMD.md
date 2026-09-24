@@ -703,7 +703,7 @@ Phase 2 不把十五个新案例简单复制成《界体》的按钮分支。互
 
 | ID | RMD Task | Branch | Merge Status | Required Evidence |
 | --- | --- | --- | --- | --- |
-| RMD-GIT-006 | RMD-TASK-006 | `feat/rmd-task-006-curriculum-primitives` | active | TDD2-TEST-001..009 + regression suite |
+| RMD-GIT-006 | RMD-TASK-006 | `feat/rmd-task-006-curriculum-primitives` | checkpoint-ready | PR #10; 30/30 tests + build + browser smoke |
 | RMD-GIT-007 | RMD-TASK-007 | `feat/rmd-task-007-observe-cases` | pending | chapter 2–5 path tests + build/browser smoke |
 | RMD-GIT-008 | RMD-TASK-008 | `feat/rmd-task-008-make-cases-a` | pending | chapter 6–8 tests |
 | RMD-GIT-009 | RMD-TASK-009 | `feat/rmd-task-009-make-cases-b` | pending | chapter 9–12 tests |
@@ -733,3 +733,100 @@ Structured interaction contract:
 5. Ink resumes and owns interpretation, branching and feedback.
 
 No answer key or method-specific scoring is allowed in JavaScript.
+
+
+## RMD-TASK-006 Execution Record
+
+- status: **checkpoint-ready / pending merge approval**
+- branch: `feat/rmd-task-006-curriculum-primitives`
+- pull request: #10
+- verified implementation head: `90d357b9a230a3b293480523d3469f8d94b42944`
+- GitHub Actions run: `35949487336`
+
+### Curriculum registry
+
+`content/curriculum.json` now fixes the full sixteen-chapter authoring map.
+
+Source-derived fields include:
+
+- chapter number / chapter ID;
+- method name;
+- part: 察物 / 制物 / 运行 / 守败;
+- chapter title;
+- existing worked-example title;
+- source page/line anchor.
+
+Design-derived fields are separate:
+
+- stable case ID;
+- implementation status;
+- primary interaction primitives;
+- interaction mechanism summary.
+
+This prevents interactive design choices from being mistaken for textbook source facts.
+
+### Generic interaction primitives
+
+The player now supports four generic forms:
+
+- `choice` — ordinary Ink choices;
+- `multi` — native checkbox selection;
+- `number` — native number input;
+- `rank` — native select-based ordering, without drag-and-drop dependency.
+
+Ink structured-step tags use:
+
+```text
+ui:type
+ui:bind
+ui:option=<id>::<label>
+ui:min
+ui:max
+ui:step
+ui:unit
+ui:submit
+```
+
+A structured step must expose exactly one Ink commit choice.
+
+The browser validates input and writes only `ui:bind`. Ink still decides whether the answer is useful, mistaken, incomplete, or requires revision.
+
+### Ink grammar correction
+
+The first test fixture used `|` inside `ui:option` tags.
+
+CI showed that this conflicts with Ink grammar and causes compilation failure.
+
+The protocol was corrected before any chapter 2–16 story was authored:
+
+```text
+old: ui:option=a|label
+new: ui:option=a::label
+```
+
+This is now covered by the real compiled Ink fixture.
+
+### Automated evidence
+
+GitHub Actions run `35949487336`:
+
+- `npm test` — **30 passed, 0 failed**;
+- TDD2-TEST-001..009 — all passed;
+- all previous MVP regression tests — passed;
+- `npm run build` — passed;
+- primary case validation — passed;
+- headless Chrome local browser smoke — passed.
+
+The fixture executes an actual compiled Ink story through:
+
+```text
+multi → number → rank → END
+```
+
+and verifies the submitted values are written into Ink state.
+
+### Git checkpoint
+
+RMD-GIT-006 is ready for review.
+
+RMD-TASK-007 (察物 chapters 2–5) remains blocked until explicit merge approval.
