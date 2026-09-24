@@ -64,3 +64,19 @@ A primitive is not accepted if answer meaning or chapter-specific scoring is mov
 | TDD2-TEST-026..030 | 运行 / 守败 chapters 13–16 | state precedence vs resource conflict, moving bottleneck, structural mistake-proofing, failure-state sequencing, all-16 publication identity |
 
 TDD2-TEST-030 is the first whole-book chapter-case contract: all sixteen curriculum entries must be published, have matching case/chapter identity, and retain a no-web exercise in the book fragment.
+
+
+## Mixed retrieval / transfer tests
+
+| IDs | Contract | Oracle |
+| --- | --- | --- |
+| TDD2-TEST-031 | mixed practice registry covers Appendix F1–F4 | four unique published practices; no `target_methods` answer list |
+| TDD2-TEST-032 | method labels stay hidden before debrief | no `《method》` label in mixed story source before `=== debrief ===`; debrief maps actions back to relevant methods |
+| TDD2-TEST-033 | F1 clinical/patient-safety transfer | boundary split → calibration lineage → structural medication controls → adverse-event control |
+| TDD2-TEST-034 | F2 biological-reproduction transfer | boundary → confounding redesign → independent relation → reproducibility record |
+| TDD2-TEST-035 | F3 agriculture/open-system transfer | moving boundary → field comparison → timing/capacity distinction → spread control |
+| TDD2-TEST-036 | F4 payment-operations transfer | reconciliation → lineage/coupling → operation controls → exposure containment |
+| TDD2-TEST-037 | build publishes chapter + mixed sets without answer leakage | 20 routes = 16 chapter + 4 mixed; mixed registry entries have no `method` field |
+| TDD2-TEST-038 | mixed book identity and no-web contract | manifest identity, stable route, no-web exercise and source boundary are present |
+
+Mixed practices must preserve the professional stop-boundaries stated in Appendix F. Passing these tests validates the exercise mechanics and source discipline, not professional-domain correctness beyond what the textbook source claims.
