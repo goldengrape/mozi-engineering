@@ -77,8 +77,8 @@
 | --- | --- | --- | --- | --- | --- | --- |
 | RMD-GIT-001 | RMD-TASK-001 | `feat/rmd-task-001-case-contract-clean` | `feat: implement RMD-TASK-001 case contract` | #3 | merged | 3/3 tests + compile check |
 | RMD-GIT-002 | RMD-TASK-002 | `feat/rmd-task-002-jieti-story` | `feat: implement RMD-TASK-002 jieti story` | #5 | merged | 10/10 tests + source review |
-| RMD-GIT-003 | RMD-TASK-003 | `feat/rmd-task-003-generic-player` | `feat: implement RMD-TASK-003 generic player` | #6 | checkpoint-ready | 17/17 tests + build + headless Chrome smoke |
-| RMD-GIT-004 | RMD-TASK-004 | `feat/rmd-task-004-pages` | `feat: implement RMD-TASK-004 pages deployment` | pending | pending | Actions/Pages status + public smoke |
+| RMD-GIT-003 | RMD-TASK-003 | `feat/rmd-task-003-generic-player` | `feat: implement RMD-TASK-003 generic player` | #6 | merged | 17/17 tests + build + headless Chrome smoke |
+| RMD-GIT-004 | RMD-TASK-004 | `feat/rmd-task-004-pages` | `feat: implement RMD-TASK-004 pages deployment` | #7 | pre-deploy checkpoint | 19/19 tests + registry/path checks; production Pages smoke after merge |
 | RMD-GIT-005 | RMD-TASK-005 | `docs/rmd-task-005-textbook-integration` | `docs: integrate RMD-TASK-005 into textbook body` | pending | pending | textbook diff / artifact check |
 
 First implementation push and every merge remain explicit checkpoint actions.
@@ -296,7 +296,7 @@ RMD-GIT-002 completed successfully.
 
 ## RMD-TASK-003 Execution Record
 
-- status: **checkpoint-ready / pending merge approval**
+- status: **merged / completed**
 - branch: `feat/rmd-task-003-generic-player`
 - pull request: #6
 - implementation head verified: `4558106ec426cb534eeeadec2d4bc9ccc00eeca9`
@@ -383,6 +383,96 @@ Visual/mobile-device review is still appropriate before public release; it belon
 
 ### Git checkpoint
 
-RMD-GIT-003 is ready for review.
+RMD-GIT-003 completed successfully.
 
-No merge has been performed. RMD-TASK-004 (case registry hardening + GitHub Pages deployment) remains blocked until PR #6 is explicitly approved for merge.
+- PR #6 merged into `main` as squash commit `bb50df7de0a609e8e1168cc07b8c56d9e2b3cf6c`.
+- RMD-TASK-003 is complete.
+- RMD-TASK-004 is now active on its own branch.
+
+
+## RMD-TASK-004 Execution Record — pre-deploy checkpoint
+
+- status: **implementation complete / production deployment pending merge**
+- branch: `feat/rmd-task-004-pages`
+- pull request: #7
+- project-check head: `0091107e045e687dc56b9bd18f891051bfcd0696`
+- GitHub Actions run: `35937736546`
+
+### Registry hardening
+
+TDD-TEST-009 now creates a second fixture case and verifies that:
+
+- the builder produces two registry entries;
+- both case routes are generated;
+- the home page lists both cases;
+- `src/player.js` remains byte-for-byte unchanged.
+
+This is the first direct automated evidence that adding another authored case does not require case-specific player changes.
+
+### GitHub Pages path safety
+
+A new build test verifies that generated HTML uses repository-relative links:
+
+- home page: `./assets/...` and `./cases/<case_id>/`;
+- case page: `../../assets/...`;
+- no root-absolute `/assets/` dependency.
+
+This is required for project Pages deployment under a repository base path such as:
+
+```text
+https://goldengrape.github.io/mozi-engineering/
+```
+
+### Pages workflow
+
+`.github/workflows/pages.yml` follows the official GitHub Pages Actions pattern and uses:
+
+- `actions/checkout@v4`;
+- `actions/setup-node@v4`;
+- `actions/upload-pages-artifact@v3`;
+- `actions/configure-pages@v5`;
+- `actions/deploy-pages@v5`.
+
+On a push to `main` it:
+
+1. installs locked dependencies;
+2. runs `npm run check`;
+3. uploads only generated `dist/`;
+4. deploys the artifact to the `github-pages` environment.
+
+Deployment credentials are limited to the deploy job:
+
+```text
+pages: write
+id-token: write
+```
+
+The Pages workflow is intentionally not run from this feature branch. Production deployment happens only after the Task 004 PR is explicitly approved and merged into `main`.
+
+### Pre-deploy evidence
+
+GitHub Actions run `35937736546`:
+
+- `npm test` — **19 passed, 0 failed**;
+- `npm run build` — passed;
+- `npm run check:case` — passed;
+- local headless Chrome smoke — passed.
+
+New Task 004 checks include:
+
+- TDD-TEST-009 — second case registry generation without player modification;
+- project-Pages relative-path safety.
+
+### Remaining completion evidence
+
+RMD-TASK-004 is not yet marked complete because its definition of done requires a public Pages deployment.
+
+After PR #7 merge, the Pages workflow must:
+
+1. deploy successfully from `main`;
+2. return a public Pages URL;
+3. allow the public `jieti-water-001` route to render the opening and choices;
+4. be checked at desktop and mobile-width conditions;
+5. remain independent of a CDN or backend.
+
+RMD-GIT-004 therefore acts as a **pre-deploy merge checkpoint**. RMD-TASK-005 remains blocked until public Pages smoke succeeds.
