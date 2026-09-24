@@ -8,7 +8,7 @@ okf_version: "0.1"
 
 ## Current phase
 
-The project is at the **RMD-GIT-002 merge checkpoint**. RMD-TASK-002 is implemented and tested; PR #5 is unmerged.\n\nAccepted decisions:
+The project is at the **RMD-GIT-003 merge checkpoint**. RMD-TASK-003 is implemented and tested; PR #6 is unmerged.
 
 - first prototype: `jieti-water-001`, based on the textbook's “教学楼用水增加 18%” case;
 - interactive task belongs in the textbook body;
@@ -16,7 +16,7 @@ The project is at the **RMD-GIT-002 merge checkpoint**. RMD-TASK-002 is implemen
 - first learning mechanism to validate: unlabeled judgment → branch consequence/new evidence → method switching/revision → debrief;
 - ADD design is decoupled and accepted.
 
-RMD-0001 is accepted. RMD-TASK-001 is merged; RMD-TASK-002 passed 10/10 automated tests and is awaiting its merge checkpoint.
+RMD-0001 is accepted. RMD-TASK-001 and RMD-TASK-002 are merged; RMD-TASK-003 passed 17/17 tests, static build, and headless Chrome smoke.
 
 ## Current architecture
 
@@ -49,6 +49,7 @@ Software test success validates the mechanism implementation, not long-term lear
 - [教材正文中的互动任务](requirements/textbook-interaction.md) — 正文和网页分别承担什么。
 - [Ink + 静态网页架构](decisions/ink-static-architecture.md) — 为什么教学逻辑留在 Ink、播放器保持通用。
 - [首个互动案例的构建路径](paths/mvp-build-path.md) — 五个实现切片和当前 checkpoint。\n- [jieti-water-001 案例逻辑](cases/jieti-water-001.md) — 证据释放、学习状态、复盘与方法切换边界。
+- [通用播放器与静态构建](decisions/generic-player-build.md) — Web runtime、build output 和无案例耦合边界。
 
 ## Source documents
 
