@@ -707,8 +707,8 @@ Phase 2 不把十五个新案例简单复制成《界体》的按钮分支。互
 | RMD-GIT-007 | RMD-TASK-007 | `feat/rmd-task-007-observe-cases` | merged | PR #11; 36/36 tests + five-case build + browser smoke |
 | RMD-GIT-008 | RMD-TASK-008 | `feat/rmd-task-008-make-cases-a` | merged | PR #12; 41/41 tests + eight-case build + browser smoke |
 | RMD-GIT-009 | RMD-TASK-009 | `feat/rmd-task-009-make-cases-b` | merged | PR #13; 46/46 tests + twelve-case build + browser smoke |
-| RMD-GIT-010 | RMD-TASK-010 | `feat/rmd-task-010-run-fail-cases` | checkpoint-ready | PR #14; 51/51 tests + sixteen-case build + browser smoke |
-| RMD-GIT-011 | RMD-TASK-011 | `feat/rmd-task-011-mixed-review` | pending | transfer/mixed-case tests |
+| RMD-GIT-010 | RMD-TASK-010 | `feat/rmd-task-010-run-fail-cases` | merged | PR #14; 51/51 tests + sixteen-case build + browser smoke |
+| RMD-GIT-011 | RMD-TASK-011 | `feat/rmd-task-011-mixed-review` | checkpoint-ready | PR #15; 59/59 tests + twenty-case build + browser smoke |
 | RMD-GIT-012 | RMD-TASK-012 | `docs/rmd-task-012-full-book-integration` | pending | publication QA + public route smoke |
 
 ## RMD-TASK-006 Scope
@@ -1128,7 +1128,7 @@ RMD-GIT-009 completed successfully.
 
 ## RMD-TASK-010 Execution Record
 
-- status: **checkpoint-ready / pending merge approval**
+- status: **merged / completed**
 - branch: `feat/rmd-task-010-run-fail-cases`
 - pull request: #14
 - verified implementation head: `41e12e73773e4e87abc2d3273dea6c6b8a637211`
@@ -1197,6 +1197,138 @@ Actions run `35963452549`:
 
 ### Git checkpoint
 
-RMD-GIT-010 is ready for review.
+RMD-GIT-010 completed successfully.
 
-RMD-TASK-011 (mixed retrieval / transfer cases) remains blocked until explicit merge approval.
+- PR #14 merged to `main` as `2f7e648a8f42c91a7ae0ec4e38ba11f2c277339e`.
+- post-merge Pages run `35964570276` succeeded.
+- RMD-TASK-011 was then started on its own branch.
+
+
+## RMD-TASK-011 Execution Record
+
+- status: **checkpoint-ready / pending merge approval**
+- branch: `feat/rmd-task-011-mixed-review`
+- pull request: #15
+- verified implementation head: `2dfac6cc8cfbc799d45467d47464dba2de949930`
+- GitHub Actions run: `35965518132`
+
+### Learning problem
+
+The chapter-level cases answer “how do I use this method?”
+
+RMD-TASK-011 deliberately changes the problem to:
+
+```text
+symptom/context → choose the next action → receive new evidence → revise/switch → debrief
+```
+
+No mixed story exposes a `《method》` label before its debrief.
+
+### Source boundary
+
+The four mixed practices are grounded in Appendix F1–F4 of the current textbook.
+
+The source itself explicitly warns that the transfer appendix does not “engineer” those professional fields and that professional guidelines, statistics, ethics, law, standards or domain methods remain authoritative.
+
+No numerical facts were invented for these mixed cases.
+
+### Separate practice registry
+
+Chapter identity remains in `content/curriculum.json`.
+
+Mixed practices now live in `content/practice_registry.json`.
+
+The public practice registry records Appendix source identity and interaction mechanism but intentionally does not contain a `target_methods` answer list.
+
+The builder:
+
+- accepts a case from either the chapter curriculum or mixed-practice registry;
+- rejects a case ID that appears in both registries;
+- validates manifest identity against the correct registry;
+- requires every published chapter/practice package to exist before rewriting output;
+- publishes `dist/practice_registry.json`.
+
+### Implemented mixed cases
+
+#### Appendix F1 — `mixed-clinical-safety-001`
+
+Context: potentially calibration-affected lab results plus IV medication-error reduction.
+
+Sequence:
+
+`separate problem boundaries → trace affected calibration branch → distinguish medication structural controls → control an adverse event before complete causal certainty → debrief`
+
+Debrief mapping:
+
+`界体 → 定准/传准 → 防误 → 限败`
+
+The case retains the source boundary that this is not a clinical guideline or patient-specific decision aid.
+
+#### Appendix F2 — `mixed-bio-repro-001`
+
+Context: treatment/phenotype study across culture batches, reagent lots and instrument platforms.
+
+Sequence:
+
+`clarify object/boundary → correct treatment/batch confounding → move from same-source repetition to an independent relation → externalize reproducibility records → debrief`
+
+Debrief mapping:
+
+`界体 → 参验 → 相衡 → 示制`
+
+The case retains the source boundary that biological variation is not automatically error.
+
+#### Appendix F3 — `mixed-agri-transfer-001`
+
+Context: compare water/fertilizer strategies and then enter harvest/storage operations.
+
+Sequence:
+
+`allow open-system boundary revision → remove fertility/treatment confounding → separate state/time-window constraints from capacity limits → contain failure/spread → debrief`
+
+Debrief mapping:
+
+`界体 → 参验 → 序作/通滞 → 限败`
+
+The case retains the source boundary that weather/environmental variation is not mechanical tolerance.
+
+#### Appendix F4 — `mixed-payment-ops-001`
+
+Context: payment/transaction operations with multiple data sources, risk models, account permissions and clearing stages.
+
+Sequence:
+
+`reconciliation residual as clue → source/version lineage + change propagation → permission/operation mistake-proofing → exposure isolation/recovery verification → debrief`
+
+Debrief mapping:
+
+`衡算 → 定准/传准 → 制耦 → 防误 → 限败`
+
+The case explicitly does not explain market prices and is not an investment-decision method.
+
+### Public information architecture
+
+The site home page is now grouped into:
+
+- 逐章练习;
+- 混合迁移练习.
+
+Mixed entries in `cases/index.json` are marked `kind: "mixed"` and do not expose a `method` field.
+
+### Automated evidence
+
+Actions run `35965518132`:
+
+- `npm test` — **59 passed, 0 failed**;
+- TDD2-TEST-031..038 — passed;
+- all sixteen chapter-case regressions — passed;
+- `npm run build` — passed;
+- build generated **20 cases = 16 chapter + 4 mixed**;
+- primary case validation — passed;
+- headless Chrome regression smoke — passed.
+
+### Git checkpoint
+
+RMD-GIT-011 is ready for review.
+
+RMD-TASK-012 (longitudinal case + whole-book publication integration) remains blocked until explicit merge approval.
