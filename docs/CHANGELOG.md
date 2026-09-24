@@ -2,6 +2,8 @@
 
 | Date | Changed By | Files | Summary | Trace Impact |
 | --- | --- | --- | --- | --- |
+| 2026-09-24 | ChatGPT | content/cases/{dingdong-guide-001,rongdu-stack-001,xiangheng-reversal-001,shizhi-bracket-001}/*, content/curriculum.json, tests/*, PR #13, Actions 35962501094 | 完成 RMD-TASK-009：定动、容度、相衡、示制四章互动案例；直接从 DOCX 公式 XML 核准容度/相衡数值；46/46 tests、十二案例 build、browser smoke 通过。 | RMD-GIT-009 checkpoint-ready；RMD-TASK-010 等待 merge approval |
+| 2026-09-24 | project owner + ChatGPT | PR #12 merge 4d5306a4, Pages 35961945622 | RMD-TASK-008 已合并；制物第 6–8 章进入 main 并成功重新部署 Pages。 | RMD-GIT-008 satisfied；RMD-TASK-009 unblocked |
 | 2026-09-24 | ChatGPT | content/cases/{fenren-door-001,zhiou-robot-001,fengou-service-001}/*, content/curriculum.json, tests/*, PR #12, Actions 35956839559 | 完成 RMD-TASK-008：制物第 6–8 章分别训练功能/实现分离、逐边制耦、分界收益/接口责任；41/41 tests、八案例 build、case validation、browser smoke 通过。 | RMD-GIT-008 checkpoint-ready；RMD-TASK-009 等待 merge approval |
 | 2026-09-24 | project owner + ChatGPT | PR #11 merge 0113c0e4, Pages 35956661728 | RMD-TASK-007 已合并；察物第 1–5 章进入 main 并成功重新部署 Pages。 | RMD-GIT-007 satisfied；RMD-TASK-008 unblocked |
 | 2026-09-24 | ChatGPT | content/cases/{hengsuan-balance-001,dingzhun-torque-001,chuanzhun-benchmark-001,canyan-model-001}/*, content/curriculum.json, tests/*, PR #11, Actions 35951410738 | 完成 RMD-TASK-007：察物第 2–5 章均有独立 Ink 学习流程与 book fragment；36/36 tests、五案例 build、case validation、browser smoke 通过。 | RMD-GIT-007 checkpoint-ready；RMD-TASK-008 等待 merge approval |
