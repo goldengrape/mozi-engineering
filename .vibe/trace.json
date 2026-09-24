@@ -308,6 +308,18 @@
     {
       "id": "OKF-PAGE-006",
       "kind": "okf_concept"
+    },
+    {
+      "id": "MERGE-bbbeca30c6a0242d7860d04686b7d9b4a6d3ae05",
+      "kind": "merge_commit"
+    },
+    {
+      "id": "CI-RUN-35938292249",
+      "kind": "deployment_run"
+    },
+    {
+      "id": "BLOCKER-PAGES-ENABLEMENT",
+      "kind": "external_blocker"
     }
   ],
   "links": [
@@ -657,14 +669,29 @@
       "target": "okf/deployment/github-pages.md"
     },
     {
-      "source": "RMD-GIT-004",
-      "relation": "gates",
-      "target": "production-pages-smoke"
-    },
-    {
       "source": "production-pages-smoke",
       "relation": "gates",
       "target": "RMD-TASK-005"
+    },
+    {
+      "source": "RMD-GIT-004",
+      "relation": "merged_as",
+      "target": "MERGE-bbbeca30c6a0242d7860d04686b7d9b4a6d3ae05"
+    },
+    {
+      "source": "RMD-TASK-004",
+      "relation": "deployment_attempted_by",
+      "target": "CI-RUN-35938292249"
+    },
+    {
+      "source": "CI-RUN-35938292249",
+      "relation": "blocked_by",
+      "target": "BLOCKER-PAGES-ENABLEMENT"
+    },
+    {
+      "source": "BLOCKER-PAGES-ENABLEMENT",
+      "relation": "gates",
+      "target": "production-pages-smoke"
     }
   ]
 }
