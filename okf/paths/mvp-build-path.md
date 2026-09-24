@@ -8,7 +8,7 @@ source_ids:
   - RMD-TASK-003
   - RMD-TASK-004
   - RMD-TASK-005
-status: task_004_pages_source_blocked
+status: task_004_complete_task_005_ready
 ---
 
 # 顺序
@@ -21,7 +21,7 @@ status: task_004_pages_source_blocked
 
 # 当前状态
 
-RMD-TASK-001 至 RMD-TASK-003 已完成。RMD-TASK-004 已合入 main；生产构建、artifact 上传以及 deploy action 都已成功，但公网仍在服务 Jekyll 分支构建；Pages Source 尚未切换到 GitHub Actions。
+RMD-TASK-001 至 RMD-TASK-003 已完成。RMD-TASK-004 已合入 main；RMD-TASK-004 已完成：Pages Source 已切换为 GitHub Actions，生产 artifact 已上线并通过桌面/390px 公网烟测。RMD-TASK-005 已解锁。
 
 # Current checkpoint
 
@@ -38,8 +38,12 @@ Production workflow `35938292249`:
 - live artifact assets/case routes: 404;
 - downloaded deployment artifact: complete and contains those paths.
 
-Owner action required:
+Final production evidence:
 
-`Settings → Pages → Build and deployment → Source → GitHub Actions`
+- production workflow `35938292249`: deployment succeeded;
+- public smoke `35940775884`: all required routes returned 200;
+- public root matches generated `dist/index.html`;
+- case page loaded local `ink.js` / `player.js` only;
+- 1440×1000 and 390×844 headless Chrome both rendered the opening and first two choices.
 
-Set **Source = GitHub Actions**, then rerun the Pages workflow. RMD-TASK-004 remains incomplete until the public deployment and smoke tests pass. RMD-TASK-005 remains blocked.
+RMD-TASK-004 is complete. RMD-TASK-005 is ready.
