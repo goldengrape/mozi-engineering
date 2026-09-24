@@ -2,6 +2,8 @@
 
 | Date | Changed By | Files | Summary | Trace Impact |
 | --- | --- | --- | --- | --- |
+| 2026-09-24 | ChatGPT | content/cases/{hengsuan-balance-001,dingzhun-torque-001,chuanzhun-benchmark-001,canyan-model-001}/*, content/curriculum.json, tests/*, PR #11, Actions 35951410738 | 完成 RMD-TASK-007：察物第 2–5 章均有独立 Ink 学习流程与 book fragment；36/36 tests、五案例 build、case validation、browser smoke 通过。 | RMD-GIT-007 checkpoint-ready；RMD-TASK-008 等待 merge approval |
+| 2026-09-24 | project owner + ChatGPT | PR #10 merge aad604f9, Pages 35951015502 | RMD-TASK-006 已合并；通用 curriculum/primitive runtime 已进入 main 并成功重新部署 Pages。 | RMD-GIT-006 satisfied；RMD-TASK-007 unblocked |
 | 2026-09-24 | ChatGPT | PR #10, Actions 35949487336, docs/*, .vibe/*, okf/* | RMD-TASK-006 验证完成：30/30 tests、build、case validation、browser smoke 通过；真实 Ink fixture 跑通 multi→number→rank。CI 同时发现 `|` 与 Ink 语法冲突，协议已改为 `id::label`。 | RMD-GIT-006 checkpoint-ready；RMD-TASK-007 等待 merge approval |
 | 2026-09-24 | project owner + ChatGPT | content/curriculum.json, docs/INTERACTION_PROTOCOL.md, docs/TDD_PHASE2.md, src/player.js, scripts/curriculum.cjs, scripts/build.cjs, tests/*, okf/paths/full-book-expansion.md | 用户批准把 Ink 扩展到全书并开始执行。启动 RMD-TASK-006：固定十六章 curriculum registry；新增 choice/multi/number/rank 通用协议；structured input 只写 Ink 变量，答案解释继续由 Ink 负责。 | Phase 2 active；RMD-GIT-006 |
 | 2026-09-24 | project owner + ChatGPT | PR #9, Actions 35942052613, docs/*, .vibe/* | RMD-TASK-005 仓库检查完成：21/21 tests、build、case validation、browser smoke 全部通过；PR #9 进入最后 merge checkpoint。 | RMD-GIT-005 checkpoint-ready；等待显式 merge approval |
