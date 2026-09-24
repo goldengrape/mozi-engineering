@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "case_id": "mixed-payment-ops-001",
+  "title": "对账、数据版本、权限和事故传播同时出现时，下一步是什么？",
+  "language": "zh-CN",
+  "textbook": {
+    "chapter_id": "appendix-f4",
+    "placement": "appendix-f-transfer-practice"
+  },
+  "story_source": "story.ink",
+  "book_fragment": "book.md"
+}

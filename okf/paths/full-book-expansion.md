@@ -10,7 +10,7 @@ source_ids:
   - RMD-TASK-010
   - RMD-TASK-011
   - RMD-TASK-012
-status: task_010_checkpoint_ready
+status: task_011_checkpoint_ready
 ---
 
 # Core rule
@@ -50,19 +50,19 @@ Ink 继续拥有证据释放、学习状态、分支后果和复盘；浏览器�
 
 # Current checkpoint
 
-RMD-TASK-009 merged as `099b54dd16bd66d3e49d3068a38899e0673a8b80`; post-merge Pages run `35962990512` passed.
+RMD-TASK-010 merged as `2f7e648a8f42c91a7ae0ec4e38ba11f2c277339e`; post-merge Pages run `35964570276` passed.
 
-RMD-TASK-010 is implemented on `feat/rmd-task-010-run-fail-cases`.
+RMD-TASK-011 is implemented on `feat/rmd-task-011-mixed-review`.
 
 Evidence:
 
-- Actions `35963452549`: 51 tests passed, 0 failed;
-- chapters 13–16 compile and complete along tested correction paths;
-- all sixteen curriculum chapters are published;
-- static build generates sixteen authored chapter cases;
-- TDD2-TEST-030 verifies case/chapter identity and no-web book fragments across the whole sixteen-chapter set;
-- existing browser smoke remains green.
+- four Appendix-F mixed practices are authored;
+- no mixed story exposes a method label before debrief;
+- public mixed registry entries omit the method field;
+- Actions `35965518132`: 59 tests passed, 0 failed;
+- static build generates 20 cases = 16 chapter + 4 mixed;
+- existing chapter regressions and browser smoke remain green.
 
-The chapter-level expansion is now complete. The next slice changes the learning problem: RMD-TASK-011 must present mixed, unlabeled cases that require method retrieval/transfer rather than chapter-local recognition.
+The next and final Phase-2 slice is RMD-TASK-012: choose one longitudinal case, make the cross-chapter path executable, and integrate stable links/QR/no-web equivalents into the whole-book publication artifacts.
 
-PR #14 is unmerged. RMD-TASK-011 is blocked until merge approval.
+PR #15 is unmerged. RMD-TASK-012 is blocked until merge approval.

@@ -6,12 +6,18 @@ const test = require("node:test");
 
 const { buildSite } = require("../scripts/build.cjs");
 const { loadCurriculum } = require("../scripts/curriculum.cjs");
+const { loadPracticeRegistry } = require("../scripts/practice-registry.cjs");
 
 function publishedCaseIds() {
-  return loadCurriculum()
+  const chapterCases = loadCurriculum()
     .chapters
     .filter((chapter) => chapter.status === "published")
     .map((chapter) => chapter.case_id);
+  const mixedCases = loadPracticeRegistry()
+    .practices
+    .filter((practice) => practice.status === "published")
+    .map((practice) => practice.case_id);
+  return [...chapterCases, ...mixedCases];
 }
 
 function tempDir(prefix) {
@@ -68,6 +74,7 @@ test("TDD-TEST-014: buildSite creates the static output contract", () => {
   for (const relative of [
     "index.html",
     "curriculum.json",
+    "practice_registry.json",
     "assets/ink.js",
     "assets/player.js",
     "assets/style.css",
@@ -178,6 +185,8 @@ test("Pages output uses repository-relative links rather than root-absolute path
 
   assert.match(home, /href="\.\/assets\/style\.css"/);
   assert.match(home, /href="\.\/cases\/jieti-water-001\//);
+  assert.match(home, /混合迁移练习/);
+  assert.match(home, /href="\.\/cases\/mixed-clinical-safety-001\//);
   assert.match(caseHtml, /href="\.\.\/\.\.\/assets\/style\.css"/);
   assert.doesNotMatch(home + caseHtml, /(?:href|src)="\/assets\//);
 });

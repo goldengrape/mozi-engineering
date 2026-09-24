@@ -13,9 +13,19 @@
       <h1>互动练习</h1>
       <p>这里运行教材正文中的分支练习。案例不会预先告诉你应该使用哪一种方法。</p>
     </header>
-    <ul class="case-list">
-      {{CASE_LIST}}
-    </ul>
+    <section aria-labelledby="chapter-practice-heading">
+      <h2 id="chapter-practice-heading">逐章练习</h2>
+      <ul class="case-list">
+        {{CHAPTER_CASE_LIST}}
+      </ul>
+    </section>
+    <section aria-labelledby="mixed-practice-heading">
+      <h2 id="mixed-practice-heading">混合迁移练习</h2>
+      <p>这些案例不预先告诉你应使用哪一篇。先看症状和证据，再决定下一步动作。</p>
+      <ul class="case-list">
+        {{MIXED_CASE_LIST}}
+      </ul>
+    </section>
   </main>
 </body>
 </html>

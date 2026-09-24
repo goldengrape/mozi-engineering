@@ -6,6 +6,7 @@ const {
   compileStory
 } = require("./case-package.cjs");
 const { loadCurriculum } = require("./curriculum.cjs");
+const { loadPracticeRegistry } = require("./practice-registry.cjs");
 
 function htmlEscape(value) {
   return String(value)
@@ -58,52 +59,63 @@ function buildSite(
   const prepared = prepareCases(caseDirs);
   const curriculumPath =
     options.curriculumPath || path.resolve("content/curriculum.json");
+  const practiceRegistryPath =
+    options.practiceRegistryPath || path.resolve("content/practice_registry.json");
   const curriculum = loadCurriculum(curriculumPath);
+  const practiceRegistry = loadPracticeRegistry(practiceRegistryPath);
 
   if (prepared.length === 0) {
     throw new Error(`no cases found in ${sourceRoot}`);
   }
 
-  const runtimePath = require.resolve("inkjs");
-  const caseTemplate = fs.readFileSync(path.join(srcDir, "case.html"), "utf8");
-  const indexTemplate = fs.readFileSync(path.join(srcDir, "index.html"), "utf8");
-
-  fs.rmSync(outDir, { recursive: true, force: true });
-  fs.mkdirSync(path.join(outDir, "assets"), { recursive: true });
-  fs.mkdirSync(path.join(outDir, "cases"), { recursive: true });
-
-  fs.writeFileSync(
-    path.join(outDir, "curriculum.json"),
-    JSON.stringify(curriculum, null, 2) + "\n"
-  );
-
-  fs.copyFileSync(runtimePath, path.join(outDir, "assets", "ink.js"));
-  fs.copyFileSync(
-    path.join(srcDir, "player.js"),
-    path.join(outDir, "assets", "player.js")
-  );
-  fs.copyFileSync(
-    path.join(srcDir, "style.css"),
-    path.join(outDir, "assets", "style.css")
-  );
-
   const curriculumByCase = new Map(
-    curriculum.chapters.map((chapter) => [chapter.case_id, chapter])
+    curriculum.chapters.map((chapter) => [
+      chapter.case_id,
+      {
+        kind: "chapter",
+        manifestChapterId: chapter.chapter_id,
+        chapter_id: chapter.chapter_id,
+        method: chapter.method,
+        part: chapter.part,
+        status: chapter.status
+      }
+    ])
   );
+
+  const practiceByCase = new Map(
+    practiceRegistry.practices.map((practice) => [
+      practice.case_id,
+      {
+        kind: "mixed",
+        manifestChapterId: practice.manifest_chapter_id,
+        practice_id: practice.practice_id,
+        source_section: practice.source_section,
+        status: practice.status
+      }
+    ])
+  );
+
+  for (const caseId of practiceByCase.keys()) {
+    if (curriculumByCase.has(caseId)) {
+      throw new Error(`case_id appears in both curriculum and practice registry: ${caseId}`);
+    }
+  }
+
+  const catalogByCase = new Map([...curriculumByCase, ...practiceByCase]);
 
   for (const item of prepared) {
-    if (!curriculumByCase.has(item.caseId)) {
+    if (!catalogByCase.has(item.caseId)) {
       throw new Error(
-        `case_id missing from curriculum registry: ${item.caseId}`
+        `case_id missing from curriculum/practice registry: ${item.caseId}`
       );
     }
 
-    const curriculumEntry = curriculumByCase.get(item.caseId);
+    const catalogEntry = catalogByCase.get(item.caseId);
     if (
-      item.pkg.manifest.textbook.chapter_id !== curriculumEntry.chapter_id
+      item.pkg.manifest.textbook.chapter_id !== catalogEntry.manifestChapterId
     ) {
       throw new Error(
-        `curriculum chapter mismatch for ${item.caseId}: manifest=${item.pkg.manifest.textbook.chapter_id}, curriculum=${curriculumEntry.chapter_id}`
+        `case identity mismatch for ${item.caseId}: manifest=${item.pkg.manifest.textbook.chapter_id}, registry=${catalogEntry.manifestChapterId}`
       );
     }
   }
@@ -118,6 +130,44 @@ function buildSite(
       );
     }
   }
+
+  for (const practice of practiceRegistry.practices) {
+    if (
+      practice.status === "published" &&
+      !prepared.some((item) => item.caseId === practice.case_id)
+    ) {
+      throw new Error(
+        `published mixed practice missing package: ${practice.case_id}`
+      );
+    }
+  }
+
+  const runtimePath = require.resolve("inkjs");
+  const caseTemplate = fs.readFileSync(path.join(srcDir, "case.html"), "utf8");
+  const indexTemplate = fs.readFileSync(path.join(srcDir, "index.html"), "utf8");
+
+  fs.rmSync(outDir, { recursive: true, force: true });
+  fs.mkdirSync(path.join(outDir, "assets"), { recursive: true });
+  fs.mkdirSync(path.join(outDir, "cases"), { recursive: true });
+
+  fs.writeFileSync(
+    path.join(outDir, "curriculum.json"),
+    JSON.stringify(curriculum, null, 2) + "\n"
+  );
+  fs.writeFileSync(
+    path.join(outDir, "practice_registry.json"),
+    JSON.stringify(practiceRegistry, null, 2) + "\n"
+  );
+
+  fs.copyFileSync(runtimePath, path.join(outDir, "assets", "ink.js"));
+  fs.copyFileSync(
+    path.join(srcDir, "player.js"),
+    path.join(outDir, "assets", "player.js")
+  );
+  fs.copyFileSync(
+    path.join(srcDir, "style.css"),
+    path.join(outDir, "assets", "style.css")
+  );
 
   const registry = [];
 
@@ -137,16 +187,25 @@ function buildSite(
     );
     fs.writeFileSync(path.join(caseOut, "index.html"), page);
 
-    const curriculumEntry = curriculumByCase.get(item.caseId);
+    const catalogEntry = catalogByCase.get(item.caseId);
 
-    registry.push({
+    const registryEntry = {
       case_id: item.caseId,
-      chapter_id: curriculumEntry.chapter_id,
-      method: curriculumEntry.method,
-      part: curriculumEntry.part,
+      kind: catalogEntry.kind,
       title: item.pkg.manifest.title,
       route: `cases/${item.caseId}/`
-    });
+    };
+
+    if (catalogEntry.kind === "chapter") {
+      registryEntry.chapter_id = catalogEntry.chapter_id;
+      registryEntry.method = catalogEntry.method;
+      registryEntry.part = catalogEntry.part;
+    } else {
+      registryEntry.practice_id = catalogEntry.practice_id;
+      registryEntry.source_section = catalogEntry.source_section;
+    }
+
+    registry.push(registryEntry);
   }
 
   fs.writeFileSync(
@@ -154,7 +213,18 @@ function buildSite(
     JSON.stringify(registry, null, 2) + "\n"
   );
 
-  const caseList = registry
+  const chapterCaseList = registry
+    .filter((entry) => entry.kind === "chapter")
+    .map(
+      (entry) =>
+        `<li><a class="case-link" href="./${htmlEscape(entry.route)}">${htmlEscape(
+          entry.title
+        )}</a></li>`
+    )
+    .join("\n      ");
+
+  const mixedCaseList = registry
+    .filter((entry) => entry.kind === "mixed")
     .map(
       (entry) =>
         `<li><a class="case-link" href="./${htmlEscape(entry.route)}">${htmlEscape(
@@ -165,7 +235,9 @@ function buildSite(
 
   fs.writeFileSync(
     path.join(outDir, "index.html"),
-    indexTemplate.replace("{{CASE_LIST}}", caseList)
+    indexTemplate
+      .replace("{{CHAPTER_CASE_LIST}}", chapterCaseList)
+      .replace("{{MIXED_CASE_LIST}}", mixedCaseList)
   );
 
   return registry;

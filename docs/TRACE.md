@@ -4,7 +4,7 @@
 
 ## Current Phase
 
-MVP RMD-TASK-001..005 and Phase 2 RMD-TASK-006..009 are merged. RMD-TASK-010 completes chapter-level cases 13–16 and is at the RMD-GIT-010 merge checkpoint.
+MVP RMD-TASK-001..005 and Phase 2 RMD-TASK-006..010 are merged. RMD-TASK-011 adds four unlabeled Appendix-F mixed transfer cases and is at the RMD-GIT-011 merge checkpoint.
 
 ## Requirement → Design
 
@@ -228,6 +228,19 @@ MVP RMD-TASK-001..005 and Phase 2 RMD-TASK-006..009 are merged. RMD-TASK-010 com
 | RMD-TASK-010 | generated_as | sixteen-case static build | chapters 1–16 published |
 | RMD-TASK-010 | summarized_by | okf/cases/run-fail-chapters-13-16.md | concise retrieval page |
 
+## RMD-TASK-011 Execution Evidence
+
+| Source ID | Relation | Target | Notes |
+| --- | --- | --- | --- |
+| RMD-GIT-010 | merged_as | 2f7e648a8f42c91a7ae0ec4e38ba11f2c277339e | PR #14 |
+| RMD-TASK-010 | deployed_by | Actions run 35964570276 | post-merge Pages deploy succeeded |
+| Appendix F1–F4 | represented_in | content/practice_registry.json | four mixed source contexts without a public method-answer list |
+| RMD-TASK-011 | implemented_on | feat/rmd-task-011-mixed-review | four unlabeled mixed case packages |
+| RMD-GIT-011 | reviewed_by | RMD-PR-015 | PR #15 |
+| TDD2-TEST-031..038 | evidenced_by | Actions run 35965518132 | 59/59 total tests passed |
+| RMD-TASK-011 | generated_as | twenty-case static build | 16 chapter + 4 mixed routes |
+| RMD-TASK-011 | summarized_by | okf/cases/mixed-transfer-f1-f4.md | concise retrieval page |
+
 ## Gates
 
 | Source | Relation | Target | Status |
@@ -256,5 +269,5 @@ MVP RMD-TASK-001..005 and Phase 2 RMD-TASK-006..009 are merged. RMD-TASK-010 com
 | RMD-GIT-007 | completed_before | RMD-TASK-008 | satisfied |
 | RMD-GIT-008 | completed_before | RMD-TASK-009 | satisfied |
 | RMD-GIT-009 | completed_before | RMD-TASK-010 | satisfied |
-| RMD-GIT-010 | gates | RMD-TASK-011 | **waiting for merge approval** |
-| RMD-GIT-011 | gates | RMD-TASK-012 | pending |
+| RMD-GIT-010 | completed_before | RMD-TASK-011 | satisfied |
+| RMD-GIT-011 | gates | RMD-TASK-012 | **waiting for merge approval** |

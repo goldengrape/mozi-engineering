@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "case_id": "mixed-clinical-safety-001",
+  "title": "一批检验结果可能不可信，同时给药差错又在发生",
+  "language": "zh-CN",
+  "textbook": {
+    "chapter_id": "appendix-f1",
+    "placement": "appendix-f-transfer-practice"
+  },
+  "story_source": "story.ink",
+  "book_fragment": "book.md"
+}
