@@ -8,7 +8,7 @@ okf_version: "0.1"
 
 ## Current phase
 
-The project is at the **RMD-GIT-003 merge checkpoint**. RMD-TASK-003 is implemented and tested; PR #6 is unmerged.
+The project is at the **RMD-GIT-004 pre-deploy merge checkpoint**. Task 004 implementation is ready; public Pages deployment waits for PR #7 merge.
 
 - first prototype: `jieti-water-001`, based on the textbook's “教学楼用水增加 18%” case;
 - interactive task belongs in the textbook body;
@@ -16,7 +16,7 @@ The project is at the **RMD-GIT-003 merge checkpoint**. RMD-TASK-003 is implemen
 - first learning mechanism to validate: unlabeled judgment → branch consequence/new evidence → method switching/revision → debrief;
 - ADD design is decoupled and accepted.
 
-RMD-0001 is accepted. RMD-TASK-001 and RMD-TASK-002 are merged; RMD-TASK-003 passed 17/17 tests, static build, and headless Chrome smoke.
+RMD-0001 is accepted. RMD-TASK-001 through RMD-TASK-003 are merged; Task 004 pre-deploy CI passed 19/19 tests.
 
 ## Current architecture
 
@@ -50,6 +50,7 @@ Software test success validates the mechanism implementation, not long-term lear
 - [Ink + 静态网页架构](decisions/ink-static-architecture.md) — 为什么教学逻辑留在 Ink、播放器保持通用。
 - [首个互动案例的构建路径](paths/mvp-build-path.md) — 五个实现切片和当前 checkpoint。\n- [jieti-water-001 案例逻辑](cases/jieti-water-001.md) — 证据释放、学习状态、复盘与方法切换边界。
 - [通用播放器与静态构建](decisions/generic-player-build.md) — Web runtime、build output 和无案例耦合边界。
+- [GitHub Pages 发布](deployment/github-pages.md) — registry 扩展、project Pages 路径与生产部署门槛。
 
 ## Source documents
 
