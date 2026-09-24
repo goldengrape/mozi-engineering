@@ -4,7 +4,7 @@
 
 ## Current Phase
 
-URD-0001, ADD-0001 and RMD-0001 are accepted. RMD-TASK-001 through RMD-TASK-003 are complete. RMD-TASK-004 code is merged, but production Pages deployment is blocked because repository Pages is not yet enabled for GitHub Actions.
+URD-0001, ADD-0001 and RMD-0001 are accepted. RMD-TASK-001 through RMD-TASK-003 are complete. RMD-TASK-004 code is merged. Actions deployment succeeds, but the live Pages site is still a Jekyll branch build rather than the uploaded `dist/` artifact; Source must be switched to GitHub Actions.
 
 ## Requirement → Design
 
@@ -129,8 +129,8 @@ URD-0001, ADD-0001 and RMD-0001 are accepted. RMD-TASK-001 through RMD-TASK-003 
 | --- | --- | --- | --- |
 | RMD-GIT-004 | merged_as | bbbeca30c6a0242d7860d04686b7d9b4a6d3ae05 | PR #7 merged to main |
 | RMD-TASK-004 | deployment_attempted_by | Actions run 35938292249 | build + artifact upload succeeded |
-| Actions run 35938292249 | blocked_at | actions/configure-pages@v5 | Pages site Not Found; repository Pages must be enabled |
-| repository Pages enablement | requires | owner repository settings | current connector has no administration-write capability |
+| Actions run 35938292249 | deployment_succeeded | https://goldengrape.github.io/mozi-engineering/ | Configure + Deploy succeeded after Pages enablement |
+| public Pages diagnostics | detected | branch/Jekyll source | root 200 but artifact assets/cases 404; live HTML says Jekyll v3.10.0 |
 
 ## Gates
 
@@ -143,7 +143,7 @@ URD-0001, ADD-0001 and RMD-0001 are accepted. RMD-TASK-001 through RMD-TASK-003 
 | RMD-GIT-002 | completed_before | RMD-TASK-003 | satisfied |
 | RMD-GIT-003 | completed_before | RMD-TASK-004 | satisfied |
 | RMD-GIT-004 | triggered | production Pages deployment | workflow 35938292249: build succeeded, configure-pages failed because Pages is not enabled |
-| repository Pages enablement | gates | production Pages deployment | **owner action required** |
+| repository Pages source mode | gates | production artifact visibility | **owner action required: Source = GitHub Actions** |
 | production Pages smoke | gates | RMD-TASK-005 | pending |
 
 ## Trace Update Rule
