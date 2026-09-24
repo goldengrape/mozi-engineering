@@ -108,7 +108,7 @@ jobs:
           grep -q '教学楼为什么多用了 18% 的水' /tmp/public-manifest.json
           grep -q 'jieti-water-001' /tmp/public-registry.json
 
-          if grep -E '<script[^>]+src=["'\''']https?://' /tmp/public-case.html; then
+          if grep -Fq 'src="http' /tmp/public-case.html; then
             echo "Remote script dependency found in public case HTML" >&2
             exit 1
           fi
