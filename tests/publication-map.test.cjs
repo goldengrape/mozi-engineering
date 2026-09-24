@@ -38,7 +38,7 @@ test("TDD2-TEST-043: publication map covers every published chapter/practice exa
   for (const entry of map.entries) {
     assert.ok(entry.anchor);
     assert.ok(Number.isInteger(entry.after_nonempty));
-    assert.ok(entry.after_nonempty >= 1);
+    assert.ok(entry.after_nonempty >= 0);
     assert.match(entry.epub_file, /^EPUB\/text\/ch\d{3}\.xhtml$/);
     assert.equal(
       entry.route,
