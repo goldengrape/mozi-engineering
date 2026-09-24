@@ -116,3 +116,76 @@ button,
     animation: none !important;
   }
 }
+
+
+.interaction-panel {
+  display: grid;
+  gap: 1rem;
+}
+
+.interaction-fieldset {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 1rem;
+  border: 1px solid currentColor;
+  border-radius: 0.35rem;
+}
+
+.interaction-option,
+.rank-row,
+.interaction-number-label {
+  display: grid;
+  gap: 0.55rem;
+  align-items: center;
+}
+
+.interaction-option {
+  grid-template-columns: auto 1fr;
+}
+
+.interaction-option input {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+.interaction-number-input,
+.rank-select {
+  width: 100%;
+  min-height: 2.75rem;
+  padding: 0.55rem 0.65rem;
+  border: 1px solid currentColor;
+  border-radius: 0.3rem;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+}
+
+.rank-row {
+  grid-template-columns: minmax(5rem, auto) 1fr;
+}
+
+.interaction-number-input:focus-visible,
+.rank-select:focus-visible,
+.interaction-option input:focus-visible {
+  outline: 3px solid currentColor;
+  outline-offset: 3px;
+}
+
+.interaction-validation {
+  min-height: 1.5em;
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.interaction-error {
+  padding: 1rem;
+  border: 1px solid currentColor;
+  border-radius: 0.35rem;
+}
+
+@media (max-width: 26rem) {
+  .rank-row {
+    grid-template-columns: 1fr;
+  }
+}

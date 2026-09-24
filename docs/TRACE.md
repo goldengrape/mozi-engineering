@@ -4,7 +4,7 @@
 
 ## Current Phase
 
-URD-0001, ADD-0001 and RMD-0001 are accepted. RMD-TASK-001 through RMD-TASK-003 are complete. RMD-TASK-004 is complete. Pages Source is GitHub Actions; the deployed artifact is live and the public home/case routes passed desktop and 390px mobile-width smoke checks.
+MVP RMD-TASK-001..005 are complete and merged. Phase 2 full-book expansion is active at RMD-TASK-006: curriculum registry + generic structured Ink primitives.
 
 ## Requirement → Design
 
@@ -71,7 +71,7 @@ URD-0001, ADD-0001 and RMD-0001 are accepted. RMD-TASK-001 through RMD-TASK-003 
 | RMD-TASK-002 | checkpointed_by | RMD-GIT-002 | PR #5; CI run 35935107490 passed 10/10 tests |
 | RMD-TASK-003 | checkpointed_by | RMD-GIT-003 | PR #6; CI run 35936809001 passed 17/17 tests + build + Chrome smoke |
 | RMD-TASK-004 | checkpointed_by | RMD-GIT-004 | PR #7; pre-deploy CI 35937736546 passed 19/19 tests |
-| RMD-TASK-005 | checkpointed_by | RMD-GIT-005 | docs/artifact integration checkpoint |
+| RMD-TASK-005 | checkpointed_by | RMD-GIT-005 | PR #9 merged as 9402a213b0bb527f189d06c7dcb44d3ea4c492c6 |
 
 ## AI Retrieval
 
@@ -160,6 +160,26 @@ URD-0001, ADD-0001 and RMD-0001 are accepted. RMD-TASK-001 through RMD-TASK-003 
 | TDD-TEST-010 | evidenced_by | Actions run 35942052613 | no-web/textbook contract included in 21/21 passing tests |
 | RMD-TASK-005 | evidenced_by | Actions run 35942052613 | build, case validation and browser smoke passed |
 
+## Phase 2 Source → Runtime
+
+| Source ID | Relation | Target | Notes |
+| --- | --- | --- | --- |
+| textbook chapters 1–16 | represented_in | content/curriculum.json | source-derived chapter/method/worked-example fields |
+| content/curriculum.json design | constrained_by | docs/INTERACTION_PROTOCOL.md | choice / multi / number / rank only in Task 006 |
+| docs/INTERACTION_PROTOCOL.md | verified_by | TDD2-TEST-005..009 | tags, validation, real Ink primitive fixture |
+| RMD-TASK-006 | verified_by | TDD2-TEST-001..009 | full-book registry + generic runtime |
+| RMD-TASK-006 | summarized_by | okf/paths/full-book-expansion.md | Phase 2 slices |
+
+## RMD-TASK-006 Execution Evidence
+
+| Source ID | Relation | Target | Notes |
+| --- | --- | --- | --- |
+| RMD-TASK-006 | implemented_on | feat/rmd-task-006-curriculum-primitives | curriculum registry + generic primitive runtime |
+| RMD-GIT-006 | reviewed_by | RMD-PR-010 | PR #10 |
+| TDD2-TEST-001..009 | evidenced_by | Actions run 35949487336 | 30/30 total tests passed |
+| INTERACTION-PROTOCOL-001 | realized_in | src/player.js | multi / number / rank; answer meaning remains in Ink |
+| CURRICULUM-001 | realized_in | content/curriculum.json | 16 textbook chapters in source order |
+
 ## Gates
 
 | Source | Relation | Target | Status |
@@ -177,3 +197,16 @@ URD-0001, ADD-0001 and RMD-0001 are accepted. RMD-TASK-001 through RMD-TASK-003 
 ## Trace Update Rule
 
 当 URD、ADD、MDD、TDD、RMD、实现任务或 OKF 变化时，在同一变更集更新本文件和 `.vibe/trace.json`。若 ID 关系不确定，先记录问题，不得猜造链接。
+
+
+## Phase 2 Build Path
+
+| Source | Relation | Target | Status |
+| --- | --- | --- | --- |
+| RMD-GIT-005 | completed_before | RMD-TASK-006 | satisfied |
+| RMD-GIT-006 | gates | RMD-TASK-007 | **waiting for merge approval** |
+| RMD-GIT-007 | gates | RMD-TASK-008 | pending |
+| RMD-GIT-008 | gates | RMD-TASK-009 | pending |
+| RMD-GIT-009 | gates | RMD-TASK-010 | pending |
+| RMD-GIT-010 | gates | RMD-TASK-011 | pending |
+| RMD-GIT-011 | gates | RMD-TASK-012 | pending |
