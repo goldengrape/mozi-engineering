@@ -35,7 +35,7 @@ function loadPracticeRegistry(
       }
     }
 
-    if (practice.kind !== "mixed") {
+    if (!["mixed", "longitudinal"].includes(practice.kind)) {
       throw new Error(`unsupported practice kind: ${practice.kind}`);
     }
 
