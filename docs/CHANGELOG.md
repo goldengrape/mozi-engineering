@@ -2,6 +2,8 @@
 
 | Date | Changed By | Files | Summary | Trace Impact |
 | --- | --- | --- | --- | --- |
+| 2026-09-24 | ChatGPT | content/cases/{fenren-door-001,zhiou-robot-001,fengou-service-001}/*, content/curriculum.json, tests/*, PR #12, Actions 35956839559 | 完成 RMD-TASK-008：制物第 6–8 章分别训练功能/实现分离、逐边制耦、分界收益/接口责任；41/41 tests、八案例 build、case validation、browser smoke 通过。 | RMD-GIT-008 checkpoint-ready；RMD-TASK-009 等待 merge approval |
+| 2026-09-24 | project owner + ChatGPT | PR #11 merge 0113c0e4, Pages 35956661728 | RMD-TASK-007 已合并；察物第 1–5 章进入 main 并成功重新部署 Pages。 | RMD-GIT-007 satisfied；RMD-TASK-008 unblocked |
 | 2026-09-24 | ChatGPT | content/cases/{hengsuan-balance-001,dingzhun-torque-001,chuanzhun-benchmark-001,canyan-model-001}/*, content/curriculum.json, tests/*, PR #11, Actions 35951410738 | 完成 RMD-TASK-007：察物第 2–5 章均有独立 Ink 学习流程与 book fragment；36/36 tests、五案例 build、case validation、browser smoke 通过。 | RMD-GIT-007 checkpoint-ready；RMD-TASK-008 等待 merge approval |
 | 2026-09-24 | project owner + ChatGPT | PR #10 merge aad604f9, Pages 35951015502 | RMD-TASK-006 已合并；通用 curriculum/primitive runtime 已进入 main 并成功重新部署 Pages。 | RMD-GIT-006 satisfied；RMD-TASK-007 unblocked |
 | 2026-09-24 | ChatGPT | PR #10, Actions 35949487336, docs/*, .vibe/*, okf/* | RMD-TASK-006 验证完成：30/30 tests、build、case validation、browser smoke 通过；真实 Ink fixture 跑通 multi→number→rank。CI 同时发现 `|` 与 Ink 语法冲突，协议已改为 `id::label`。 | RMD-GIT-006 checkpoint-ready；RMD-TASK-007 等待 merge approval |
