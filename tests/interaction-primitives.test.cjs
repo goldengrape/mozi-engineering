@@ -92,7 +92,7 @@ function response({ ok = true, status = 200, json, text }) {
   };
 }
 
-test("interaction tag parser recognizes generic primitive configuration", () => {
+test("TDD2-TEST-005: tag parser recognizes generic primitive configuration", () => {
   const config = parseUiTags([
     "ui:type=multi",
     "ui:bind=selected",
@@ -115,7 +115,7 @@ test("interaction tag parser recognizes generic primitive configuration", () => 
   assert.equal(config.submit, "提交选择");
 });
 
-test("malformed structured interaction fails instead of guessing", () => {
+test("TDD2-TEST-006: malformed structured interaction fails instead of guessing", () => {
   assert.throws(
     () => parseUiTags(["ui:type=multi", "ui:option=a|甲"]),
     /requires ui:bind/
@@ -132,7 +132,7 @@ test("malformed structured interaction fails instead of guessing", () => {
   );
 });
 
-test("inkjs line tags survive continuation and expose the first primitive", () => {
+test("TDD2-TEST-007: inkjs line tags survive continuation and expose the first primitive", () => {
   const source = fs.readFileSync(
     path.resolve("tests/fixtures/interaction-primitives.ink"),
     "utf8"
@@ -147,7 +147,7 @@ test("inkjs line tags survive continuation and expose the first primitive", () =
   assert.equal(story.currentChoices.length, 1);
 });
 
-test("generic player executes multi, number and rank without case-specific code", async () => {
+test("TDD2-TEST-008: generic player executes multi number and rank without case-specific code", async () => {
   const source = fs.readFileSync(
     path.resolve("tests/fixtures/interaction-primitives.ink"),
     "utf8"
@@ -208,7 +208,7 @@ test("generic player executes multi, number and rank without case-specific code"
   assert.match(allText(root), /本次互动已结束/);
 });
 
-test("structured controls validate before committing to Ink", async () => {
+test("TDD2-TEST-009: structured controls validate before committing to Ink", async () => {
   const source = fs.readFileSync(
     path.resolve("tests/fixtures/interaction-primitives.ink"),
     "utf8"
