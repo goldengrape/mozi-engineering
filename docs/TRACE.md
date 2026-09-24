@@ -4,7 +4,7 @@
 
 ## Current Phase
 
-MVP RMD-TASK-001..005 and Phase 2 RMD-TASK-006..010 are merged. RMD-TASK-011 adds four unlabeled Appendix-F mixed transfer cases and is at the RMD-GIT-011 merge checkpoint.
+MVP RMD-TASK-001..005 and Phase 2 RMD-TASK-006..011 are merged. RMD-TASK-012 adds the Appendix-G longitudinal case and whole-book publication map and is at the RMD-GIT-012 merge checkpoint.
 
 ## Requirement → Design
 
@@ -241,6 +241,22 @@ MVP RMD-TASK-001..005 and Phase 2 RMD-TASK-006..010 are merged. RMD-TASK-011 add
 | RMD-TASK-011 | generated_as | twenty-case static build | 16 chapter + 4 mixed routes |
 | RMD-TASK-011 | summarized_by | okf/cases/mixed-transfer-f1-f4.md | concise retrieval page |
 
+## RMD-TASK-012 Execution Evidence
+
+| Source ID | Relation | Target | Notes |
+| --- | --- | --- | --- |
+| RMD-GIT-011 | merged_as | 29cc34f75f8c51636699bba82f421c15bd4d18fb | PR #15 |
+| RMD-TASK-011 | deployed_by | Actions run 35968012671 | post-merge Pages deploy succeeded |
+| Appendix G1–G10 | represented_in | longitudinal-ai-timeline-001 | one continuous project, no forced all-16 mapping |
+| RMD-TASK-012 | implemented_on | docs/rmd-task-012-full-book-integration | longitudinal runtime + publication map |
+| RMD-GIT-012 | reviewed_by | RMD-PR-016 | PR #16 |
+| TDD2-TEST-039..045 | evidenced_by | Actions run 36071993875 | 66/66 total tests passed |
+| RMD-TASK-012 | generated_as | twenty-one-case static build | 16 chapter + 4 mixed + 1 longitudinal |
+| RMD-TASK-012 | publication_candidate | DOCX v0.5.3 full-book interactive candidate | 21 case links; 30 interaction-marker pages visually inspected |
+| RMD-TASK-012 | publication_candidate | EPUB v0.5.3 full-book interactive candidate | 21 entries; package/XML/link integrity passed |
+| RMD-TASK-012 | qualified_by | v0.5.4 artifact bytes unavailable | no false version relabeling |
+| RMD-TASK-012 | summarized_by | docs/PUBLICATION_QA_TASK012.md | detailed QA evidence |
+
 ## Gates
 
 | Source | Relation | Target | Status |
@@ -270,4 +286,13 @@ MVP RMD-TASK-001..005 and Phase 2 RMD-TASK-006..010 are merged. RMD-TASK-011 add
 | RMD-GIT-008 | completed_before | RMD-TASK-009 | satisfied |
 | RMD-GIT-009 | completed_before | RMD-TASK-010 | satisfied |
 | RMD-GIT-010 | completed_before | RMD-TASK-011 | satisfied |
-| RMD-GIT-011 | gates | RMD-TASK-012 | **waiting for merge approval** |
+| RMD-GIT-011 | completed_before | RMD-TASK-012 | satisfied |
+
+
+## Phase 2 Final Gate
+
+| Source | Relation | Target | Status |
+| --- | --- | --- | --- |
+| RMD-GIT-011 | completed_before | RMD-TASK-012 | satisfied |
+| RMD-GIT-012 | gates | production longitudinal-route smoke | **waiting for explicit merge approval** |
+| production longitudinal-route smoke | closes | Phase 2 | pending merge/deploy |
