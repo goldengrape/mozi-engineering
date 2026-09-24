@@ -79,7 +79,10 @@ test("TDD2-TEST-003: published case identity is tied to the curriculum chapter i
       "hengsuan-balance-001",
       "dingzhun-torque-001",
       "chuanzhun-benchmark-001",
-      "canyan-model-001"
+      "canyan-model-001",
+      "fenren-door-001",
+      "zhiou-robot-001",
+      "fengou-service-001"
     ]
   );
 
