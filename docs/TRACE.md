@@ -4,7 +4,7 @@
 
 ## Current Phase
 
-URD-0001 and ADD-0001 are accepted. MDD-0001 and TDD-0001 are complete enough to define the first implementation route. RMD-0001 is accepted. RMD-TASK-001 is the active implementation slice.
+URD-0001, ADD-0001 and RMD-0001 are accepted. RMD-TASK-001 is merged. RMD-TASK-002 is implemented and is now at the RMD-GIT-002 merge checkpoint.
 
 ## Requirement → Design
 
@@ -68,7 +68,7 @@ URD-0001 and ADD-0001 are accepted. MDD-0001 and TDD-0001 are complete enough to
 | TDD-TEST-009,021 | scheduled_in | RMD-TASK-004 | registry + Pages |
 | TDD-TEST-010 | scheduled_in | RMD-TASK-005 | textbook-body integration |
 | RMD-TASK-001 | checkpointed_by | RMD-GIT-001 | PR #3; CI run 35906458582 passed 3/3 tests |
-| RMD-TASK-002 | checkpointed_by | RMD-GIT-002 | feature branch / tests / PR |
+| RMD-TASK-002 | checkpointed_by | RMD-GIT-002 | PR #5; CI run 35935107490 passed 10/10 tests |
 | RMD-TASK-003 | checkpointed_by | RMD-GIT-003 | feature branch / tests / PR |
 | RMD-TASK-004 | checkpointed_by | RMD-GIT-004 | feature branch / tests / PR |
 | RMD-TASK-005 | checkpointed_by | RMD-GIT-005 | docs/artifact integration checkpoint |
@@ -90,6 +90,16 @@ URD-0001 and ADD-0001 are accepted. MDD-0001 and TDD-0001 are complete enough to
 | TDD-TEST-001/011/012/013 | evidenced_by | Actions run 35906691564 | npm test: 3 passed, 0 failed |
 | MDD-API-001/002 | evidenced_by | npm run check:case | case contract and Ink compile validated |
 
+## RMD-TASK-002 Execution Evidence
+
+| Source ID | Relation | Target | Notes |
+| --- | --- | --- | --- |
+| RMD-TASK-002 | implemented_on | feat/rmd-task-002-jieti-story | full Ink branch logic, learning state, state-aware debrief |
+| RMD-GIT-002 | reviewed_by | RMD-PR-005 | PR #5, draft pending merge approval |
+| TDD-TEST-002..006/017..019 | evidenced_by | Actions run 35935107490 | npm test: 10 passed, 0 failed |
+| ADD-DP-002/004/005 | realized_in | content/cases/jieti-water-001/story.ink | pedagogy, state and debrief remain in Ink |
+| RMD-TASK-002 | summarized_by | okf/cases/jieti-water-001.md | concise AI retrieval page |
+
 ## Gates
 
 | Source | Relation | Target | Status |
@@ -98,6 +108,7 @@ URD-0001 and ADD-0001 are accepted. MDD-0001 and TDD-0001 are complete enough to
 | ADD-0001 | accepted_before | MDD-0001 / TDD-0001 / RMD-0001 | satisfied |
 | RMD-0001 Build Path | accepted_before | RMD-TASK-001 | satisfied |
 | RMD-GIT-001 | completed_before | RMD-TASK-002 | satisfied |
+| RMD-GIT-002 | gates | RMD-TASK-003 | **waiting for merge approval** |
 
 ## Trace Update Rule
 

@@ -8,7 +8,7 @@ source_ids:
   - RMD-TASK-003
   - RMD-TASK-004
   - RMD-TASK-005
-status: task_001_merged
+status: task_002_checkpoint_ready
 ---
 
 # 顺序
@@ -21,17 +21,19 @@ status: task_001_merged
 
 # 当前状态
 
-项目所有者已确认 Build Path。RMD-TASK-001 已开始；后续任务仍按顺序逐项通过 Git checkpoint。
+RMD-TASK-001 已合入 main。RMD-TASK-002 已实现并通过自动测试，当前停在 RMD-GIT-002 merge checkpoint。
 
 
 # Current checkpoint
 
-RMD-TASK-001 is implemented on `feat/rmd-task-001-case-contract-clean`.
+RMD-TASK-002 is implemented on `feat/rmd-task-002-jieti-story`.
 
 Evidence:
 
-- package lock pins inkjs 2.4.0;
-- GitHub Actions run `35906458582` passed all 3 tests;
-- `npm run check:case` compiled `jieti-water-001` successfully.
+- GitHub Actions run `35935107490`: 10 tests passed, 0 failed;
+- both fixed learning paths reach a state-aware debrief;
+- the premature “180 m³ = leakage” path is recoverable;
+- the first decision does not reveal the method label;
+- compiled story JSON is 9122 bytes.
 
-PR #3 remains draft and unmerged. RMD-TASK-002 is blocked until merge approval.
+PR #5 remains draft and unmerged. RMD-TASK-003 is blocked until merge approval.
