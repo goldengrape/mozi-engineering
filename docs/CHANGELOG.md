@@ -2,6 +2,7 @@
 
 | Date | Changed By | Files | Summary | Trace Impact |
 | --- | --- | --- | --- | --- |
+| 2026-09-24 | project owner + ChatGPT | PR #16 merge `fc358c35`, Actions `36072921793`, Pages `36076953380`, production route/artifact smoke, Phase 2 state docs | PR #16 已合并；Pages build/deploy 成功；公网首页、贯穿案例、manifest/story 可访问；同一部署产物在 1440×1000 与 390×844 Chromium 检查中无横向溢出，首个选择可推进故事。 | RMD-GIT-012 satisfied；Phase 2 complete |
 | 2026-09-24 | ChatGPT | Appendix-G longitudinal case, content/publication_map.json, Word/EPUB full-book candidates, tests/*, PR #16, Actions 36071993875, docs/PUBLICATION_QA_TASK012.md | 完成 RMD-TASK-012 预发布实现：21 个稳定互动入口、Appendix G 贯穿案例、全书 Word/EPUB 候选；66/66 tests、21-case build 通过。Word 157 页渲染中 30 个互动标记页逐页检查；EPUB 21 入口 package/XML/link integrity 通过。 | RMD-GIT-012 checkpoint-ready；merge 后仍需生产 longitudinal route smoke |
 | 2026-09-24 | project owner + ChatGPT | PR #15 merge 29cc34f7, Pages 35968012671 | RMD-TASK-011 已合并；16 逐章 + 4 mixed 已进入 main 并成功重新部署 Pages。 | RMD-GIT-011 satisfied；RMD-TASK-012 unblocked |
 | 2026-09-24 | ChatGPT | content/practice_registry.json, scripts/practice-registry.cjs, content/cases/mixed-*/*, scripts/build.cjs, src/index.html, tests/*, PR #15, Actions 35965518132 | 完成 RMD-TASK-011：基于附录 F1–F4 建立四个无方法标签混合迁移案例；首页分为逐章/混合练习，mixed public registry 不暴露 method；59/59 tests、20-case build、browser smoke 通过。 | RMD-GIT-011 checkpoint-ready；RMD-TASK-012 等待 merge approval |

@@ -564,6 +564,22 @@
     {
       "id": "ARTIFACT-EPUB-TASK012-V053",
       "kind": "publication_candidate"
+    },
+    {
+      "id": "CI-RUN-36072921793",
+      "kind": "test_run"
+    },
+    {
+      "id": "MERGE-fc358c35068aabceee6860d3ed8b4cb984aa1d73",
+      "kind": "merge_commit"
+    },
+    {
+      "id": "CI-RUN-36076953380",
+      "kind": "deployment_run"
+    },
+    {
+      "id": "PROD-SMOKE-TASK012",
+      "kind": "production_smoke"
     }
   ],
   "links": [
@@ -1276,6 +1292,26 @@
       "source": "RMD-GIT-012",
       "relation": "reviewed_by",
       "target": "RMD-PR-016"
+    },
+    {
+      "source": "TDD2-TEST-039..045",
+      "relation": "evidenced_by",
+      "target": "CI-RUN-36072921793"
+    },
+    {
+      "source": "RMD-GIT-012",
+      "relation": "merged_as",
+      "target": "MERGE-fc358c35068aabceee6860d3ed8b4cb984aa1d73"
+    },
+    {
+      "source": "RMD-TASK-012",
+      "relation": "deployed_by",
+      "target": "CI-RUN-36076953380"
+    },
+    {
+      "source": "RMD-GIT-012",
+      "relation": "verified_by",
+      "target": "PROD-SMOKE-TASK012"
     }
   ]
 }

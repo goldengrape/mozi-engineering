@@ -70,7 +70,7 @@ This pass establishes package/XML/link integrity. It does not claim exhaustive v
 
 ## Repository / runtime evidence
 
-GitHub Actions run `36071993875` at implementation head `5c030c05b833a72739d3028b9a0e4a8d94f16c6a`:
+Final PR-head GitHub Actions run `36072921793` at `6f53121085666564c642f2d21149923fc76fbd79`:
 
 - 66 tests passed, 0 failed;
 - TDD2-TEST-039..045 passed;
@@ -78,8 +78,29 @@ GitHub Actions run `36071993875` at implementation head `5c030c05b833a72739d3028
 - primary case validation passed;
 - headless Chrome regression smoke passed.
 
-## Remaining gate
+## Production closure
 
-Production smoke for `longitudinal-ai-timeline-001` cannot occur before PR #16 is merged and GitHub Pages redeploys the new route.
+PR #16 merged as `fc358c35068aabceee6860d3ed8b4cb984aa1d73`.
 
-Therefore RMD-GIT-012 is checkpoint-ready but still awaits explicit merge approval.
+Pages workflow `36076953380` completed successfully and emitted artifact `10840536460` with digest:
+
+`sha256:491b89a10a1bcb2fde514d8fa500b010cd025ed954208976ca1eca46a03bef94`
+
+Public resolution checks passed for:
+
+- the site home;
+- `/cases/longitudinal-ai-timeline-001/`;
+- its `manifest.json`;
+- its compiled `story.json`.
+
+The exact deployed artifact was separately rendered in Chromium at 1440×1000 and 390×844. At both widths:
+
+- the home showed one 贯穿案例 section and the longitudinal entry;
+- the longitudinal opening and both first choices were visible;
+- no horizontal overflow was observed;
+- selecting the first choice advanced the story;
+- no console or page errors were observed.
+
+The QA browser environment could not navigate the public GitHub Pages host directly. The evidence therefore combines public URL resolution with Chromium rendering of the exact Pages artifact rather than claiming a live-public-browser render.
+
+RMD-GIT-012 is complete and Phase 2 is closed.

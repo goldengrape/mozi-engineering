@@ -709,7 +709,7 @@ Phase 2 不把十五个新案例简单复制成《界体》的按钮分支。互
 | RMD-GIT-009 | RMD-TASK-009 | `feat/rmd-task-009-make-cases-b` | merged | PR #13; 46/46 tests + twelve-case build + browser smoke |
 | RMD-GIT-010 | RMD-TASK-010 | `feat/rmd-task-010-run-fail-cases` | merged | PR #14; 51/51 tests + sixteen-case build + browser smoke |
 | RMD-GIT-011 | RMD-TASK-011 | `feat/rmd-task-011-mixed-review` | merged | PR #15; 59/59 tests + twenty-case build + browser smoke |
-| RMD-GIT-012 | RMD-TASK-012 | `docs/rmd-task-012-full-book-integration` | checkpoint-ready | PR #16; 66/66 tests + 21-case build + publication candidate QA; production route smoke after merge |
+| RMD-GIT-012 | RMD-TASK-012 | `docs/rmd-task-012-full-book-integration` | merged / completed | PR #16 merged as `fc358c35068aabceee6860d3ed8b4cb984aa1d73`; final-head Actions `36072921793`: 66/66 tests + 21-case build; Pages `36076953380` succeeded; production home + longitudinal route resolved; deployed-artifact desktop/390px smoke passed |
 
 ## RMD-TASK-006 Scope
 
@@ -1338,11 +1338,11 @@ RMD-GIT-011 completed successfully.
 
 ## RMD-TASK-012 Execution Record
 
-- status: **checkpoint-ready / pending merge approval**
+- status: **merged / completed**
 - branch: `docs/rmd-task-012-full-book-integration`
 - pull request: #16
-- verified implementation head: `5c030c05b833a72739d3028b9a0e4a8d94f16c6a`
-- GitHub Actions run: `36071993875`
+- verified final PR head: `6f53121085666564c642f2d21149923fc76fbd79`
+- final PR-head GitHub Actions run: `36072921793`
 
 ### Longitudinal case choice
 
@@ -1444,7 +1444,7 @@ Therefore the candidates remain explicitly named as v0.5.3-derived artifacts and
 
 ### Automated evidence
 
-Actions run `36071993875`:
+Final PR-head Actions run `36072921793`:
 
 - `npm test` — **66 passed, 0 failed**;
 - TDD2-TEST-039..045 — passed;
@@ -1454,8 +1454,21 @@ Actions run `36071993875`:
 - primary case validation — passed;
 - headless Chrome regression smoke — passed.
 
-### Remaining production gate
+### Production closure
 
-The production route for `longitudinal-ai-timeline-001` does not exist until PR #16 is merged and GitHub Pages deploys the new build.
+PR #16 merged into `main` as `fc358c35068aabceee6860d3ed8b4cb984aa1d73`.
 
-RMD-GIT-012 is therefore checkpoint-ready. After explicit merge approval, run Pages deployment and public smoke for the new longitudinal route before declaring Phase 2 fully closed.
+Post-merge Pages workflow `36076953380` completed successfully. Its `github-pages` artifact is ID `10840536460`, digest `sha256:491b89a10a1bcb2fde514d8fa500b010cd025ed954208976ca1eca46a03bef94`.
+
+Production checks established:
+
+- the public home resolves and contains the 贯穿案例 section;
+- the public `longitudinal-ai-timeline-001` route, manifest and compiled story resolve;
+- the exact artifact emitted by Pages run `36076953380` was rendered in Chromium at 1440×1000 and 390×844;
+- both viewports showed the longitudinal opening and first two choices without horizontal overflow;
+- the first choice advanced the story in both viewports;
+- no console or page errors were observed in those artifact renders.
+
+The browser environment used for QA could not navigate the public GitHub Pages host directly, so public URL resolution and exact-deployed-artifact rendering were verified separately rather than being overstated as one live-browser run.
+
+RMD-GIT-012 is satisfied. Phase 2 is complete.

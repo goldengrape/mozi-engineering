@@ -5,18 +5,18 @@
   "source_of_truth": "docs",
   "okf_is_derived": true,
   "okf_version": "0.1",
-  "current_phase": "RMD-GIT-012 merge checkpoint",
+  "current_phase": "Phase 2 complete",
   "urd_status": "accepted",
   "add_status": "accepted",
   "mdd_status": "accepted-for-planning",
   "tdd_status": "ready-for-build-path",
   "rmd_status": "accepted",
   "implementation_allowed": true,
-  "active_task": "RMD-TASK-012",
-  "active_task_status": "checkpoint-ready",
-  "active_pr": 16,
+  "active_task": null,
+  "active_task_status": "completed",
+  "active_pr": null,
   "next_task": null,
-  "next_task_blocked_by": "RMD-GIT-012 merge approval, then production longitudinal-route smoke",
+  "next_task_blocked_by": null,
   "completed_tasks": [
     "RMD-TASK-001",
     "RMD-TASK-002",
@@ -28,13 +28,15 @@
     "RMD-TASK-008",
     "RMD-TASK-009",
     "RMD-TASK-010",
-    "RMD-TASK-011"
+    "RMD-TASK-011",
+    "RMD-TASK-012"
   ],
   "production_pages": {
     "url": "https://goldengrape.github.io/mozi-engineering/",
-    "deployment_workflow_run": 35938292249,
+    "deployment_workflow_run": 36076953380,
     "public_smoke_run": 35940775884,
-    "status": "passed"
+    "status": "passed",
+    "phase2_public_resolution": "home + longitudinal route + manifest + story resolved"
   },
   "publication_artifact_status": {
     "status": "full-book-candidates-on-accessible-v0.5.3-baseline",
@@ -55,8 +57,8 @@
     }
   },
   "checkpoint_evidence": {
-    "workflow_run": 36071993875,
-    "implementation_head": "5c030c05b833a72739d3028b9a0e4a8d94f16c6a",
+    "workflow_run": 36072921793,
+    "implementation_head": "6f53121085666564c642f2d21149923fc76fbd79",
     "tests_passed": 66,
     "tests_failed": 0,
     "build_cases": 21,
@@ -66,7 +68,11 @@
     "build": "passed",
     "case_validation": "passed",
     "browser_smoke": "passed",
-    "production_longitudinal_route_smoke": "pending merge/deploy"
+    "production_longitudinal_route_smoke": "passed",
+    "merge_commit": "fc358c35068aabceee6860d3ed8b4cb984aa1d73",
+    "pages_run": 36076953380,
+    "pages_artifact_id": 10840536460,
+    "pages_artifact_digest": "sha256:491b89a10a1bcb2fde514d8fa500b010cd025ed954208976ca1eca46a03bef94"
   },
   "phase2": {
     "goal": "extend interactive Ink layer across all sixteen textbook chapters",
@@ -107,12 +113,24 @@
     "longitudinal_practice": "longitudinal-ai-timeline-001",
     "publication_map": "content/publication_map.json",
     "total_published_routes": 21,
-    "status": "final-merge-checkpoint"
+    "status": "completed",
+    "production_smoke": {
+      "public_home": "resolved",
+      "public_longitudinal_route": "resolved",
+      "public_manifest": "resolved",
+      "public_story": "resolved",
+      "deployed_artifact_desktop_1440x1000": "passed",
+      "deployed_artifact_mobile_390x844": "passed",
+      "horizontal_overflow": "none observed",
+      "first_choice_advanced": true,
+      "console_or_page_errors": 0,
+      "qualification": "public URL resolution and exact deployed-artifact Chromium rendering were verified separately"
+    }
   },
   "last_merge": {
-    "task": "RMD-TASK-011",
-    "pr": 15,
-    "sha": "29cc34f75f8c51636699bba82f421c15bd4d18fb",
-    "pages_run": 35968012671
+    "task": "RMD-TASK-012",
+    "pr": 16,
+    "sha": "fc358c35068aabceee6860d3ed8b4cb984aa1d73",
+    "pages_run": 36076953380
   }
 }

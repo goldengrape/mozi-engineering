@@ -10,7 +10,7 @@ source_ids:
   - RMD-TASK-010
   - RMD-TASK-011
   - RMD-TASK-012
-status: task_012_checkpoint_ready
+status: complete
 ---
 
 # Core rule
@@ -64,6 +64,8 @@ Evidence:
 - EPUB v0.5.3 full-book candidate has 21 interaction entries and passed package/XML/link integrity checks;
 - artifact version remains explicitly tied to the accessible v0.5.3 baseline.
 
-PR #16 is unmerged.
+PR #16 merged as `fc358c35068aabceee6860d3ed8b4cb984aa1d73`.
 
-After explicit merge approval, the remaining closure step is Pages deployment plus public smoke of the new longitudinal route.
+Pages run `36076953380` completed successfully. Public resolution checks passed for the home, longitudinal route, manifest and story. The exact deployed artifact passed Chromium smoke at 1440×1000 and 390×844, with no observed horizontal overflow or console/page errors and a working first-step interaction.
+
+RMD-GIT-012 is satisfied and Phase 2 is complete.
