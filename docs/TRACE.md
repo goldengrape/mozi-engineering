@@ -4,7 +4,7 @@
 
 ## Current Phase
 
-MVP RMD-TASK-001..005 and Phase 2 RMD-TASK-006..011 are merged. RMD-TASK-012 adds the Appendix-G longitudinal case and whole-book publication map and is at the RMD-GIT-012 merge checkpoint.
+MVP RMD-TASK-001..005 and Phase 2 RMD-TASK-006..012 are merged and complete. RMD-GIT-012 passed its final production deployment and smoke checks.
 
 ## Requirement → Design
 
@@ -250,12 +250,15 @@ MVP RMD-TASK-001..005 and Phase 2 RMD-TASK-006..011 are merged. RMD-TASK-012 add
 | Appendix G1–G10 | represented_in | longitudinal-ai-timeline-001 | one continuous project, no forced all-16 mapping |
 | RMD-TASK-012 | implemented_on | docs/rmd-task-012-full-book-integration | longitudinal runtime + publication map |
 | RMD-GIT-012 | reviewed_by | RMD-PR-016 | PR #16 |
-| TDD2-TEST-039..045 | evidenced_by | Actions run 36071993875 | 66/66 total tests passed |
+| TDD2-TEST-039..045 | evidenced_by | Actions run 36072921793 | final PR head; 66/66 total tests passed |
 | RMD-TASK-012 | generated_as | twenty-one-case static build | 16 chapter + 4 mixed + 1 longitudinal |
 | RMD-TASK-012 | publication_candidate | DOCX v0.5.3 full-book interactive candidate | 21 case links; 30 interaction-marker pages visually inspected |
 | RMD-TASK-012 | publication_candidate | EPUB v0.5.3 full-book interactive candidate | 21 entries; package/XML/link integrity passed |
 | RMD-TASK-012 | qualified_by | v0.5.4 artifact bytes unavailable | no false version relabeling |
 | RMD-TASK-012 | summarized_by | docs/PUBLICATION_QA_TASK012.md | detailed QA evidence |
+| RMD-GIT-012 | merged_as | fc358c35068aabceee6860d3ed8b4cb984aa1d73 | PR #16 |
+| RMD-TASK-012 | deployed_by | Actions run 36076953380 | post-merge Pages build/deploy succeeded |
+| RMD-GIT-012 | production_smoke | public home + longitudinal route + manifest/story | resolved; exact deployed artifact passed Chromium 1440×1000 and 390×844 smoke |
 
 ## Gates
 
@@ -294,5 +297,5 @@ MVP RMD-TASK-001..005 and Phase 2 RMD-TASK-006..011 are merged. RMD-TASK-012 add
 | Source | Relation | Target | Status |
 | --- | --- | --- | --- |
 | RMD-GIT-011 | completed_before | RMD-TASK-012 | satisfied |
-| RMD-GIT-012 | gates | production longitudinal-route smoke | **waiting for explicit merge approval** |
-| production longitudinal-route smoke | closes | Phase 2 | pending merge/deploy |
+| RMD-GIT-012 | gates | production longitudinal-route smoke | satisfied |
+| production longitudinal-route smoke | closes | Phase 2 | satisfied; Phase 2 complete |
