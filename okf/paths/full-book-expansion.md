@@ -10,7 +10,7 @@ source_ids:
   - RMD-TASK-010
   - RMD-TASK-011
   - RMD-TASK-012
-status: task_011_checkpoint_ready
+status: task_012_checkpoint_ready
 ---
 
 # Core rule
@@ -50,19 +50,20 @@ Ink 继续拥有证据释放、学习状态、分支后果和复盘；浏览器�
 
 # Current checkpoint
 
-RMD-TASK-010 merged as `2f7e648a8f42c91a7ae0ec4e38ba11f2c277339e`; post-merge Pages run `35964570276` passed.
+RMD-TASK-011 merged as `29cc34f75f8c51636699bba82f421c15bd4d18fb`; post-merge Pages run `35968012671` passed.
 
-RMD-TASK-011 is implemented on `feat/rmd-task-011-mixed-review`.
+RMD-TASK-012 is implemented on `docs/rmd-task-012-full-book-integration`.
 
 Evidence:
 
-- four Appendix-F mixed practices are authored;
-- no mixed story exposes a method label before debrief;
-- public mixed registry entries omit the method field;
-- Actions `35965518132`: 59 tests passed, 0 failed;
-- static build generates 20 cases = 16 chapter + 4 mixed;
-- existing chapter regressions and browser smoke remain green.
+- Appendix G longitudinal case `longitudinal-ai-timeline-001` is executable;
+- publication map covers 16 chapter + 4 mixed + 1 longitudinal entries;
+- Actions `36071993875`: 66 tests passed, 0 failed;
+- static build generates 21 routes;
+- Word v0.5.3 full-book candidate has 21 case links and a 157-page render; 30 interaction-marker pages were individually inspected;
+- EPUB v0.5.3 full-book candidate has 21 interaction entries and passed package/XML/link integrity checks;
+- artifact version remains explicitly tied to the accessible v0.5.3 baseline.
 
-The next and final Phase-2 slice is RMD-TASK-012: choose one longitudinal case, make the cross-chapter path executable, and integrate stable links/QR/no-web equivalents into the whole-book publication artifacts.
+PR #16 is unmerged.
 
-PR #15 is unmerged. RMD-TASK-012 is blocked until merge approval.
+After explicit merge approval, the remaining closure step is Pages deployment plus public smoke of the new longitudinal route.

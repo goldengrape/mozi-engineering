@@ -86,7 +86,7 @@ function buildSite(
     practiceRegistry.practices.map((practice) => [
       practice.case_id,
       {
-        kind: "mixed",
+        kind: practice.kind,
         manifestChapterId: practice.manifest_chapter_id,
         practice_id: practice.practice_id,
         source_section: practice.source_section,
@@ -137,7 +137,7 @@ function buildSite(
       !prepared.some((item) => item.caseId === practice.case_id)
     ) {
       throw new Error(
-        `published mixed practice missing package: ${practice.case_id}`
+        `published practice missing package: ${practice.case_id}`
       );
     }
   }
@@ -233,11 +233,22 @@ function buildSite(
     )
     .join("\n      ");
 
+  const longitudinalCaseList = registry
+    .filter((entry) => entry.kind === "longitudinal")
+    .map(
+      (entry) =>
+        `<li><a class="case-link" href="./${htmlEscape(entry.route)}">${htmlEscape(
+          entry.title
+        )}</a></li>`
+    )
+    .join("\n      ");
+
   fs.writeFileSync(
     path.join(outDir, "index.html"),
     indexTemplate
       .replace("{{CHAPTER_CASE_LIST}}", chapterCaseList)
       .replace("{{MIXED_CASE_LIST}}", mixedCaseList)
+      .replace("{{LONGITUDINAL_CASE_LIST}}", longitudinalCaseList)
   );
 
   return registry;

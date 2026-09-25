@@ -8,7 +8,7 @@ okf_version: "0.1"
 
 ## Current phase
 
-The project is at **RMD-GIT-011 merge checkpoint**. All sixteen chapter cases plus four unlabeled Appendix-F mixed transfer cases pass the full regression suite; the next slice is the longitudinal case and whole-book publication integration.
+The project is at **RMD-GIT-012 merge checkpoint**. The 16 chapter cases, 4 unlabeled Appendix-F mixed practices, and 1 Appendix-G longitudinal case are integrated into a 21-route build and v0.5.3-derived Word/EPUB publication candidates.
 
 - first prototype: `jieti-water-001`, based on the textbook's “教学楼用水增加 18%” case;
 - interactive task belongs in the textbook body;
@@ -56,6 +56,7 @@ Software test success validates the mechanism implementation, not long-term lear
 - [制物第 9–12 章互动案例](cases/make-chapters-9-12.md) — 定动、容度、相衡、示制的约束/偏差传播/反转/独立复现训练。
 - [运行与守败第 13–16 章互动案例](cases/run-fail-chapters-13-16.md) — 序作、通滞、防误、限败的依赖/瓶颈/防错/故障状态训练。
 - [跨章混合检索与迁移练习](cases/mixed-transfer-f1-f4.md) — 附录 F1–F4 的无标签检索、方法切换与专业类比停止边界。
+- [Appendix G 贯穿案例与全书出版集成](cases/longitudinal-ai-timeline.md) — 单一项目的连续方法切换、21 入口 publication map 与候选出版物 QA。
 - [通用播放器与静态构建](decisions/generic-player-build.md) — Web runtime、build output 和无案例耦合边界。
 - [GitHub Pages 发布](deployment/github-pages.md) — registry 扩展、project Pages 路径与生产部署门槛。
 

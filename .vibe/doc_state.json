@@ -5,18 +5,18 @@
   "source_of_truth": "docs",
   "okf_is_derived": true,
   "okf_version": "0.1",
-  "current_phase": "RMD-GIT-011 merge checkpoint",
+  "current_phase": "RMD-GIT-012 merge checkpoint",
   "urd_status": "accepted",
   "add_status": "accepted",
   "mdd_status": "accepted-for-planning",
   "tdd_status": "ready-for-build-path",
   "rmd_status": "accepted",
   "implementation_allowed": true,
-  "active_task": "RMD-TASK-011",
+  "active_task": "RMD-TASK-012",
   "active_task_status": "checkpoint-ready",
-  "active_pr": 15,
-  "next_task": "RMD-TASK-012",
-  "next_task_blocked_by": "RMD-GIT-011 merge approval",
+  "active_pr": 16,
+  "next_task": null,
+  "next_task_blocked_by": "RMD-GIT-012 merge approval, then production longitudinal-route smoke",
   "completed_tasks": [
     "RMD-TASK-001",
     "RMD-TASK-002",
@@ -27,7 +27,8 @@
     "RMD-TASK-007",
     "RMD-TASK-008",
     "RMD-TASK-009",
-    "RMD-TASK-010"
+    "RMD-TASK-010",
+    "RMD-TASK-011"
   ],
   "production_pages": {
     "url": "https://goldengrape.github.io/mozi-engineering/",
@@ -36,20 +37,36 @@
     "status": "passed"
   },
   "publication_artifact_status": {
-    "status": "candidate-on-accessible-v0.5.3-baseline",
-    "canonical_release_caveat": "Earlier v0.5.4 artifact bytes are unavailable in the current conversation; replay localized insertion if v0.5.4 remains canonical."
+    "status": "full-book-candidates-on-accessible-v0.5.3-baseline",
+    "canonical_release_caveat": "Earlier v0.5.4 artifact bytes are unavailable in the current conversation; do not falsely version-bump these candidates.",
+    "docx": {
+      "filename": "墨经补完_跨时代工程学教材_v0.5.3_全书互动练习集成候选版.docx",
+      "sha256": "55320b296cfff22797c7f1db3a209670c82d4224c99dfcdfcf61285cc380445a",
+      "rendered_pages": 157,
+      "interaction_marker_pages_inspected": 30,
+      "status": "candidate"
+    },
+    "epub": {
+      "filename": "造物之理_跨时代工程方法导论_v0.5.3_全书互动练习集成候选版.epub",
+      "sha256": "32eb06cd15dfa12655bceef426369bdf036645ac2bf498384d38b8e5f9d2bd8f",
+      "interactive_entries": 21,
+      "xml_package_integrity": "passed",
+      "status": "candidate"
+    }
   },
   "checkpoint_evidence": {
-    "workflow_run": 35965518132,
-    "implementation_head": "2dfac6cc8cfbc799d45467d47464dba2de949930",
-    "tests_passed": 59,
+    "workflow_run": 36071993875,
+    "implementation_head": "5c030c05b833a72739d3028b9a0e4a8d94f16c6a",
+    "tests_passed": 66,
     "tests_failed": 0,
-    "build_cases": 20,
+    "build_cases": 21,
     "chapter_cases": 16,
     "mixed_cases": 4,
+    "longitudinal_cases": 1,
     "build": "passed",
     "case_validation": "passed",
-    "browser_smoke": "passed"
+    "browser_smoke": "passed",
+    "production_longitudinal_route_smoke": "pending merge/deploy"
   },
   "phase2": {
     "goal": "extend interactive Ink layer across all sixteen textbook chapters",
@@ -86,12 +103,16 @@
       "mixed-agri-transfer-001",
       "mixed-payment-ops-001"
     ],
-    "mixed_case_status": "four-appendix-f-practices-authored-and-tested"
+    "mixed_case_status": "four-appendix-f-practices-authored-and-tested",
+    "longitudinal_practice": "longitudinal-ai-timeline-001",
+    "publication_map": "content/publication_map.json",
+    "total_published_routes": 21,
+    "status": "final-merge-checkpoint"
   },
   "last_merge": {
-    "task": "RMD-TASK-010",
-    "pr": 14,
-    "sha": "2f7e648a8f42c91a7ae0ec4e38ba11f2c277339e",
-    "pages_run": 35964570276
+    "task": "RMD-TASK-011",
+    "pr": 15,
+    "sha": "29cc34f75f8c51636699bba82f421c15bd4d18fb",
+    "pages_run": 35968012671
   }
 }

@@ -708,8 +708,8 @@ Phase 2 不把十五个新案例简单复制成《界体》的按钮分支。互
 | RMD-GIT-008 | RMD-TASK-008 | `feat/rmd-task-008-make-cases-a` | merged | PR #12; 41/41 tests + eight-case build + browser smoke |
 | RMD-GIT-009 | RMD-TASK-009 | `feat/rmd-task-009-make-cases-b` | merged | PR #13; 46/46 tests + twelve-case build + browser smoke |
 | RMD-GIT-010 | RMD-TASK-010 | `feat/rmd-task-010-run-fail-cases` | merged | PR #14; 51/51 tests + sixteen-case build + browser smoke |
-| RMD-GIT-011 | RMD-TASK-011 | `feat/rmd-task-011-mixed-review` | checkpoint-ready | PR #15; 59/59 tests + twenty-case build + browser smoke |
-| RMD-GIT-012 | RMD-TASK-012 | `docs/rmd-task-012-full-book-integration` | pending | publication QA + public route smoke |
+| RMD-GIT-011 | RMD-TASK-011 | `feat/rmd-task-011-mixed-review` | merged | PR #15; 59/59 tests + twenty-case build + browser smoke |
+| RMD-GIT-012 | RMD-TASK-012 | `docs/rmd-task-012-full-book-integration` | checkpoint-ready | PR #16; 66/66 tests + 21-case build + publication candidate QA; production route smoke after merge |
 
 ## RMD-TASK-006 Scope
 
@@ -1206,7 +1206,7 @@ RMD-GIT-010 completed successfully.
 
 ## RMD-TASK-011 Execution Record
 
-- status: **checkpoint-ready / pending merge approval**
+- status: **merged / completed**
 - branch: `feat/rmd-task-011-mixed-review`
 - pull request: #15
 - verified implementation head: `2dfac6cc8cfbc799d45467d47464dba2de949930`
@@ -1329,6 +1329,133 @@ Actions run `35965518132`:
 
 ### Git checkpoint
 
-RMD-GIT-011 is ready for review.
+RMD-GIT-011 completed successfully.
 
-RMD-TASK-012 (longitudinal case + whole-book publication integration) remains blocked until explicit merge approval.
+- PR #15 merged to `main` as `29cc34f75f8c51636699bba82f421c15bd4d18fb`.
+- post-merge Pages run `35968012671` succeeded.
+- RMD-TASK-012 was then started on its own branch.
+
+
+## RMD-TASK-012 Execution Record
+
+- status: **checkpoint-ready / pending merge approval**
+- branch: `docs/rmd-task-012-full-book-integration`
+- pull request: #16
+- verified implementation head: `5c030c05b833a72739d3028b9a0e4a8d94f16c6a`
+- GitHub Actions run: `36071993875`
+
+### Longitudinal case choice
+
+The longitudinal case is `longitudinal-ai-timeline-001`, grounded in Appendix G1–G10.
+
+The project remains one object: a digital-humanities “historical disaster timeline” built mainly by natural-language instructions to AI and required to work offline for classroom demonstration.
+
+The interaction follows the source sequence instead of forcing all sixteen methods into the project:
+
+`boundary → function/implementation split → change propagation → provenance/independent evidence → reproducible definition → tolerance split → true precedence/resource waiting → structural mistake-proofing → degraded mode/recovery verification`
+
+Method labels stay hidden until the final debrief.
+
+### Practice / site identity
+
+`content/practice_registry.json` now accepts `kind: "longitudinal"`.
+
+The public home build contains three groups:
+
+- 逐章练习;
+- 混合迁移练习;
+- 贯穿案例.
+
+The full static build contains:
+
+- 16 chapter routes;
+- 4 mixed Appendix-F routes;
+- 1 longitudinal Appendix-G route.
+
+Total: **21 routes**.
+
+### Whole-book publication map
+
+`content/publication_map.json` covers every published interactive object exactly once.
+
+Each entry binds:
+
+- stable case ID;
+- exact existing textbook heading anchor;
+- Word insertion offset;
+- EPUB XHTML file;
+- stable public route.
+
+TDD2-TEST-043..045 verify 21/21 publication identity and no-web fallback coverage.
+
+### Word candidate
+
+Filename:
+
+`墨经补完_跨时代工程学教材_v0.5.3_全书互动练习集成候选版.docx`
+
+SHA-256:
+
+`55320b296cfff22797c7f1db3a209670c82d4224c99dfcdfcf61285cc380445a`
+
+Evidence:
+
+- 21 unique case hyperlinks;
+- one whole-site link;
+- 21 no-web fallback blocks;
+- 157-page PDF render generated;
+- all 30 pages containing interaction/link/QR/no-web/“做完再看” markers were individually enlarged and inspected;
+- no clipping, overlap, broken QR rendering or interaction/formula collision was observed on those 30 pages.
+
+Qualification:
+
+The file remains a **candidate**. This pass does not claim a fresh page-by-page visual review of all 157 pages.
+
+### EPUB candidate
+
+Filename:
+
+`造物之理_跨时代工程方法导论_v0.5.3_全书互动练习集成候选版.epub`
+
+SHA-256:
+
+`32eb06cd15dfa12655bceef426369bdf036645ac2bf498384d38b8e5f9d2bd8f`
+
+Evidence:
+
+- regenerated from the original accessible v0.5.3 EPUB rather than the earlier one-case candidate;
+- `mimetype` is first and stored uncompressed;
+- all 21 XML/XHTML/OPF/NCX/container documents parse;
+- 21 interactive-entry sections;
+- 21 unique case routes, each present as clickable link + visible URL text;
+- one whole-site interaction-index link;
+- no remote interaction scripts;
+- no QR image payload in EPUB.
+
+Qualification:
+
+This pass establishes EPUB package/XML/link integrity; it does not claim exhaustive rendering in multiple EPUB reader engines.
+
+### Version caveat
+
+The historical v0.5.4 publication bytes are not available in the current conversation.
+
+Therefore the candidates remain explicitly named as v0.5.3-derived artifacts and are not falsely promoted to v0.5.4/v0.5.5.
+
+### Automated evidence
+
+Actions run `36071993875`:
+
+- `npm test` — **66 passed, 0 failed**;
+- TDD2-TEST-039..045 — passed;
+- all previous regressions — passed;
+- `npm run build` — passed;
+- build generated **21 cases**;
+- primary case validation — passed;
+- headless Chrome regression smoke — passed.
+
+### Remaining production gate
+
+The production route for `longitudinal-ai-timeline-001` does not exist until PR #16 is merged and GitHub Pages deploys the new build.
+
+RMD-GIT-012 is therefore checkpoint-ready. After explicit merge approval, run Pages deployment and public smoke for the new longitudinal route before declaring Phase 2 fully closed.

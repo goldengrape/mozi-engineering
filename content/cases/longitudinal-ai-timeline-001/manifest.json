@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "case_id": "longitudinal-ai-timeline-001",
+  "title": "一条历史灾异时间线怎样从漂亮原型变成可交付作品？",
+  "language": "zh-CN",
+  "textbook": {
+    "chapter_id": "appendix-g",
+    "placement": "appendix-g-opening-practice"
+  },
+  "story_source": "story.ink",
+  "book_fragment": "book.md"
+}

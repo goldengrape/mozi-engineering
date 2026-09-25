@@ -80,3 +80,18 @@ TDD2-TEST-030 is the first whole-book chapter-case contract: all sixteen curricu
 | TDD2-TEST-038 | mixed book identity and no-web contract | manifest identity, stable route, no-web exercise and source boundary are present |
 
 Mixed practices must preserve the professional stop-boundaries stated in Appendix F. Passing these tests validates the exercise mechanics and source discipline, not professional-domain correctness beyond what the textbook source claims.
+
+
+## Longitudinal / publication integration tests
+
+| IDs | Contract | Oracle |
+| --- | --- | --- |
+| TDD2-TEST-039 | Appendix G longitudinal identity | practice registry contains one `kind: longitudinal` entry bound to Appendix G |
+| TDD2-TEST-040 | longitudinal method labels stay hidden | no `《method》` label before final debrief |
+| TDD2-TEST-041 | one project traverses the source-grounded decision chain | tested correction path covers boundary, functions, coupling, evidence, specification, tolerance, flow, prevention and recovery |
+| TDD2-TEST-042 | static build publishes three practice groups | 21 routes = 16 chapter + 4 mixed + 1 longitudinal |
+| TDD2-TEST-043 | publication map covers all published interactive objects | 21 unique entries exactly match curriculum + practice registries |
+| TDD2-TEST-044 | publication entries preserve route/no-web identity | each mapped case has the same stable URL and a no-web book fragment |
+| TDD2-TEST-045 | publication anchors are unique | 21 unique heading anchors; Appendix G uses its own longitudinal identity |
+
+Publication tests validate identity and source/integration contracts. Binary Word/EPUB rendering/package QA is recorded separately in `docs/PUBLICATION_QA_TASK012.md`.

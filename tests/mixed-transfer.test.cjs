@@ -46,9 +46,12 @@ function submit(story, variable, value) {
 test("TDD2-TEST-031: mixed practice registry covers Appendix F1–F4 without predeclared method answers", () => {
   const registry = loadPracticeRegistry();
 
-  assert.equal(registry.practices.length, 4);
+  const mixed = registry.practices.filter(
+    (practice) => practice.kind === "mixed"
+  );
+  assert.equal(mixed.length, 4);
   assert.deepEqual(
-    registry.practices.map((practice) => practice.source_section),
+    mixed.map((practice) => practice.source_section),
     ["F1", "F2", "F3", "F4"]
   );
   assert.equal(
@@ -56,7 +59,7 @@ test("TDD2-TEST-031: mixed practice registry covers Appendix F1–F4 without pre
     false
   );
 
-  const ids = registry.practices.map((practice) => practice.case_id);
+  const ids = mixed.map((practice) => practice.case_id);
   assert.equal(new Set(ids).size, ids.length);
 });
 
@@ -71,7 +74,9 @@ test("TDD2-TEST-032: mixed stories hide all sixteen method labels until debrief"
     "mixed-payment-ops-001": ["衡算", "定准", "传准", "制耦", "防误", "限败"]
   };
 
-  for (const practice of registry.practices) {
+  for (const practice of registry.practices.filter(
+    (item) => item.kind === "mixed"
+  )) {
     const source = fs.readFileSync(
       path.resolve("content/cases", practice.case_id, "story.ink"),
       "utf8"
@@ -274,7 +279,7 @@ test("TDD2-TEST-037: build publishes 16 chapter cases plus 4 unlabeled mixed pra
     srcDir: path.resolve("src")
   });
 
-  assert.equal(registry.length, 20);
+  assert.equal(registry.length, 21);
   assert.equal(
     registry.filter((entry) => entry.kind === "chapter").length,
     16
