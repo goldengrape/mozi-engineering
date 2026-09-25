@@ -84,3 +84,21 @@ Public smoke run `35940775884` verified:
 - both viewports show the opening and both first choices.
 
 RMD-TASK-004 is complete. RMD-TASK-005 may begin.
+
+# Phase 2 final deployment
+
+PR #16 merged as `fc358c35068aabceee6860d3ed8b4cb984aa1d73`.
+
+Post-merge Pages workflow `36076953380` completed successfully. Artifact `10840536460` has digest `sha256:491b89a10a1bcb2fde514d8fa500b010cd025ed954208976ca1eca46a03bef94`.
+
+Final checks:
+
+- production home resolves and exposes the 贯穿案例 group;
+- `longitudinal-ai-timeline-001`, its manifest, and its compiled story resolve publicly;
+- the exact deployed artifact rendered cleanly at 1440×1000 and 390×844;
+- no horizontal overflow or console/page error was observed;
+- the first longitudinal choice advanced the story in both viewports.
+
+Public URL resolution and deployed-artifact Chromium rendering were checked separately because the QA browser environment could not navigate the public GitHub Pages host directly.
+
+This satisfies RMD-GIT-012 and closes Phase 2.
