@@ -11,7 +11,7 @@ source_ids:
   - TDD2-TEST-043
   - TDD2-TEST-044
   - TDD2-TEST-045
-status: checkpoint_ready
+status: complete
 ---
 
 # Longitudinal case
@@ -84,8 +84,10 @@ EPUB:
 - 21 interaction sections / 21 unique case routes;
 - no remote scripts or QR payload.
 
-# Remaining gate
+# Production closure
 
-The new longitudinal public route does not exist on production Pages until PR #16 is merged.
+PR #16 merged as `fc358c35068aabceee6860d3ed8b4cb984aa1d73`.
 
-RMD-GIT-012 therefore waits for explicit merge approval, followed by production Pages deployment and public route smoke.
+Pages run `36076953380` completed successfully. The public home, longitudinal route, manifest and story resolve. The exact deployed Pages artifact passed Chromium smoke at 1440×1000 and 390×844 with no observed horizontal overflow or console/page errors, and the first choice advanced the story in both viewports.
+
+RMD-GIT-012 is satisfied. Phase 2 is complete.
