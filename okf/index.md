@@ -8,7 +8,7 @@ okf_version: "0.1"
 
 ## Current phase
 
-The project is at **RMD-GIT-012 merge checkpoint**. The 16 chapter cases, 4 unlabeled Appendix-F mixed practices, and 1 Appendix-G longitudinal case are integrated into a 21-route build and v0.5.3-derived Word/EPUB publication candidates.
+Phase 2 is **complete**. The 16 chapter cases, 4 unlabeled Appendix-F mixed practices, and 1 Appendix-G longitudinal case are integrated into a 21-route build, deployed on Pages, and linked from the v0.5.3-derived Word/EPUB publication candidates.
 
 - first prototype: `jieti-water-001`, based on the textbook's “教学楼用水增加 18%” case;
 - interactive task belongs in the textbook body;
@@ -16,7 +16,7 @@ The project is at **RMD-GIT-012 merge checkpoint**. The 16 chapter cases, 4 unla
 - first learning mechanism to validate: unlabeled judgment → branch consequence/new evidence → method switching/revision → debrief;
 - ADD design is decoupled and accepted.
 
-RMD-TASK-001..005 are complete and merged. Phase 2 starts with a full-book curriculum registry and generic structured interaction primitives.
+RMD-TASK-001..012 are complete and merged. The Phase 2 production gate passed after PR #16 and Pages run `36076953380`.
 
 ## Current architecture
 
